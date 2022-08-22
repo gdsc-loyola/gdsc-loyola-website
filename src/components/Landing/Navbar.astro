@@ -1,0 +1,13 @@
+---
+import Link from "../Link.astro";
+import DropdownLink from "../DropdownLink";
+---
+
+<header class="py-5 px-4 lg:px-8 flex">
+	<img src="/logo.png" width="64" height="24" />
+	<nav class="flex space-x-14 pl-14">
+		<Link>Home</Link>
+		<Link>About</Link>
+		<DropdownLink>Hey</DropdownLink>
+	</nav>
+</header>

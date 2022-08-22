@@ -1,74 +1,95 @@
 ---
+import Navbar from "../components/Landing/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Home">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			Check out the <code>src/pages</code> directory to get started.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid"></ul>
+		<section class="h-screen relative overflow-hidden" id="hero-section">
+			<Navbar />
+			<div class="relative h-full inset-0" id="container">
+				<svg
+					width="214"
+					height="189"
+					viewBox="0 0 214 189"
+					class="absolute top-1/2 left-1/2"
+					xmlns="http://www.w3.org/2000/svg"
+					id="triangle-left"
+				>
+					<path
+						d="M56.9427 0.437136L-14.8091 188.715L213.384 91.6012L56.9427 0.437136Z"
+						fill="url(#paint0_radial_1043_8192)"></path>
+					<path
+						d="M-14.8091 188.715L56.9427 0.437136L4.47815 4.85424L-68.8964 179.48L-14.8091 188.715Z"
+						fill="url(#paint1_linear_1043_8192)"></path>
+					<defs>
+						<radialGradient
+							id="paint0_radial_1043_8192"
+							cx="0"
+							cy="0"
+							r="1"
+							gradientUnits="userSpaceOnUse"
+							gradientTransform="translate(21.0967 53.8897) rotate(27.3543) scale(217.374 248.661)"
+						>
+							<stop stop-color="#FBC21C"></stop>
+							<stop offset="0.363459" stop-color="#EA4A3C"></stop>
+							<stop offset="0.988207" stop-color="#1967D2"></stop>
+						</radialGradient>
+						<linearGradient
+							id="paint1_linear_1043_8192"
+							x1="7.60531"
+							y1="-1.56174"
+							x2="19.0633"
+							y2="180.007"
+							gradientUnits="userSpaceOnUse"
+						>
+							<stop stop-color="#FFECB3"></stop>
+							<stop offset="0.501106" stop-color="#FBC21C"></stop>
+							<stop offset="1" stop-color="#E37400"></stop>
+						</linearGradient>
+					</defs>
+				</svg>
+			</div>
+		</section>
 	</main>
 </Layout>
 
+<script>
+	import { animate } from "motion";
+	const cx = window.innerWidth / 2;
+	const cy = window.innerHeight / 2;
+
+	function update(mouse: { x: number; y: number }) {
+		const dx = mouse.x - cx;
+		const dy = mouse.y - cy;
+
+		const tiltx = dx / cy;
+		const tilty = -(dy / cx);
+		const radius = Math.sqrt(Math.pow(tiltx, 2) + Math.pow(tilty, 2));
+		const degree = radius * 20;
+
+		animate("#container", {
+			transform: "rotate3d(" + tiltx + ", " + tilty + ", 0, " + degree + "deg)",
+		});
+	}
+
+	let request: null | number = null;
+	// document.body.addEventListener("mousemove", (e) => {
+	// 	const mouseX = e.pageX;
+	// 	const mouseY = e.pageY;
+
+	// 	request && cancelAnimationFrame(request);
+	// 	request = requestAnimationFrame(() => update({ x: mouseX, y: mouseY }));
+	// });
+</script>
 <style>
-	:root {
-		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
-	}
-
-	h1 {
-		margin: 2rem 0;
-	}
-
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 60ch;
-	}
-
-	.text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-		50% {
-			background-position-y: 80%;
-		}
-	}
-
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		background: #4f39fa;
-		padding: 1rem;
-		border-radius: 0.4rem;
-		color: var(--color-bg);
-	}
-
-	.instructions code {
-		font-size: 0.875em;
-		border: 0.1em solid var(--color-border);
-		border-radius: 4px;
-		padding: 0.15em 0.25em;
-	}
-
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
+	#hero-section {
+		background: radial-gradient(
+				49.88% 101.63% at 50% 46%,
+				rgba(255, 255, 255, 0.49) 0%,
+				#fef7e0 50%,
+				#feefc3 100%
+			),
+			#fef7e0;
 	}
 </style>

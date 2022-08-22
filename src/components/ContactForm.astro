@@ -1,0 +1,38 @@
+---
+---
+
+<form id="contact-form">
+	<label>Name</label>
+	<input type="text" name="from_name" />
+	<label>Email</label>
+	<input type="email" name="from_email" />
+	<label>Message</label>
+	<textarea name="message"></textarea>
+	<input type="submit" value="Send" />
+</form>
+
+<script>
+	import emailjs from "@emailjs/browser";
+
+	(function () {
+		emailjs.init("RS175WZ5YkJuI9xKC");
+	})();
+
+	const form = document.getElementById("contact-form");
+
+	if (form instanceof HTMLFormElement) {
+		form?.addEventListener("submit", function (event) {
+			event.preventDefault();
+			// generate a five digit number for the contact_number variable
+			// these IDs from the previous steps
+			emailjs.sendForm("default_service", "template_71q6hph", form).then(
+				function () {
+					console.log("SUCCESS!");
+				},
+				function (error) {
+					console.log("FAILED...", error);
+				}
+			);
+		});
+	}
+</script>

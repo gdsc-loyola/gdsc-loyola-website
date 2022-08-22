@@ -10,7 +10,17 @@
     "astro": "astro"
   },
   "devDependencies": {
+    "@astrojs/react": "^1.0.0",
     "@astrojs/tailwind": "^1.0.0",
-    "astro": "^1.0.6"
+    "astro": "^1.0.6",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^3.6.2",
+    "astro-icon": "^0.7.3",
+    "clsx": "^1.2.1",
+    "hyperid": "^3.0.1",
+    "motion": "^10.14.0"
   }
 }
