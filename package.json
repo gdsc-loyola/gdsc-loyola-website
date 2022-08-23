@@ -20,6 +20,7 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
+    "@astrojs/vercel": "^1.0.1",
     "@emailjs/browser": "^3.6.2",
     "@radix-ui/react-dropdown-menu": "^1.0.0",
     "@radix-ui/react-tooltip": "^1.0.0",

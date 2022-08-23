@@ -4,7 +4,7 @@ import Link from "../Link.astro";
 import DropdownLink from "../DropdownLink";
 ---
 
-<div class="w-full fixed top-0 left-0 z-[1] h-[80px]">
+<div class="w-full fixed top-0 left-0 z-10 h-[80px]">
 	<header class="py-6 px-6 lg:px-8 flex justify-between max-w-7xl mx-auto">
 		<img src="/logo.png" width="64" height="24" />
 		<button
@@ -30,54 +30,53 @@ import DropdownLink from "../DropdownLink";
 			/>
 		</nav>
 	</header>
-
+</div>
+<div
+	id="mobile-nav"
+	class="dialog-container relative"
+	aria-hidden="true"
+	data-a11y-dialog="mobile-nav"
+>
+	<div data-a11y-dialog-hide class="dialog-overlay"></div>
+	<!-- 3. The actual dialog -->
 	<div
-		id="mobile-nav"
-		class="dialog-container"
-		aria-hidden="true"
-		data-a11y-dialog="mobile-nav"
+		role="document"
+		class="bg-white absolute h-full p-4 right-0 top-0 w-[250px] max-w-full dialog-content"
 	>
-		<div data-a11y-dialog-hide class="dialog-overlay"></div>
-		<!-- 3. The actual dialog -->
-		<div
-			role="document"
-			class="bg-white absolute h-full p-4 right-0 top-0 w-[250px] max-w-full dialog-content"
+		<!-- 4. The close button -->
+		<button
+			type="button"
+			data-a11y-dialog-hide
+			aria-label="Close dialog"
+			class="ml-auto block"
 		>
-			<!-- 4. The close button -->
-			<button
-				type="button"
-				data-a11y-dialog-hide
-				aria-label="Close dialog"
-				class="ml-auto block"
-			>
-				&times;
-			</button>
-			<div class="gap-5 flex flex-col pt-8">
-				<Link href="/">Home</Link>
-				<Link href="#">About</Link>
-				<DropdownLink
-					client:load
-					inFlow
-					label="Projects"
-					items={[
-						{
-							href: "",
-							label: "Client Projects",
-						},
-					]}
-				/>
-				<DropdownLink
-					client:load
-					inFlow
-					label="Projects"
-					items={[
-						{
-							href: "",
-							label: "Client Projects",
-						},
-					]}
-				/>
-			</div>
+			&times;
+		</button>
+		<div class="gap-5 flex flex-col pt-8">
+			<Link href="/">Home</Link>
+			<Link href="#">About</Link>
+			<DropdownLink
+				client:load
+				inFlow
+				label="Projects"
+				items={[
+					{
+						href: "",
+						label: "Client Projects",
+					},
+				]}
+			/>
+			<DropdownLink
+				client:load
+				inFlow
+				label="Projects"
+				items={[
+					{
+						href: "",
+						label: "Client Projects",
+					},
+				]}
+			/>
 		</div>
 	</div>
 </div>
@@ -89,9 +88,16 @@ import DropdownLink from "../DropdownLink";
 	if (container) {
 		const dialog = new A11yDialog(container);
 	}
+
+
 </script>
 
 <style>
+	.white-nav {
+		background-color: rgba(255, 255, 255, 0.8);
+		backdrop-filter: blur(5px);
+	}
+
 	/**
  * 1. Make the dialog container, and its child overlay spread across
  *    the entire window.
@@ -112,7 +118,7 @@ import DropdownLink from "../DropdownLink";
  *    dialog.
  */
 	.dialog-container {
-		z-index: 2; /* 1 */
+		z-index: 1000; /* 1 */
 		display: flex; /* 2 */
 	}
 
