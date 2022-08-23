@@ -1,22 +1,163 @@
 ---
+import { Icon } from "astro-icon";
 import Link from "../Link.astro";
 import DropdownLink from "../DropdownLink";
 ---
 
-<header class="py-5 px-4 lg:px-8 flex">
+<header class="py-6 px-6 lg:px-8 flex justify-between max-w-7xl mx-auto">
 	<img src="/logo.png" width="64" height="24" />
-	<nav class="flex gap-14 pl-14">
-		<Link>Home</Link>
-		<Link>About</Link>
+	<button
+		data-mobile-hamburger
+		data-a11y-dialog-show="mobile-nav"
+		class="md:hidden"
+	>
+		<Icon name="fe:bar" class="w-6 h-6 fill-gray-500" />
+	</button>
+
+	<nav class="gap-14 pl-14 md:flex hidden">
+		<Link href="/">Home</Link>
+		<Link href="#">About</Link>
 		<DropdownLink
 			client:load
 			label="Projects"
 			items={[
 				{
-					href: "",
+					href: "#",
 					label: "Client Projects",
 				},
 			]}
 		/>
 	</nav>
 </header>
+
+<div
+	id="mobile-nav"
+	class="dialog-container"
+	aria-hidden="true"
+	data-a11y-dialog="mobile-nav"
+>
+	<div data-a11y-dialog-hide class="dialog-overlay"></div>
+	<!-- 3. The actual dialog -->
+	<div
+		role="document"
+		class="bg-white absolute h-full p-4 right-0 top-0 w-[250px] max-w-full dialog-content"
+	>
+		<!-- 4. The close button -->
+		<button
+			type="button"
+			data-a11y-dialog-hide
+			aria-label="Close dialog"
+			class="ml-auto block"
+		>
+			&times;
+		</button>
+		<div class="gap-5 flex flex-col pt-8">
+			<Link href="/">Home</Link>
+			<Link href="#">About</Link>
+			<DropdownLink
+				client:load
+				inFlow
+				label="Projects"
+				items={[
+					{
+						href: "",
+						label: "Client Projects",
+					},
+				]}
+			/>
+			<DropdownLink
+				client:load
+				inFlow
+				label="Projects"
+				items={[
+					{
+						href: "",
+						label: "Client Projects",
+					},
+				]}
+			/>
+		</div>
+	</div>
+</div>
+
+<script>
+	import A11yDialog from "a11y-dialog";
+
+	const container = document.querySelector("#mobile-nav");
+	if (container) {
+		const dialog = new A11yDialog(container);
+	}
+
+	document
+		.querySelector("[data-mobile-hamburger]")
+		?.addEventListener("click", () => {
+			const el = document.querySelector("[data-mobile-nav]");
+			if (el) {
+			}
+		});
+</script>
+
+<style>
+	/**
+ * 1. Make the dialog container, and its child overlay spread across
+ *    the entire window.
+ */
+	.dialog-container,
+	.dialog-overlay {
+		position: fixed; /* 1 */
+		top: 0; /* 1 */
+		right: 0; /* 1 */
+		bottom: 0; /* 1 */
+		left: 0; /* 1 */
+	}
+
+	/**
+ * 1. Make sure the dialog container and all its descendants sits on
+ *    top of the rest of the page.
+ * 2. Make the dialog container a flex container to easily center the
+ *    dialog.
+ */
+	.dialog-container {
+		z-index: 2; /* 1 */
+		display: flex; /* 2 */
+	}
+
+	/**
+ * 1. Make sure the dialog container and all its descendants are not
+ *    visible and not focusable when it is hidden.
+ */
+	.dialog-container[aria-hidden="true"] {
+		display: none; /* 1 */
+	}
+
+	/**
+ * 1. Make the overlay look like an overlay.
+ */
+	.dialog-overlay {
+		background-color: rgba(43, 46, 56, 0.9); /* 1 */
+	}
+
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+	}
+
+	@keyframes slide-from-right {
+		from {
+			transform: translateX(60%);
+		}
+	}
+
+	.dialog-overlay {
+		animation: fade-in 200ms both;
+	}
+
+	/**
+ * 1. Add an animation delay equal to the overlay animation duration to
+ *    wait for the overlay to appear before animation in the dialog.
+ */
+	.dialog-content {
+		animation: fade-in 300ms 150ms both, slide-from-right 300ms 150ms both; /* 1 */
+	}
+</style>

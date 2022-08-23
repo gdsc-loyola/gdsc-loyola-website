@@ -5,7 +5,9 @@ specifiers:
   '@astrojs/tailwind': ^1.0.0
   '@emailjs/browser': ^3.6.2
   '@radix-ui/react-dropdown-menu': ^1.0.0
+  '@radix-ui/react-tooltip': ^1.0.0
   '@types/react': ^18.0.17
+  a11y-dialog: ^7.5.2
   astro: ^1.0.6
   astro-icon: ^0.7.3
   clsx: ^1.2.1
@@ -17,6 +19,8 @@ specifiers:
 dependencies:
   '@emailjs/browser': 3.6.2
   '@radix-ui/react-dropdown-menu': 1.0.0_zxljzmqdrxwnuenbkrz77w74uy
+  '@radix-ui/react-tooltip': 1.0.0_zxljzmqdrxwnuenbkrz77w74uy
+  a11y-dialog: 7.5.2
   astro-icon: 0.7.3
   clsx: 1.2.1
   hyperid: 3.0.1
@@ -840,6 +844,31 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@radix-ui/react-tooltip/1.0.0_zxljzmqdrxwnuenbkrz77w74uy:
+    resolution: {integrity: sha512-RB06pov+O4Npy10ei1C6fsyB9QoOjz7Ubo8Sl3qdKtLgkL9iI96925DYtH0bxx6MH6YB2FuzLU6B75qn3AQQQw==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@babel/runtime': 7.18.9
+      '@radix-ui/primitive': 1.0.0
+      '@radix-ui/react-compose-refs': 1.0.0_react@18.2.0
+      '@radix-ui/react-context': 1.0.0_react@18.2.0
+      '@radix-ui/react-dismissable-layer': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-id': 1.0.0_react@18.2.0
+      '@radix-ui/react-popper': 1.0.0_zxljzmqdrxwnuenbkrz77w74uy
+      '@radix-ui/react-portal': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-presence': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-primitive': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-slot': 1.0.0_react@18.2.0
+      '@radix-ui/react-use-controllable-state': 1.0.0_react@18.2.0
+      '@radix-ui/react-visually-hidden': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    transitivePeerDependencies:
+      - '@types/react'
+    dev: false
+
   /@radix-ui/react-use-callback-ref/1.0.0_react@18.2.0:
     resolution: {integrity: sha512-GZtyzoHz95Rhs6S63D2t/eqvdFCm7I+yHMLVQheKM7nBD8mbZIt+ct1jz4536MDnaOGKIxynJ8eHTkVGVVkoTg==}
     peerDependencies:
@@ -896,6 +925,18 @@ packages:
       '@babel/runtime': 7.18.9
       '@radix-ui/react-use-layout-effect': 1.0.0_react@18.2.0
       react: 18.2.0
+    dev: false
+
+  /@radix-ui/react-visually-hidden/1.0.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-MwAhMdX+n6S4InwRKSnpUsp+lLkYG6izQF56ul6guSX2mBBLOMV9Frx7xJlkEe2GjKLzbNuHhaCS6e5gopmZNA==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@babel/runtime': 7.18.9
+      '@radix-ui/react-primitive': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@radix-ui/rect/1.0.0:
@@ -1002,6 +1043,12 @@ packages:
       vscode-nls: 5.1.0
       vscode-uri: 2.1.2
     dev: true
+
+  /a11y-dialog/7.5.2:
+    resolution: {integrity: sha512-zfWtVvrbGbP3AFnEJ1aJFtu7GvedgjOEKbkyEUSeaNWDzmFJk9O5nuolDQrRDyRDE5fqSJRiBJtD5bUYKveoUg==}
+    dependencies:
+      focusable-selectors: 0.4.0
+    dev: false
 
   /acorn-jsx/5.3.2_acorn@8.8.0:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -1918,6 +1965,10 @@ packages:
       micromatch: 4.0.5
       pkg-dir: 4.2.0
     dev: true
+
+  /focusable-selectors/0.4.0:
+    resolution: {integrity: sha512-tc/236hUU3xemsRLu1RKhRQ5UWHjRM9iJTli1zdac43h7b1biRSgG0mILM0qrcsKaGCHcOPJ6NKbk12ouKHLpw==}
+    dev: false
 
   /formdata-polyfill/4.0.10:
     resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
