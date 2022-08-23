@@ -40,7 +40,7 @@ import TriangleRight from "./Shapes/TriangleRight.astro";
 
 	<div class="w-full sm:h-full sm:grid sm:place-items-center">
 		<h1
-			class="text-6xl sm:text-7xl md:text-[80px] font-bold sm:mx-auto max-w-[15ch] w-fit my-auto leading-tight z-[1] relative text-gray-700 px-6 md:w-[505px] mt-40 md:mt-auto backdrop-blur-md backdrop-saturate-[1.2]"
+			class="text-5xl [@media(min-width:400px)_and_(max-width:639px)]:text-6xl sm:text-7xl md:text-[80px] 2xl:text-[90px] font-bold sm:mx-auto w-fit my-auto leading-tight z-[1] relative text-gray-700 px-6 md:w-[505px] 2xl:w-auto py-4 rounded mt-40 md:mt-auto backdrop-blur-md backdrop-saturate-[1.2]"
 		>
 			Uplifting
 			<br />
@@ -63,10 +63,12 @@ import TriangleRight from "./Shapes/TriangleRight.astro";
 
 		const children = container.children;
 		for (const el of children) {
+			const max = Math.max(-5, -Math.random() * 10);
+			console.log(max);
 			animate(
 				el,
 				{
-					y: [0, Math.max(3, -Math.random() * 10)],
+					y: [0, max],
 				},
 				{
 					repeat: Infinity,
