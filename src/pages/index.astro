@@ -1,58 +1,13 @@
 ---
+import Hero from "../components/Landing/Hero.astro";
 import Navbar from "../components/Landing/Navbar.astro";
-import ArcLeft from "../components/Landing/Shapes/ArcLeft.astro";
-import BallRight from "../components/Landing/Shapes/BallRight.astro";
-import BlockRight from "../components/Landing/Shapes/BlockRight.astro";
-import CylinderLeft from "../components/Landing/Shapes/CylinderLeft.astro";
-import DonutRight from "../components/Landing/Shapes/DonutRight.astro";
-import PlaneLeft from "../components/Landing/Shapes/PlaneLeft.astro";
-import TriangleLeft from "../components/Landing/Shapes/TriangleLeft.astro";
-import TriangleRight from "../components/Landing/Shapes/TriangleRight.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Home">
 	<Navbar />
 	<main>
-		<section class="h-screen relative overflow-x-hidden" id="hero-section">
-			<div
-				class="absolute h-full inset-0 max-w-[1800px] mx-auto"
-				id="container"
-			>
-				<CylinderLeft class="absolute md:top-[38%] md:left-[3%] hidden md:block"
-				/>
-				<TriangleLeft class="absolute sm:top-[28%] hidden sm:block" />
-
-				<PlaneLeft class="absolute md:top-[20%] md:left-[12%] hidden md:block"
-				/>
-				<img
-					class="absolute md:top-[42%] hidden md:block md:left-[12%]"
-					src="arc.png"
-				/>
-				<BlockRight class="absolute right-[6%] md:top-[37%] hidden md:block" />
-				<BallRight class="absolute right-[22%] md:top-[62%] hidden md:block" />
-				<img
-					src="donut-right.png"
-					class="absolute right-0 md:top-[60%] hidden md:block"
-				/>
-				<TriangleRight class="absolute right-[2%] md:top-[60%] hidden md:block"
-				/>
-			</div>
-
-			<div class="w-full h-full sm:grid sm:place-items-center">
-				<h1
-					class="text-6xl sm:text-7xl md:text-[80px] font-bold sm:mx-auto max-w-[15ch] w-fit my-auto leading-tight z-[1] relative text-gray-700 px-6 md:w-[505px] mt-40 md:mt-auto mb-"
-				>
-					Uplifting
-					<br />
-					communities
-					<br />
-					through
-					<br />
-					<span class="rainbow-text pr-1"> technology</span>.
-				</h1>
-			</div>
-		</section>
+		<Hero />
 	</main>
 </Layout>
 
@@ -84,23 +39,3 @@ import Layout from "../layouts/Layout.astro";
 	// 	request = requestAnimationFrame(() => update({ x: mouseX, y: mouseY }));
 	// });
 </script>
-
-<style>
-	.rainbow-text {
-		color: transparent;
-		background-clip: text;
-		background: linear-gradient(to right, #498af4, #eb4a3d, #fbbc04, #0f9d58);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-
-	#hero-section {
-		background: radial-gradient(
-				49.88% 101.63% at 50% 46%,
-				rgba(255, 255, 255, 0.49) 0%,
-				#fef7e0 50%,
-				#feefc3 100%
-			),
-			#fef7e0;
-	}
-</style>

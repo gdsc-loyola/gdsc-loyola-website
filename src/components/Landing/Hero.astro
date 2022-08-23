@@ -1,0 +1,100 @@
+---
+import BallRight from "./Shapes/BallRight.astro";
+import BlockRight from "./Shapes/BlockRight.astro";
+import CylinderLeft from "./Shapes/CylinderLeft.astro";
+import PlaneLeft from "./Shapes/PlaneLeft.astro";
+import TriangleLeft from "./Shapes/TriangleLeft.astro";
+import TriangleRight from "./Shapes/TriangleRight.astro";
+---
+
+<section class="h-screen relative overflow-x-hidden" id="hero-section">
+	<div class="absolute h-full inset-0 max-w-[1500px] mx-auto" id="container">
+		<CylinderLeft
+			class="absolute lg:top-[42%] lg:left-[.5%] md:top-[42%] md:left-[-10%] hidden md:block"
+		/>
+		<TriangleLeft
+			class="absolute lg:top-[28%] lg:left-[-1.5%] md:top-[28%] md:left-[-6%] hidden sm:block"
+		/>
+
+		<PlaneLeft
+			class="absolute lg:top-[18%] lg:left-[11%] md:top-[74%] hidden md:block"
+		/>
+		<img
+			class="absolute lg:top-[50%] hidden md:block md:top-[14%] md:left-[20%] lg:left-[13%]"
+			src="arc.png"
+		/>
+		<BlockRight
+			class="absolute lg:right-[6%] lg:top-[37%] hidden md:block md:top-[37%] md:right-[-18%]"
+		/>
+		<BallRight
+			class="absolute lg:right-[22%] lg:top-[62%] md:top-[20%] md:right-[8%] hidden md:block"
+		/>
+		<img
+			src="donut-right.png"
+			class="absolute right-0 lg:top-[60%] hidden lg:block"
+		/>
+		<TriangleRight
+			class="absolute lg:right-[2%] lg:top-[60%] md:top-[74%] md:right-[16%] hidden md:block"
+		/>
+	</div>
+
+	<div class="w-full h-full sm:grid sm:place-items-center">
+		<h1
+			class="text-6xl sm:text-7xl md:text-[80px] font-bold sm:mx-auto max-w-[15ch] w-fit my-auto leading-tight z-[1] relative text-gray-700 px-6 md:w-[505px] mt-40 md:mt-auto backdrop-blur-md backdrop-saturate-[1.2]"
+		>
+			Uplifting
+			<br />
+			communities
+			<br />
+			through
+			<br />
+			<span class="rainbow-text pr-1"> technology</span>.
+		</h1>
+	</div>
+</section>
+
+<script>
+	import { animate } from "motion";
+
+	const container = document.querySelector("#container");
+
+	if (container) {
+		// loop through container children
+
+		const children = container.children;
+		for (const el of children) {
+			animate(
+				el,
+				{
+					y: [0, Math.max(3, -Math.random() * 10)],
+				},
+				{
+					repeat: Infinity,
+					direction: "alternate-reverse",
+					easing: "ease-in-out",
+					duration: Math.random() * 2 + 1,
+				}
+			);
+		}
+	}
+</script>
+
+<style>
+	.rainbow-text {
+		color: transparent;
+		background-clip: text;
+		background: linear-gradient(to right, #498af4, #eb4a3d, #fbbc04, #0f9d58);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	#hero-section {
+		background: radial-gradient(
+				49.88% 101.63% at 50% 46%,
+				rgba(255, 255, 255, 0.49) 0%,
+				#fef7e0 50%,
+				#feefc3 100%
+			),
+			#fef7e0;
+	}
+</style>
