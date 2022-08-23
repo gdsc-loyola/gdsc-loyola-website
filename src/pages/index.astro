@@ -5,14 +5,13 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Home">
 	<main>
-		<section class="h-screen relative overflow-hidden" id="hero-section">
+		<section class="h-screen relative overflow-x-hidden" id="hero-section">
 			<Navbar />
-			<div class="relative h-full inset-0" id="container">
+			<div class="absolute h-full inset-0" id="container">
 				<svg
 					width="214"
 					height="189"
 					viewBox="0 0 214 189"
-					class="absolute top-1/2 left-1/2"
 					xmlns="http://www.w3.org/2000/svg"
 					id="triangle-left"
 				>
@@ -50,6 +49,19 @@ import Layout from "../layouts/Layout.astro";
 					</defs>
 				</svg>
 			</div>
+
+			<h1
+				class="text-[80px] font-bold m-auto max-w-[15ch] w-fit mt-36 leading-tight"
+			>
+				Uplifting
+				<br />
+				communities
+				<br />
+				through
+				<br />
+				<span class="rainbow-text"> technology</span>
+				.
+			</h1>
 		</section>
 	</main>
 </Layout>
@@ -82,7 +94,16 @@ import Layout from "../layouts/Layout.astro";
 	// 	request = requestAnimationFrame(() => update({ x: mouseX, y: mouseY }));
 	// });
 </script>
+
 <style>
+	.rainbow-text {
+		color: transparent;
+		background-clip: text;
+		background: linear-gradient(to right, #498af4, #eb4a3d, #fbbc04, #0f9d58);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
 	#hero-section {
 		background: radial-gradient(
 				49.88% 101.63% at 50% 46%,
