@@ -17,6 +17,8 @@ specifiers:
   astro: ^1.0.6
   astro-icon: ^0.7.3
   clsx: ^1.2.1
+  embla-carousel: ^7.0.1
+  embla-carousel-autoplay: ^7.0.1
   hyperid: ^3.0.1
   motion: ^10.14.0
   prettier: ^2.7.1
@@ -38,6 +40,8 @@ dependencies:
   a11y-dialog: 7.5.2
   astro-icon: 0.7.3
   clsx: 1.2.1
+  embla-carousel: 7.0.1
+  embla-carousel-autoplay: 7.0.1_embla-carousel@7.0.1
   hyperid: 3.0.1
   motion: 10.14.0
   react-stately: 3.16.0_react@18.2.0
@@ -2458,6 +2462,18 @@ packages:
   /electron-to-chromium/1.4.225:
     resolution: {integrity: sha512-ICHvGaCIQR3P88uK8aRtx8gmejbVJyC6bB4LEC3anzBrIzdzC7aiZHY4iFfXhN4st6I7lMO0x4sgBHf/7kBvRw==}
     dev: true
+
+  /embla-carousel-autoplay/7.0.1_embla-carousel@7.0.1:
+    resolution: {integrity: sha512-4KRFu2mW67CODD4CyivyK5TWwSbLiWi8X6KtKNiz8aITqdvtIATW0e2eNKyItQrkJVF2A3T9qNs+J60d1yPb0Q==}
+    peerDependencies:
+      embla-carousel: 7.0.1
+    dependencies:
+      embla-carousel: 7.0.1
+    dev: false
+
+  /embla-carousel/7.0.1:
+    resolution: {integrity: sha512-+beEwrdj+FGyiz9a/prfj4IAG6CWDSRYUB3c+FKf17WUq5OxxKg5BVDF5FWcvC3EX6n8wFKQGXjkB3obnWZM8Q==}
+    dev: false
 
   /emmet/2.3.6:
     resolution: {integrity: sha512-pLS4PBPDdxuUAmw7Me7+TcHbykTsBKN/S9XJbUOMFQrNv9MoshzyMFK/R57JBm94/6HSL4vHnDeEmxlC82NQ4A==}

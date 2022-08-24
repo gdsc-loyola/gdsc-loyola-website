@@ -1,0 +1,122 @@
+---
+import TestimonialCard from "./TestimonialCard.astro";
+---
+
+<section id="testimonials-section" class="px-8 py-40 relative text-gray-700">
+	<h2 class="text-xl font-bold text-center mb-6">
+		-Copy about testimonials here-
+	</h2>
+	<div class:list={["absolute bottom-0 left-0 h-36 w-full", "floor"]}></div>
+
+	<div class="embla-testimonials -mx-8">
+		<div class="embla__container">
+			<div class="embla__slide">
+				<TestimonialCard
+					variant={1}
+					message="“GDSC-L made me grow to the best of my abilities. I was able to learn so much because of this welcoming community.”"
+					name="Bob"
+					position="CEO of GDSC-L"
+				/>
+			</div>
+			<div class="embla__slide">
+				<TestimonialCard
+					variant={2}
+					message="“GDSC-L made me grow to the best of my abilities. I was able to learn so much because of this welcoming community.”"
+					name="Bob"
+					position="CEO of GDSC-L"
+				/>
+			</div>
+			<div class="embla__slide">
+				<TestimonialCard
+					variant={3}
+					message="“GDSC-L made me grow to the best of my abilities. I was able to learn so much because of this welcoming community.”"
+					name="Bob"
+					position="CEO of GDSC-L"
+				/>
+			</div>
+			<div class="embla__slide">
+				<TestimonialCard
+					variant={4}
+					message="“GDSC-L made me grow to the best of my abilities. I was able to learn so much because of this welcoming community.”"
+					name="Bob"
+					position="CEO of GDSC-L"
+				/>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	import EmblaCarousel from "embla-carousel";
+
+	const emblaNode = document.querySelector(
+		".embla-testimonials"
+	) as HTMLElement;
+
+	if (emblaNode) {
+		let rafId = 0;
+
+		const embla = EmblaCarousel(emblaNode, {
+			dragFree: true,
+			// draggable: false,
+			loop: true,
+			inViewThreshold: 0,
+			// align: 0.09,
+		});
+
+		const animate = () => {
+			const engine = embla.internalEngine();
+			engine.location.add(-2); // controls the speed
+			engine.target.set(engine.location);
+			engine.scrollLooper.loop(-1);
+			engine.slideLooper.loop();
+			engine.translate.to(engine.location);
+			rafId = requestAnimationFrame(animate);
+		};
+
+		const startAutoScroll = () => {
+			rafId = requestAnimationFrame(animate);
+		};
+		const stopAutoScroll = () => {
+			cancelAnimationFrame(rafId);
+			rafId = 0;
+		};
+		embla.on("settle", startAutoScroll);
+		embla.on("pointerDown", stopAutoScroll);
+
+		startAutoScroll();
+	}
+</script>
+
+<style>
+	#testimonials-section {
+		background: radial-gradient(
+				49.88% 101.63% at 50% 46%,
+				rgba(255, 255, 255, 0.49) 0%,
+				#fef7e0 50%,
+				#feefc3 100%
+			),
+			#fef7e0;
+	}
+
+	.floor {
+		background: linear-gradient(322.51deg, #fbc21c 8.59%, #ffecb3 94.36%);
+	}
+
+	.embla-testimonials {
+		overflow-x: hidden;
+		padding: 5rem 0;
+		margin-bottom: calc((5rem + 4rem) * -1);
+	}
+	.embla__container {
+		display: flex;
+		/* grid-auto-flow: column;
+		grid-auto-columns: 30%;  */
+	}
+	.embla__slide {
+		flex: 0 0 600px;
+		/* width: 30%; */
+		display: flex;
+		justify-content: center;
+	}
+</style>

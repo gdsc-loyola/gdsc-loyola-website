@@ -1,0 +1,160 @@
+---
+export type Props = {
+	message: string;
+	name: string;
+	position: string;
+	variant: 1 | 2 | 3 | 4;
+};
+import { Image } from "@astrojs/image/components";
+
+const { message, name, position, variant } = Astro.props as Props;
+
+import CardBlock from "./Shapes/CardBlock.astro";
+import CardCylinder from "./Shapes/CardCylinder.astro";
+import CardPlane from "./Shapes/CardPlane.astro";
+import CardRightTriangle from "./Shapes/CardRightTriangle.astro";
+import CardTriangle from "./Shapes/CardTriangle.astro";
+
+const Shapes = [
+	CardBlock,
+	CardCylinder,
+	CardPlane,
+	CardRightTriangle,
+	CardTriangle,
+];
+
+const Variation1 = {
+	top: {
+		shape: CardTriangle,
+		props: {
+			class: "rotate-[7.03deg] -top-10 absolute -left-6",
+		},
+	},
+	bottom: {
+		shape: CardBlock,
+		props: {
+			class: "absolute -right-16 -bottom-8 rotate-[-21.18deg]",
+		},
+	},
+};
+const Variation2 = {
+	top: {
+		shape: CardPlane,
+		props: {
+			class: "absolute -left-8 -top-10 rotate-[33.85deg]",
+		},
+	},
+	bottom: {
+		shape: CardCylinder,
+		props: {
+			class: "absolute -right-8 -bottom-10 rotate-[-33.72deg]",
+		},
+	},
+};
+
+const Variation3 = {
+	top: {
+		shape: Image,
+		props: {
+			class: "absolute -right-12 -top-10 rotate-[25.28deg]",
+			src: import("../assets/card-arc.png"),
+		},
+	},
+	bottom: {
+		shape: CardRightTriangle,
+		props: {
+			class: "absolute -left-2 -bottom-0 rotate-[-158.17deg]",
+		},
+	},
+};
+
+const Variation4 = {
+	top: {
+		shape: Image,
+		props: {
+			class: "absolute -right-10 -top-10 rotate-[21.8deg]",
+			src: import("../assets/card-donut.png"),
+		},
+	},
+	bottom: {
+		shape: CardPlane,
+		props: {
+			class: "absolute -left-10 -bottom-8 rotate-[11.89deg]",
+		},
+	},
+};
+
+const variations = [Variation1, Variation2, Variation3, Variation4];
+
+const variation = variations[!!variant ? variant - 1 : 0];
+
+const Shape1 = variation.top.shape as any;
+const Props1 = variation.top.props;
+
+const Shape2 = variation.bottom.shape;
+const Props2 = variation.bottom.props;
+---
+
+<div class:list={["relative w-fit text-gray-700"]}>
+	<svg
+		width="446"
+		height="446"
+		viewBox="0 0 446 446"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path
+			d="M14.116 0L0.226535 424.955L7.15515 425.182L425.182 438.845L438.845 20.818L439.071 13.8894L14.116 0Z"
+			fill="white"></path>
+		<path
+			d="M6.9287 432.11L431.884 446L425.182 438.845L7.15515 425.182L0.226535 424.955L6.9287 432.11Z"
+			fill="url(#paint0_linear_1153_212)"></path>
+		<path
+			d="M431.884 446L445.773 21.0445L439.071 13.8894L438.845 20.818L425.182 438.845L431.884 446Z"
+			fill="url(#paint1_linear_1153_212)"></path>
+		<defs>
+			<linearGradient
+				id="paint0_linear_1153_212"
+				x1="0.226535"
+				y1="424.955"
+				x2="431.884"
+				y2="446"
+				gradientUnits="userSpaceOnUse"
+			>
+				<stop stop-color="#FBC21C"></stop>
+				<stop offset="0.473958" stop-color="#E37400"></stop>
+				<stop offset="1" stop-color="#E37400"></stop>
+				<stop offset="1" stop-color="#EA4A3C"></stop>
+			</linearGradient>
+			<linearGradient
+				id="paint1_linear_1153_212"
+				x1="230.058"
+				y1="7.05795"
+				x2="215.942"
+				y2="438.942"
+				gradientUnits="userSpaceOnUse"
+			>
+				<stop stop-color="#4FB36A"></stop>
+				<stop offset="0.53125" stop-color="#1967D2"></stop>
+				<stop offset="1" stop-color="#7921BF"></stop>
+			</linearGradient>
+		</defs>
+	</svg>
+	<div class="m-auto inset-0 absolute rotate-[1.87deg] px-7">
+		<div class="h-full flex items-center justify-center flex-col">
+			<p class="text-lg font-bold">
+				{message}
+			</p>
+			<div class="mt-4 text-center">
+				<p class="text-sm font-medium">
+					{name}
+				</p>
+				<p class="text-sm">
+					{position}
+				</p>
+			</div>
+
+			<Shape1 {...Props1} />
+			<Shape2 {...Props2} />
+		</div>
+	</div>
+</div>

@@ -33,6 +33,8 @@
     "a11y-dialog": "^7.5.2",
     "astro-icon": "^0.7.3",
     "clsx": "^1.2.1",
+    "embla-carousel": "^7.0.1",
+    "embla-carousel-autoplay": "^7.0.1",
     "hyperid": "^3.0.1",
     "motion": "^10.14.0",
     "react-stately": "^3.16.0"

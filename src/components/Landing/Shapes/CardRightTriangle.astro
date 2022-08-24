@@ -1,0 +1,46 @@
+---
+export type Props = astroHTML.JSX.SVGAttributes;
+
+const props = Astro.props as Props;
+---
+
+<svg
+	width="156"
+	height="110"
+	viewBox="0 0 156 110"
+	xmlns="http://www.w3.org/2000/svg"
+	{...props}
+>
+	<path
+		d="M155.272 103.619L82.3456 51.8111L9.41961 0.00329042L155.272 9.4229V103.619Z"
+		fill="url(#paint0_radial_1175_11801)"></path>
+	<path
+		d="M9.41961 0.00329042L82.3456 51.8111L155.272 103.619L146.764 110L0 6.68817L9.41961 0.00329042Z"
+		fill="url(#paint1_linear_1175_11801)"></path>
+	<defs>
+		<radialGradient
+			id="paint0_radial_1175_11801"
+			cx="0"
+			cy="0"
+			r="1"
+			gradientUnits="userSpaceOnUse"
+			gradientTransform="translate(158.562 71.938) rotate(-152.802) scale(145.926 127.372)"
+		>
+			<stop stop-color="#FFECB3"></stop>
+			<stop offset="0.430511" stop-color="#FBC21C"></stop>
+			<stop offset="1" stop-color="#4FB36A"></stop>
+		</radialGradient>
+		<linearGradient
+			id="paint1_linear_1175_11801"
+			x1="140.716"
+			y1="114.321"
+			x2="-10.4852"
+			y2="3.26456"
+			gradientUnits="userSpaceOnUse"
+		>
+			<stop offset="0.442708" stop-color="#0F9D58"></stop>
+			<stop offset="0.762522" stop-color="#1967D2"></stop>
+			<stop offset="1" stop-color="#09275A"></stop>
+		</linearGradient>
+	</defs>
+</svg>
