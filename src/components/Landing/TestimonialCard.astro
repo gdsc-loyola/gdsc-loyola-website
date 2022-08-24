@@ -91,15 +91,23 @@ const variation = variations[!!variant ? variant - 1 : 0];
 const Shape1 = variation.top.shape as any;
 const Props1 = variation.top.props;
 
+Props1.class = Props1.class.concat(" scale-[0.65]");
+
 const Shape2 = variation.bottom.shape;
 const Props2 = variation.bottom.props;
+Props2.class = Props2.class.concat(" scale-[0.65]");
 ---
 
-<div class:list={["relative w-fit text-gray-700"]}>
+<div
+	class:list={[
+		"relative w-fit text-gray-700",
+		"md:w-[446px] md:h-[446px]",
+		"w-[300px] h-[300px]",
+	]}
+>
 	<svg
-		width="446"
-		height="446"
 		viewBox="0 0 446 446"
+		class="w-full h-full"
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		<path
@@ -141,7 +149,7 @@ const Props2 = variation.bottom.props;
 	</svg>
 	<div class="m-auto inset-0 absolute rotate-[1.87deg] px-7">
 		<div class="h-full flex items-center justify-center flex-col">
-			<p class="text-lg font-bold">
+			<p class="md:text-lg font-bold">
 				{message}
 			</p>
 			<div class="mt-4 text-center">
@@ -151,10 +159,9 @@ const Props2 = variation.bottom.props;
 				<p class="text-sm">
 					{position}
 				</p>
+				<Shape1 {...Props1} />
+				<Shape2 {...Props2} />
 			</div>
-
-			<Shape1 {...Props1} />
-			<Shape2 {...Props2} />
 		</div>
 	</div>
 </div>

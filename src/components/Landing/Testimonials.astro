@@ -61,9 +61,8 @@ import TestimonialCard from "./TestimonialCard.astro";
 
 		const embla = EmblaCarousel(emblaNode, {
 			dragFree: true,
-			// draggable: false,
+			draggable: false,
 			loop: true,
-			inViewThreshold: 0,
 			// align: 0.09,
 		});
 
@@ -80,12 +79,13 @@ import TestimonialCard from "./TestimonialCard.astro";
 		const startAutoScroll = () => {
 			rafId = requestAnimationFrame(animate);
 		};
-		const stopAutoScroll = () => {
-			cancelAnimationFrame(rafId);
-			rafId = 0;
-		};
 		embla.on("settle", startAutoScroll);
-		embla.on("pointerDown", stopAutoScroll);
+
+		// const stopAutoScroll = () => {
+		// 	cancelAnimationFrame(rafId);
+		// 	rafId = 0;
+		// };
+		// embla.on("pointerDown", stopAutoScroll);
 
 		startAutoScroll();
 	}
@@ -111,5 +111,12 @@ import TestimonialCard from "./TestimonialCard.astro";
 		/* width: 30%; */
 		display: flex;
 		justify-content: center;
+	}
+
+	@media (max-width: 768px) {
+		.embla__slide {
+			flex: 0 0 400px;
+			/* width: 100%; */
+		}
 	}
 </style>
