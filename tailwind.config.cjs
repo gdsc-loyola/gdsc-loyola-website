@@ -18,6 +18,10 @@ module.exports = {
         xl: ["2rem", "3rem"],
         "2xl": ["2.5rem", "3.5rem"],
       },
+      backgroundImage: {
+        "yellow-gradient":
+          "radial-gradient(43.8% 89.25% at 50% 58.38%, rgba(255, 255, 255, 0.49) 12.5%, #FEF7E0 50%, #FEE8A9 79.69%)",
+      },
       colors: {
         white: "#FFFFFF",
         black: "#000000",
