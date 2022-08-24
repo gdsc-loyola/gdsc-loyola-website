@@ -62,6 +62,7 @@ import TriangleRight from "./Shapes/TriangleRight.astro";
 
 <script>
 	import { animate } from "motion";
+	import { float } from "../../lib/animationHelpers";
 
 	const container = document.querySelector("#container");
 
@@ -70,20 +71,9 @@ import TriangleRight from "./Shapes/TriangleRight.astro";
 
 		const children = container.children;
 		for (const el of children) {
-			const max = Math.max(-5, -Math.random() * 10);
-			console.log(max);
-			animate(
-				el,
-				{
-					y: [0, max],
-				},
-				{
-					repeat: Infinity,
-					direction: "alternate-reverse",
-					easing: "ease-in-out",
-					duration: Math.random() * 2 + 1,
-				}
-			);
+			if (el) {
+				float(el);
+			}
 		}
 	}
 </script>
