@@ -1,8 +1,8 @@
 ---
 import { Image } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
+import DropdownLink from "../DropdownLink.astro";
 import Link from "../Link.astro";
-import DropdownLink from "../DropdownLink";
 ---
 
 <div
@@ -28,7 +28,15 @@ import DropdownLink from "../DropdownLink";
 			<Link href="/">Home</Link>
 			<Link href="#">About</Link>
 			<DropdownLink
-				client:load
+				label="Projects"
+				items={[
+					{
+						href: "#",
+						label: "Client Projects",
+					},
+				]}
+			/>
+			<DropdownLink
 				label="Projects"
 				items={[
 					{
@@ -65,7 +73,6 @@ import DropdownLink from "../DropdownLink";
 			<Link href="/">Home</Link>
 			<Link href="#">About</Link>
 			<DropdownLink
-				client:load
 				inFlow
 				label="Projects"
 				items={[
@@ -76,7 +83,6 @@ import DropdownLink from "../DropdownLink";
 				]}
 			/>
 			<DropdownLink
-				client:load
 				inFlow
 				label="Projects"
 				items={[

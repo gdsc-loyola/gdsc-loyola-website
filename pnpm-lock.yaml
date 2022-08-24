@@ -6,6 +6,7 @@ specifiers:
   '@astrojs/tailwind': ^1.0.0
   '@astrojs/vercel': ^1.0.1
   '@emailjs/browser': ^3.6.2
+  '@floating-ui/dom': ^1.0.1
   '@floating-ui/react-dom': ^1.0.0
   '@radix-ui/react-dropdown-menu': ^1.0.0
   '@radix-ui/react-tooltip': ^1.0.0
@@ -28,6 +29,7 @@ specifiers:
 dependencies:
   '@astrojs/vercel': 1.0.1
   '@emailjs/browser': 3.6.2
+  '@floating-ui/dom': 1.0.1
   '@floating-ui/react-dom': 1.0.0_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-dropdown-menu': 1.0.0_zxljzmqdrxwnuenbkrz77w74uy
   '@radix-ui/react-tooltip': 1.0.0_zxljzmqdrxwnuenbkrz77w74uy

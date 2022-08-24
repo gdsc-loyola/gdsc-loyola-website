@@ -1,0 +1,169 @@
+---
+export type Props = {
+	label: string;
+	items: Array<{
+		label: string;
+		href: string;
+	}>;
+	fullWidth?: boolean;
+	inFlow?: boolean;
+};
+const { items, label, fullWidth, inFlow } = Astro.props as Props;
+---
+
+{
+	inFlow ? (
+		<div class="in-flow-container">
+			<button
+				class:list={[
+					`flex cursor-pointer gap-2 font-medium text-gray-500 transition-colors hover:text-blue-400`,
+					"in-flow-btn",
+				]}
+			>
+				{label}
+
+				<svg
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					class="fill-current"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path d="M16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984L16.59 8.58984Z" />
+				</svg>
+			</button>
+
+			<div class:list={["flex-col gap-5 pt-3 hidden", "in-flow-dropdown"]}>
+				{items.map(({ href, label }, i) => {
+					return (
+						<a
+							href={href}
+							class="flex cursor-pointer gap-2 px-2 py-2 font-medium text-gray-500 transition-colors hover:text-blue-400"
+						>
+							{label}
+						</a>
+					);
+				})}
+			</div>
+		</div>
+	) : (
+		<div class="relative dropdown-link-container">
+			<button
+				class:list={[
+					`flex cursor-pointer gap-2 font-medium text-gray-500 transition-colors hover:text-blue-400`,
+					fullWidth && "w-full justify-center py-2",
+					"dropdown-link-btn",
+				]}
+			>
+				{label}
+				<svg
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					class="fill-current"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path d="M16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984L16.59 8.58984Z" />
+				</svg>
+			</button>
+			<div class="pt-[5px] fixed dropdown-tooltip hidden">
+				<div class="flex flex-col whitespace-nowrap bg-white backdrop-filter">
+					{items.map(({ href, label }, i) => {
+						return (
+							<a
+								href={href}
+								class="flex cursor-pointer gap-2 px-2 py-2 font-medium text-gray-500 transition-colors hover:text-blue-400"
+							>
+								{label}
+							</a>
+						);
+					})}
+				</div>
+			</div>
+		</div>
+	)
+}
+
+<script>
+	import { computePosition } from "@floating-ui/dom";
+
+	const conatiners = document.querySelectorAll(".in-flow-container");
+
+	conatiners.forEach((c) => {
+		const btn = c.querySelector(".in-flow-btn");
+		const dropdown = c.querySelector(".in-flow-dropdown");
+
+		btn?.addEventListener("click", () => {
+			dropdown?.classList.toggle("hidden");
+			dropdown?.classList.toggle("flex");
+		});
+	});
+
+	const tooltipContainers = document.querySelectorAll(
+		".dropdown-link-container"
+	);
+
+	tooltipContainers.forEach((c) => {
+		const button = c.querySelector(".dropdown-link-btn");
+		const tooltip = c.querySelector(".dropdown-tooltip") as HTMLElement;
+
+		function update() {
+			if (button && tooltip) {
+				computePosition(button, tooltip, {
+					strategy: "fixed",
+					placement: "bottom-start",
+				}).then(({ x, y }) => {
+					Object.assign(tooltip.style, {
+						left: `${x}px`,
+						top: `${y}px`,
+					});
+				});
+			}
+		}
+
+		function showTooltip() {
+			tooltip.style.display = "block";
+			update();
+		}
+
+		function hideTooltip() {
+			tooltip.style.display = "";
+		}
+
+		[
+			["mouseenter", showTooltip],
+			["mouseleave", hideTooltip],
+			["focus", showTooltip],
+			["blur", hideTooltip],
+		].forEach(([event, listener]) => {
+			c?.addEventListener(event as any, listener as any);
+		});
+	});
+	// document
+	// 	.querySelector("#" + inFlowBtnId)
+	// 	.addEventListener("click", function () {
+	// 		document.querySelector("#" + InFlowDropdownId).classList.toggle("hidden");
+	// 		document.querySelector("#" + InFlowDropdownId).classList.toggle("flex");
+	// 	});
+
+	// const button = document.querySelector(tooltipBtnId);
+	// const tooltip = document.querySelector(tooltipId);
+
+	// computePosition(button, tooltip).then(({ x, y }) => {
+	// 	Object.assign(tooltip.style, {
+	// 		left: `${x}px`,
+	// 		top: `${y}px`,
+	// 	});
+	// });
+</script>
+
+<style>
+	.active {
+	}
+
+	.tooltip {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+</style>
