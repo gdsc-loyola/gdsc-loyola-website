@@ -10,7 +10,7 @@ const props = Astro.props as Props;
 const El = props.asLink ? "a" : "button";
 ---
 
-<div class={props.class}>
+<div class:list={[props.class]}>
 	<El {...props as any} class:list={["btn"]}>
 		<span class="btn-content">
 			<slot />
@@ -41,7 +41,7 @@ const El = props.asLink ? "a" : "button";
 		background-color: var(--btn-bg);
 		display: block;
 		border-radius: calc(var(--btn-border-radius) - var(--btn-border-width));
-		@apply px-3 py-2 font-medium transition-colors;
+		@apply px-5 py-2 font-medium transition-colors;
 	}
 
 	/* @keyframes disco {

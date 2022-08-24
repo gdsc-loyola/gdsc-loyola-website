@@ -9,6 +9,9 @@ module.exports = {
       maxWidth: {
         laptop: "1152px",
       },
+      borderRadius: {
+        md: "5px",
+      },
       fontSize: {
         xs: ["0.75rem", "1rem"],
         sm: ["0.875rem", "1.5rem"],
