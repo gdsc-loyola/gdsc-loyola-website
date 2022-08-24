@@ -91,11 +91,11 @@ const variation = variations[!!variant ? variant - 1 : 0];
 const Shape1 = variation.top.shape as any;
 const Props1 = variation.top.props;
 
-Props1.class = Props1.class.concat(" scale-[0.65]");
+Props1.class = Props1.class.concat(" scale-[0.65] md:scale-100");
 
 const Shape2 = variation.bottom.shape;
 const Props2 = variation.bottom.props;
-Props2.class = Props2.class.concat(" scale-[0.65]");
+Props2.class = Props2.class.concat(" scale-[0.65] md:scale-100");
 ---
 
 <div
