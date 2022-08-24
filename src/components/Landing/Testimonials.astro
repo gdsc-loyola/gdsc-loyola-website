@@ -2,7 +2,10 @@
 import TestimonialCard from "./TestimonialCard.astro";
 ---
 
-<section id="testimonials-section" class="px-8 py-40 relative text-gray-700">
+<section
+	id="testimonials-section"
+	class="px-8 py-40 relative text-gray-700 bg-yellow-gradient"
+>
 	<h2 class="text-xl font-bold text-center mb-6">
 		-Copy about testimonials here-
 	</h2>
@@ -66,7 +69,7 @@ import TestimonialCard from "./TestimonialCard.astro";
 
 		const animate = () => {
 			const engine = embla.internalEngine();
-			engine.location.add(-2); // controls the speed
+			engine.location.add(-0.5); // controls the speed
 			engine.target.set(engine.location);
 			engine.scrollLooper.loop(-1);
 			engine.slideLooper.loop();
@@ -89,16 +92,6 @@ import TestimonialCard from "./TestimonialCard.astro";
 </script>
 
 <style>
-	#testimonials-section {
-		background: radial-gradient(
-				49.88% 101.63% at 50% 46%,
-				rgba(255, 255, 255, 0.49) 0%,
-				#fef7e0 50%,
-				#feefc3 100%
-			),
-			#fef7e0;
-	}
-
 	.floor {
 		background: linear-gradient(322.51deg, #fbc21c 8.59%, #ffecb3 94.36%);
 	}

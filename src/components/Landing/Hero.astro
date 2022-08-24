@@ -8,36 +8,40 @@ import TriangleLeft from "./Shapes/TriangleLeft.astro";
 import TriangleRight from "./Shapes/TriangleRight.astro";
 ---
 
-<section class="h-screen relative overflow-x-hidden" id="hero-section">
+<section
+	class="h-screen relative overflow-x-hidden bg-yellow-gradient"
+	id="hero-section"
+>
 	<div class="absolute h-full inset-0 max-w-[1500px] mx-auto" id="container">
 		<CylinderLeft
-			class="absolute lg:top-[42%] lg:left-[.5%] md:top-[42%] md:left-[-10%] hidden md:block"
+			class="absolute lg:top-[38%] lg:left-[.5%] md:top-[42%] md:left-[-10%] hidden md:block"
 		/>
 		<TriangleLeft
-			class="absolute lg:top-[28%] lg:left-[-1.5%] md:top-[28%] md:left-[-6%] hidden md:block"
+			class="absolute lg:top-[24%] lg:left-[-1.5%] md:top-[28%] md:left-[-6%] hidden md:block"
 		/>
 
 		<PlaneLeft
-			class="absolute lg:top-[18%] lg:left-[11%] md:top-[74%] hidden md:block"
+			class="absolute lg:top-[14%] lg:left-[11%] md:top-[74%] hidden md:block"
 		/>
 		<Image
-			class="absolute lg:top-[50%] hidden md:block md:top-[14%] md:left-[20%] lg:left-[13%]"
+			class="absolute lg:top-[46%] hidden md:block md:top-[14%] md:left-[20%] lg:left-[13%]"
 			src={import("../assets/arc.png") as any}
 			format="webp"
 		/>
+
 		<BlockRight
-			class="absolute lg:right-[6%] lg:top-[37%] hidden md:block md:top-[37%] md:right-[-18%]"
+			class="absolute lg:right-[6%] lg:top-[41%] hidden md:block md:top-[37%] md:right-[-18%]"
 		/>
 		<BallRight
-			class="absolute lg:right-[22%] lg:top-[62%] md:top-[20%] md:right-[8%] hidden md:block"
+			class="absolute lg:right-[22%] lg:top-[68%] md:top-[20%] md:right-[8%] hidden md:block"
 		/>
 		<Image
-			class="absolute right-0 lg:top-[60%] hidden lg:block"
+			class="absolute right-0 lg:top-[64%] hidden lg:block"
 			src={import("../assets/donut-right.png") as any}
 			format="webp"
 		/>
 		<TriangleRight
-			class="absolute lg:right-[2%] lg:top-[60%] md:top-[74%] md:right-[16%] hidden md:block"
+			class="absolute lg:right-[2%] lg:top-[64%] md:top-[74%] md:right-[16%] hidden md:block"
 		/>
 	</div>
 
@@ -91,15 +95,5 @@ import TriangleRight from "./Shapes/TriangleRight.astro";
 		background: linear-gradient(to right, #498af4, #eb4a3d, #fbbc04, #0f9d58);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-	}
-
-	#hero-section {
-		background: radial-gradient(
-				49.88% 101.63% at 50% 46%,
-				rgba(255, 255, 255, 0.49) 0%,
-				#fef7e0 50%,
-				#feefc3 100%
-			),
-			#fef7e0;
 	}
 </style>
