@@ -1,12 +1,18 @@
 ---
+import { Image } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
 import Link from "../Link.astro";
 import DropdownLink from "../DropdownLink";
 ---
 
-<div class="w-full fixed top-0 left-0 z-10 h-[80px]">
+<div class="w-full fixed top-0 left-0 z-10 h-[80px]" id="nav">
 	<header class="py-6 px-6 lg:px-8 flex justify-between max-w-7xl mx-auto">
-		<img src="/logo.png" width="64" height="24" />
+		<Image
+			src={import("../assets/logo.png") as any}
+			width={64}
+			height={24}
+			format="webp"
+		/>
 		<button
 			data-mobile-hamburger
 			data-a11y-dialog-show="mobile-nav"
@@ -88,6 +94,16 @@ import DropdownLink from "../DropdownLink";
 	if (container) {
 		const dialog = new A11yDialog(container);
 	}
+
+	const observer = new IntersectionObserver(
+		(e) => {
+			console.log(e);
+		},
+		{
+			root: document.querySelector("#hero-section"),
+		}
+	);
+	observer.observe(document.querySelector("#nav"));
 </script>
 
 <style>

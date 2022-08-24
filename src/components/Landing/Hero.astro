@@ -1,4 +1,5 @@
 ---
+import { Image } from "@astrojs/image/components";
 import BallRight from "./Shapes/BallRight.astro";
 import BlockRight from "./Shapes/BlockRight.astro";
 import CylinderLeft from "./Shapes/CylinderLeft.astro";
@@ -13,15 +14,16 @@ import TriangleRight from "./Shapes/TriangleRight.astro";
 			class="absolute lg:top-[42%] lg:left-[.5%] md:top-[42%] md:left-[-10%] hidden md:block"
 		/>
 		<TriangleLeft
-			class="absolute lg:top-[28%] lg:left-[-1.5%] md:top-[28%] md:left-[-6%] hidden sm:block"
+			class="absolute lg:top-[28%] lg:left-[-1.5%] md:top-[28%] md:left-[-6%] hidden md:block"
 		/>
 
 		<PlaneLeft
 			class="absolute lg:top-[18%] lg:left-[11%] md:top-[74%] hidden md:block"
 		/>
-		<img
+		<Image
 			class="absolute lg:top-[50%] hidden md:block md:top-[14%] md:left-[20%] lg:left-[13%]"
-			src="arc.png"
+			src={import("../assets/arc.png") as any}
+			format="webp"
 		/>
 		<BlockRight
 			class="absolute lg:right-[6%] lg:top-[37%] hidden md:block md:top-[37%] md:right-[-18%]"
@@ -29,9 +31,10 @@ import TriangleRight from "./Shapes/TriangleRight.astro";
 		<BallRight
 			class="absolute lg:right-[22%] lg:top-[62%] md:top-[20%] md:right-[8%] hidden md:block"
 		/>
-		<img
-			src="donut-right.png"
+		<Image
 			class="absolute right-0 lg:top-[60%] hidden lg:block"
+			src={import("../assets/donut-right.png") as any}
+			format="webp"
 		/>
 		<TriangleRight
 			class="absolute lg:right-[2%] lg:top-[60%] md:top-[74%] md:right-[16%] hidden md:block"
@@ -40,7 +43,7 @@ import TriangleRight from "./Shapes/TriangleRight.astro";
 
 	<div class="w-full sm:h-full sm:grid sm:place-items-center">
 		<h1
-			class="text-5xl [@media(min-width:400px)_and_(max-width:639px)]:text-6xl sm:text-7xl md:text-[80px] 2xl:text-[90px] font-bold sm:mx-auto w-fit my-auto leading-tight z-[1] relative text-gray-700 px-6 md:w-[505px] 2xl:w-auto py-4 rounded mt-40 md:mt-auto backdrop-blur-md backdrop-saturate-[1.2]"
+			class="text-5xl [@media(min-width:400px)_and_(max-width:639px)]:text-6xl sm:text-7xl md:text-[80px] 2xl:text-[90px] font-bold sm:mx-auto w-fit my-auto leading-tight z-[1] relative text-gray-700 px-6 md:w-[510px] 2xl:w-auto py-4 rounded mt-40 md:mt-auto backdrop-blur-md backdrop-saturate-[1.2]"
 		>
 			Uplifting
 			<br />
