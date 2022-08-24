@@ -15,14 +15,6 @@ import CardPlane from "./Shapes/CardPlane.astro";
 import CardRightTriangle from "./Shapes/CardRightTriangle.astro";
 import CardTriangle from "./Shapes/CardTriangle.astro";
 
-const Shapes = [
-	CardBlock,
-	CardCylinder,
-	CardPlane,
-	CardRightTriangle,
-	CardTriangle,
-];
-
 const Variation1 = {
 	top: {
 		shape: CardTriangle,
@@ -63,7 +55,8 @@ const Variation3 = {
 	bottom: {
 		shape: CardRightTriangle,
 		props: {
-			class: "absolute -left-2 -bottom-0 rotate-[-158.17deg]",
+			class:
+				"absolute -left-8 -bottom-2 md:-left-2 md:-bottom-0 rotate-[-158.17deg]",
 		},
 	},
 };
