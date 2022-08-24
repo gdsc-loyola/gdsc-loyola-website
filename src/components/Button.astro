@@ -1,0 +1,92 @@
+---
+export type Props = astroHTML.JSX.ButtonHTMLAttributes;
+const props = Astro.props as Props;
+import clsx from "clsx";
+---
+
+<button {...props} class={clsx("btn", props.class)}>
+	<span class="btn-content">
+		<slot />
+	</span>
+</button>
+
+<style>
+	.btn {
+		--btn-bg: #ffffff;
+		--btn-border-radius: 4px;
+		--btn-border-width: 2px;
+
+		overflow: hidden;
+		width: max-content;
+		border-radius: var(--btn-border-radius);
+		position: relative;
+		box-sizing: border-box;
+		background-clip: padding-box; /* !importanté */
+		margin: calc(var(--btn-border-width) * -1);
+		padding: var(--btn-border-width);
+	}
+
+	.btn-content {
+		background-color: var(--btn-bg);
+		display: block;
+		border-radius: calc(var(--btn-border-radius) - var(--btn-border-width));
+		@apply px-3 py-2 font-medium transition-colors;
+	}
+
+	/* @keyframes disco {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	} */
+
+	.btn::before {
+		content: "";
+		position: absolute;
+
+		inset: 0;
+		z-index: -1;
+
+		margin: calc(var(--btn-border-width) * -1);
+		/* margin: -20px; */
+		/* padding: 2px; */
+		border-radius: inherit;
+		/* top: 50%;
+		height: 100%;
+		width: 100%; */
+		background: linear-gradient(
+			90deg,
+			#498af4 0%,
+			#eb4a3d 20.83%,
+			#fbbc04 46.35%,
+			#0f9d58 81.25%
+		);
+		/* animation: disco 1.5s linear infinite; */
+		transform-origin: center;
+	}
+
+	.btn:hover {
+		/* yello-100  */
+		--btn-bg: #fef7e0;
+	}
+
+	.btn:active {
+		/* yello-200  */
+		--btn-bg: #feefc3;
+	}
+
+	.btn:disabled::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: rgb(255, 255, 255, 0.6);
+		margin: -2px;
+		border-radius: inherit;
+	}
+
+	.btn:disabled {
+		pointer-events: none;
+	}
+</style>
