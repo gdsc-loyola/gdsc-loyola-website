@@ -1,4 +1,5 @@
 ---
+import About from "../components/Landing/About.astro";
 import Brands from "../components/Landing/Brands.astro";
 import Hero from "../components/Landing/Hero.astro";
 import Navbar from "../components/Landing/Navbar.astro";
@@ -9,35 +10,7 @@ import Layout from "../layouts/Layout.astro";
 	<Navbar />
 	<main>
 		<Hero />
+		<About />
 		<Brands />
 	</main>
 </Layout>
-
-<script>
-	import { animate } from "motion";
-	const cx = window.innerWidth / 2;
-	const cy = window.innerHeight / 2;
-
-	function update(mouse: { x: number; y: number }) {
-		const dx = mouse.x - cx;
-		const dy = mouse.y - cy;
-
-		const tiltx = dx / cy;
-		const tilty = -(dy / cx);
-		const radius = Math.sqrt(Math.pow(tiltx, 2) + Math.pow(tilty, 2));
-		const degree = radius * 20;
-
-		animate("#container", {
-			transform: "rotate3d(" + tiltx + ", " + tilty + ", 0, " + degree + "deg)",
-		});
-	}
-
-	let request: null | number = null;
-	// document.body.addEventListener("mousemove", (e) => {
-	// 	const mouseX = e.pageX;
-	// 	const mouseY = e.pageY;
-
-	// 	request && cancelAnimationFrame(request);
-	// 	request = requestAnimationFrame(() => update({ x: mouseX, y: mouseY }));
-	// });
-</script>

@@ -1,20 +1,31 @@
 ---
-export type Props = astroHTML.JSX.ButtonHTMLAttributes;
+type ButtonOrAnchor = astroHTML.JSX.ButtonHTMLAttributes &
+	astroHTML.JSX.AnchorHTMLAttributes;
+
+export type Props = ButtonOrAnchor & {
+	asLink?: boolean;
+};
+
 const props = Astro.props as Props;
-import clsx from "clsx";
+const El = props.asLink ? "a" : "button";
 ---
 
-<button {...props} class={clsx("btn", props.class)}>
-	<span class="btn-content">
-		<slot />
-	</span>
-</button>
+<div class={props.class}>
+	<El {...props as any} class:list={["btn"]}>
+		<span class="btn-content">
+			<slot />
+		</span>
+	</El>
+</div>
 
 <style>
 	.btn {
+		z-index: 1;
 		--btn-bg: #ffffff;
 		--btn-border-radius: 4px;
 		--btn-border-width: 2px;
+		display: block;
+		cursor: pointer;
 
 		overflow: hidden;
 		width: max-content;
