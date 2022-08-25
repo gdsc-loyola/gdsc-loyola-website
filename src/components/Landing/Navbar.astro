@@ -1,6 +1,7 @@
 ---
 import { Image } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
+import Logo from "../../icons/Logo.astro";
 import DropdownLink from "../DropdownLink.astro";
 import Link from "../Link.astro";
 ---
@@ -10,12 +11,8 @@ import Link from "../Link.astro";
 	id="nav"
 >
 	<header class="py-6 px-6 lg:px-8 flex justify-between max-w-7xl mx-auto">
-		<Image
-			src={import("../assets/logo.png") as any}
-			width={64}
-			height={24}
-			format="webp"
-		/>
+		<Logo class="w-12 h-auto" />
+
 		<button
 			data-mobile-hamburger
 			data-a11y-dialog-show="mobile-nav"

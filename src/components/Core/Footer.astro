@@ -1,5 +1,7 @@
 ---
 import { Image } from "@astrojs/image/components";
+import GDSCLeftLogo from "../../icons/GDSCLeftLogo.astro";
+import Logo from "../../icons/Logo.astro";
 import Link from "../Link.astro";
 ---
 
@@ -10,14 +12,14 @@ import Link from "../Link.astro";
 			gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
 		}}
 	>
-		<div class="flex flex-col items-center max-w-[232px]">
-			<Image
-				src={import("../assets/logo.png") as any}
-				width={48}
-				height={24}
-				format="webp"
-			/>
-			<p class="text-center mt-2">Google Developer Student Clubs Loyola</p>
+		<div
+			class="flex gap-4 items-start col-span-1 sm:col-span-2 max-w-screen flex-col sm:flex-row"
+		>
+			<Logo class="w-12 h-auto mt-2" />
+			<div class="whitespace-nowrap font-medium text-gray-500">
+				<p>Google Developer Student Clubs</p>
+				<p class="text-xs">Loyola</p>
+			</div>
 		</div>
 		<div class="space-y-4">
 			<h3 class="font-medium text-md">GDSC-L</h3>
