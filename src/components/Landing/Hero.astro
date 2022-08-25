@@ -12,37 +12,42 @@ import TriangleRight from "./Shapes/TriangleRight.astro";
 	class="h-screen relative overflow-x-hidden bg-yellow-gradient"
 	id="hero-section"
 >
-	<div class="absolute h-full inset-0 max-w-[1500px] mx-auto" id="container">
-		<CylinderLeft
-			class="absolute lg:top-[38%] lg:left-[.5%] top-[42%] md:left-[-10%] md:block w-28 md:w-auto"
-		/>
-		<TriangleLeft
-			class="absolute lg:top-[24%] lg:left-[-1.5%] top-[5%] md:top-[28%] md:left-[-6%] hidden md:block md:w-auto"
-		/>
+	<div class="overflow-hidden absolute h-full inset-0">
+		<div
+			class="absolute h-full inset-0 max-w-[1500px] mx-auto [@media(max-height:850px)]:top-[15%]"
+			id="container"
+		>
+			<CylinderLeft
+				class="absolute lg:top-[38%] lg:left-[.5%] top-[42%] md:left-[-10%] md:block w-28 md:w-auto"
+			/>
+			<TriangleLeft
+				class="absolute lg:top-[24%] lg:left-[-1.5%] top-[5%] md:top-[28%] md:left-[-6%] hidden md:block md:w-auto"
+			/>
 
-		<PlaneLeft
-			class="absolute lg:top-[14%] lg:left-[11%] md:top-[74%] top-[60%] left-[11%] w-48 md:w-auto"
-		/>
-		<Image
-			class="absolute lg:top-[46%] md:top-[14%] top-[52%] hidden sm:block md:left-[20%] left-[22%] lg:left-[13%] w-32 md:w-auto"
-			src={import("../assets/arc.png") as any}
-			format="webp"
-		/>
+			<PlaneLeft
+				class="absolute lg:top-[14%] lg:left-[11%] md:top-[74%] top-[60%] left-[11%] w-48 md:w-auto"
+			/>
+			<Image
+				class="absolute lg:top-[46%] md:top-[14%] top-[52%] hidden sm:block md:left-[20%] left-[22%] lg:left-[13%] w-32 md:w-auto"
+				src={import("../assets/arc.png") as any}
+				format="webp"
+			/>
 
-		<BlockRight
-			class="absolute lg:right-[6%] lg:top-[41%] top-[44%] md:right-[-18%] right-[-2%] w-28 md:w-auto"
-		/>
-		<BallRight
-			class="absolute lg:right-[22%] lg:top-[68%] md:top-[20%] right-[8%] top-[63%] w-20 md:w-auto"
-		/>
-		<Image
-			class="absolute right-0 lg:top-[64%] hidden lg:block"
-			src={import("../assets/donut-right.png") as any}
-			format="webp"
-		/>
-		<TriangleRight
-			class="absolute lg:right-[2%] lg:top-[64%] md:top-[74%] top-[45%] md:right-[28%] right-[34%] w-24 md:w-auto"
-		/>
+			<BlockRight
+				class="absolute lg:right-[6%] lg:top-[41%] top-[44%] md:right-[-18%] right-[-2%] w-28 md:w-auto"
+			/>
+			<BallRight
+				class="absolute lg:right-[22%] lg:top-[68%] md:top-[20%] right-[8%] top-[63%] w-20 md:w-auto"
+			/>
+			<Image
+				class="absolute right-0 lg:top-[64%] hidden lg:block"
+				src={import("../assets/donut-right.png") as any}
+				format="webp"
+			/>
+			<TriangleRight
+				class="absolute lg:right-[2%] lg:top-[64%] md:top-[74%] top-[45%] md:right-[28%] right-[34%] w-24 md:w-auto"
+			/>
+		</div>
 	</div>
 
 	<div class="w-full sm:h-full sm:grid sm:place-items-center">
