@@ -25,6 +25,8 @@ export const float = (
      * @description When given this will be the duration of the animation.
      */
     duration?: number;
+
+    delay?: number;
   }
 ) => {
   const start = opts?.start ?? 0;
@@ -44,6 +46,7 @@ export const float = (
       direction: "alternate-reverse",
       easing: "ease-in-out",
       duration: opts?.duration ?? Math.random() * 2 + 1,
+      delay: opts?.delay ?? 0,
     }
   );
 };

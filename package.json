@@ -13,6 +13,7 @@
     "@astrojs/image": "^0.3.6",
     "@astrojs/react": "^1.0.0",
     "@astrojs/sitemap": "^1.0.0",
+    "@astrojs/solid-js": "^1.0.0",
     "@astrojs/tailwind": "^1.0.0",
     "@types/react": "^18.0.17",
     "astro": "^1.0.6",
@@ -20,7 +21,8 @@
     "prettier-plugin-astro": "^0.5.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "solid-js": "^1.4.3"
   },
   "dependencies": {
     "@astrojs/vercel": "^1.0.1",
@@ -38,6 +40,7 @@
     "embla-carousel-autoplay": "^7.0.1",
     "hyperid": "^3.0.1",
     "motion": "^10.14.0",
-    "react-stately": "^3.16.0"
+    "react-stately": "^3.16.0",
+    "solid-toast": "^0.3.4"
   }
 }

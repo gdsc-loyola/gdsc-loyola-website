@@ -1,10 +1,15 @@
 ---
+import Footer from "../components/Core/Footer.astro";
+import Navbar, {
+	Props as NavbarProps,
+} from "../components/Landing/Navbar.astro";
 import "../styles/fonts.css";
 export interface Props {
 	title: string;
+	navbarProps?: NavbarProps;
 }
 
-const { title } = Astro.props as Props;
+const { title, navbarProps } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -26,6 +31,8 @@ const { title } = Astro.props as Props;
 		<title>{title}</title>
 	</head>
 	<body class="text-gray-700">
+		<Navbar {...navbarProps} />
 		<slot />
+		<Footer />
 	</body>
 </html>

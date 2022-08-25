@@ -697,14 +697,22 @@ import Button from "../Button.astro";
 			"button[type=submit]"
 		) as HTMLButtonElement;
 
-		form?.addEventListener("submit", function (event) {
-			submitBtn.disabled = true;
+		const submitBtnContent = submitBtn.querySelector(
+			".btn-content"
+		) as HTMLSpanElement;
 
+		const sendToast = () =>
+			(
+				document.querySelector("#contact-form-toast-btn") as HTMLButtonElement
+			)?.click();
+
+		form?.addEventListener("submit", function (event) {
 			event.preventDefault();
 
+			submitBtn.disabled = true;
+			submitBtnContent.innerText = "Sending...";
+
 			const formdata = new FormData(form);
-			// generate a five digit number for the contact_number variable
-			// these IDs from the previous steps
 			emailjs
 				.send(
 					"default_service",
@@ -718,9 +726,27 @@ import Button from "../Button.astro";
 				.then(
 					function () {
 						submitBtn.disabled = false;
+						submitBtn.innerText = "Submit";
+						form.reset();
+
+						window.__PUBLIC__ = {
+							...window.__PUBLIC__,
+							contactFormToast: {
+								message: "Message successfully sent!",
+								success: true,
+							},
+						};
+						sendToast();
 					},
 					function (error) {
-						console.log(error);
+						window.__PUBLIC__ = {
+							...window.__PUBLIC__,
+							contactFormToast: {
+								message: "Something went wrong. Please try again.",
+							},
+						};
+
+						sendToast();
 					}
 				);
 		});

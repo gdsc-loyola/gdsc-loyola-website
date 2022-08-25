@@ -1,12 +1,27 @@
 ---
+export type Props = {
+	/**
+	 * @description The selector of the element to which the nav will be transparent on when the element is visible.
+	 *
+	 */
+	transparentOn?: string;
+
+	defaultMode?: "transparent" | "white";
+};
+
 import { Icon } from "astro-icon";
 import Logo from "../../icons/Logo.astro";
 import DropdownLink from "../DropdownLink.astro";
 import Link from "../Link.astro";
+
+const { transparentOn, defaultMode = "white" } = Astro.props;
 ---
 
 <div
-	class="w-full fixed top-0 left-0 z-10 h-[80px] transition-colors bg-white/0 duration-500 px-8"
+	class:list={[
+		"w-full fixed top-0 left-0 z-10 h-[80px] transition-colors bg-white/0 duration-500 px-8",
+		defaultMode === "white" && "white-nav",
+	]}
 	id="nav"
 >
 	<header class="py-6 flex justify-between max-w-laptop mx-auto">
@@ -90,23 +105,30 @@ import Link from "../Link.astro";
 	if (container) {
 		const dialog = new A11yDialog(container);
 	}
+</script>
 
-	const nav = document.querySelector("#nav");
-	const observer = new IntersectionObserver(
-		(e) => {
-			const { isIntersecting } = e[0];
-			if (isIntersecting) {
-				nav?.classList.remove("white-nav");
-			} else {
-				nav?.classList.add("white-nav");
-			}
-		},
-		{
-			root: null,
+<script define:vars={{ transparentOn }}>
+	document.addEventListener("DOMContentLoaded", () => {
+		if (transparentOn) {
+			const nav = document.querySelector("#nav");
+			const observer = new IntersectionObserver(
+				(e) => {
+					const { isIntersecting } = e[0];
+					if (isIntersecting) {
+						nav?.classList.remove("white-nav");
+					} else {
+						nav?.classList.add("white-nav");
+					}
+				},
+				{
+					root: null,
+				}
+			);
+			const heroSection = document.querySelector(transparentOn);
+			const x = document.querySelector("section");
+			heroSection && observer.observe(heroSection);
 		}
-	);
-	const heroSection = document.querySelector("#hero-section");
-	heroSection && observer.observe(heroSection);
+	});
 </script>
 
 <style>
