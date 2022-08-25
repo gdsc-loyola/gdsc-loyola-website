@@ -67,7 +67,7 @@ jobs:
               ${Object.keys(summary).map((key) => {
                 const percentage = Math.round(summary[key] * 100);
 
-                # Ignore pwa scores
+                // Ignore pwa scores
                 if(key === 'pwa') {
                   return ``;
                 }
