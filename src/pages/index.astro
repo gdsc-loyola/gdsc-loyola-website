@@ -1,4 +1,5 @@
 ---
+import Button from "../components/Button.astro";
 import Footer from "../components/Core/Footer.astro";
 import About from "../components/Landing/About.astro";
 import Brands from "../components/Landing/Brands.astro";
@@ -6,17 +7,32 @@ import Contact from "../components/Landing/Contact.astro";
 import Hero from "../components/Landing/Hero.astro";
 import Navbar from "../components/Landing/Navbar.astro";
 import Testimonials from "../components/Landing/Testimonials.astro";
+import ToastActivator from "../components/ToastActivator";
 import Layout from "../layouts/Layout.astro";
+import Toaster from "../components/Toaster";
 ---
 
 <Layout title="Home">
 	<Navbar />
+	<Toaster client:only="solid" />
 	<main>
 		<Hero />
 		<About />
 		<Brands />
 		<Testimonials />
 		<Contact />
+		<div class="h-[44px]">
+			<Button id="b" onclick={}>BHey</Button>
+			<ToastActivator client:only="solid">
+				<Button />
+			</ToastActivator>
+		</div>
 	</main>
 	<Footer />
 </Layout>
+
+<script>
+	document.querySelector("#b")?.addEventListener("click", () => {
+		(document.querySelector("#a") as HTMLButtonElement).click();
+	});
+</script>
