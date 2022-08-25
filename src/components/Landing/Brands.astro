@@ -4,12 +4,26 @@
 			A community built with trusted companies and partners
 		</h2>
 
-		<div class="flex justify-between gap-12 mt-10 w-full flex-wrap">
+		<div
+			class="gap-12 mt-10 w-full flex-wrap grid justify-items-center grid-cols-2 md:grid-cols-4 lg:grid-cols-5"
+		>
 			{
 				Array(10)
 					.fill(0)
 					.map(() => {
-						return <div class="w-40  h-[74px] bg-[#D9D9D9]" />;
+						return (
+							<div
+								class:list={[
+									"w-40 h-[74px] bg-[#D9D9D9]",
+									"md:[&:nth-child(4n-3)]:justify-self-start md:[&:nth-child(4n)]:justify-self-end",
+									// Reset
+									"lg:[&:nth-child(4n-3)]:justify-self-auto lg:[&:nth-child(4n)]:justify-self-auto",
+									//
+									"lg:[&:nth-child(5n-4)]:justify-self-start lg:[&:nth-child(5n)]:justify-self-end",
+								]}
+								class="justify-self-auto"
+							/>
+						);
 					})
 			}
 		</div>
