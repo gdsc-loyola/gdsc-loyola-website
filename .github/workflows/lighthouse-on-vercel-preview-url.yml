@@ -42,7 +42,6 @@ jobs:
           # prefixed by the preview-url
           urls: |
             ${{ steps.vercel_action.outputs.preview-url }}
-            ${{ steps.vercel_action.outputs.preview-url }}/page1
           budgetPath: ".github/lighthouse/budget.json"
           uploadArtifacts: true
           temporaryPublicStorage: true
@@ -67,6 +66,12 @@ jobs:
               | --- | --- |
               ${Object.keys(summary).map((key) => {
                 const percentage = Math.round(summary[key] * 100);
+
+                # Ignore pwa scores
+                if(key === 'pwa') {
+                  return ``;
+                }
+
                 return `| ${score(percentage)} ${key} | ${percentage} |`;
               }).join('\n')}
               `;
