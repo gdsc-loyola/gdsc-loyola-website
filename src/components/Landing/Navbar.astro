@@ -28,9 +28,9 @@ const { transparentOn, defaultMode = "white" } = Astro.props;
 		<Logo class="w-12 h-auto" />
 
 		<button
-			data-mobile-hamburger
 			data-a11y-dialog-show="mobile-nav"
 			class="md:hidden"
+			aria-label="Navigation sidebar button"
 		>
 			<Icon name="fe:bar" class="w-6 h-6 fill-gray-500" />
 		</button>
