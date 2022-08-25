@@ -1,15 +1,25 @@
 ---
+import type { HTMLAttributeAnchorTarget } from "react";
+
 export type Props = astroHTML.JSX.AnchorHTMLAttributes & {
 	fullWidth?: boolean;
 	class?: string;
-	href?: string;
+	href: string;
+	newTab?: boolean;
 };
 const props = Astro.props as Props;
-const { fullWidth, href, class: C, ...restProps } = props;
+const { fullWidth, href, newTab, class: C, ...restProps } = props;
+
+const mergedProps = {
+	target: newTab ? ("_blank" as any) : undefined,
+	rel: newTab ? "noopener noreferrer" : undefined,
+	...restProps,
+	href,
+};
 ---
 
 <a
-	{...restProps}
+	{...mergedProps}
 	href={href}
 	class:list={[
 		"text-gray-500 hover:text-blue-400 font-medium transition-colors cursor-pointer",
