@@ -1,23 +1,24 @@
-import { children, createEffect } from "solid-js";
-import { spread } from "solid-js/web";
 import toast from "solid-toast";
 
-export default function ToastActivator(props: { children: any }) {
-  const c = children(() => props.children);
-
-  createEffect(() =>
-    spread(
-      c() as Element,
-      {
-        onClick: () => {
-          toast("Hey");
-        },
-        id: "a",
-      },
-      false,
-      true
-    )
+export default function ToastActivator() {
+  return (
+    <button
+      id="contact-form-toast-btn"
+      class="hidden"
+      onClick={() => {
+        const contactFormToast = window.__PUBLIC__?.contactFormToast;
+        if (contactFormToast) {
+          if (contactFormToast.success) {
+            toast.success(contactFormToast.message, {
+              duration: 3000,
+            });
+          } else {
+            toast.error(contactFormToast.message, {
+              duration: 3000,
+            });
+          }
+        }
+      }}
+    ></button>
   );
-
-  return c;
 }

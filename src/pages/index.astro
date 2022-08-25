@@ -1,5 +1,4 @@
 ---
-import Button from "../components/Button.astro";
 import About from "../components/Landing/About.astro";
 import Brands from "../components/Landing/Brands.astro";
 import Contact from "../components/Landing/Contact.astro";
@@ -7,6 +6,7 @@ import Hero from "../components/Landing/Hero.astro";
 import Testimonials from "../components/Landing/Testimonials.astro";
 import Layout from "../layouts/Layout.astro";
 import Toaster from "../components/Toaster";
+import ToastActivator from "../components/ToastActivator";
 ---
 
 <Layout
@@ -23,12 +23,7 @@ import Toaster from "../components/Toaster";
 		<Brands />
 		<Testimonials />
 		<Contact />
-		<!-- <div class="h-[44px]">
-			<Button id="b" onclick={}>BHey</Button>
-			<ToastActivator client:only="solid">
-				<Button />
-			</ToastActivator>
-		</div> -->
+		<ToastActivator client:only="solid" />
 	</main>
 </Layout>
 
