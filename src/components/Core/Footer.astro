@@ -3,6 +3,37 @@ import { Image } from "@astrojs/image/components";
 import GDSCLeftLogo from "../../icons/GDSCLeftLogo.astro";
 import Logo from "../../icons/Logo.astro";
 import Link from "../Link.astro";
+
+// TODO: Configure links
+const linkGroups = [
+	{
+		group: "GDSC-L",
+		links: [
+			{
+				href: "/",
+				label: "Home",
+			},
+			{
+				href: "#",
+				label: "About",
+			},
+		],
+	},
+	{
+		group: "Projects",
+		links: [
+			{
+				href: "#",
+				label: "Events",
+			},
+
+			{
+				href: "#",
+				label: "Client Projects",
+			},
+		],
+	},
+];
 ---
 
 <footer class="pt-24 pb-8 text-gray-700 px-8" id="footer">
@@ -21,16 +52,23 @@ import Link from "../Link.astro";
 				<p class="text-xs">Loyola</p>
 			</div>
 		</div>
-		<div class="space-y-4">
-			<h3 class="font-medium text-md">GDSC-L</h3>
-			<Link class="text-sm block">Home</Link>
-			<Link class="text-sm block">About</Link>
-		</div>
-		<div class="space-y-4">
-			<h3 class="font-medium text-md">Projects</h3>
-			<Link class="text-sm block">Events</Link>
-			<Link class="text-sm block">Tech Products</Link>
-		</div>
+
+		{
+			linkGroups.map((group) => {
+				return (
+					<div class="space-y-4">
+						<h3 class="font-medium text-md">{group.group}</h3>
+						{group.links.map((link) => {
+							return (
+								<Link href={link.href} class="text-sm block">
+									{link.label}
+								</Link>
+							);
+						})}
+					</div>
+				);
+			})
+		}
 
 		<div class="space-y-4">
 			<h3 class="font-medium text-md">Contact Us</h3>
