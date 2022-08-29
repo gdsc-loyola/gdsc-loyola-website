@@ -4,41 +4,64 @@ import BallRight from "./Shapes/BallRight.astro";
 import BlockRight from "./Shapes/BlockRight.astro";
 import CylinderLeft from "./Shapes/CylinderLeft.astro";
 import PlaneLeft from "./Shapes/PlaneLeft.astro";
+import SmallCylinder from "./Shapes/SmallCylinder.astro";
+import SmallPlane from "./Shapes/SmallPlane.astro";
+import SmallShortPlane from "./Shapes/SmallShortPlane.astro";
+import SmallTriangle from "./Shapes/SmallTriangle.astro";
 import TriangleLeft from "./Shapes/TriangleLeft.astro";
 import TriangleRight from "./Shapes/TriangleRight.astro";
 ---
 
 <section
-	class="h-screen relative overflow-x-hidden bg-yellow-gradient"
+	class="h-screen relative overflow-x-hidden sm:bg-yellow-gradient bg-yellow-gradient-mobile"
 	id="hero-section"
 >
-	<div class="overflow-hidden absolute h-full inset-0">
+	<div
+		class="overflow-hidden absolute h-full inset-0 sm:hidden"
+		id="container-sm"
+	>
+		<SmallTriangle
+			class="absolute top-[78%] left-[-1%] short:top-[70%] short:left-[-5%] w-[153px] h-[88px] short:h-auto short:w-auto"
+		/>
+		<SmallPlane
+			class="absolute top-[65%] right-[-0%] short:block hidden w-[212px] h-[124px]"
+		/>
+		<SmallShortPlane class="absolute top-[70%] right-[10%] short:hidden block"
+		/>
+		<SmallCylinder class="absolute top-[86%] left-[20%]" />
+		<Image
+			class="absolute top-[89%] right-[-1%] w-[128px] short:w-[168px] short:top-[85%] short:right-[-10%]"
+			src={import("../assets/arc.png") as any}
+			format="webp"
+			role="presentation"
+		/>
+	</div>
+
+	<div class="overflow-hidden absolute h-full inset-0 hidden sm:block">
 		<div
 			class="absolute h-full inset-0 max-w-[1500px] mx-auto [@media(max-height:700px)]:top-[15%] [@media(max-height:800px)]:top-[10%]"
 			id="container"
 		>
-			<CylinderLeft
-				class="absolute lg:top-[38%] lg:left-[.5%] top-[42%] md:left-[-10%] md:block w-28 md:w-auto"
-			/>
+			<CylinderLeft class="absolute top-[38%] left-[.5%]" />
 			<TriangleLeft
-				class="absolute lg:top-[24%] lg:left-[-1.5%] top-[5%] md:top-[28%] md:left-[-6%] hidden md:block md:w-auto"
+				class="absolute lg:top-[24%] lg:left-[-1.5%] top-[28%] left-[-6%]"
 			/>
 
 			<PlaneLeft
-				class="absolute lg:top-[14%] lg:left-[11%] md:top-[74%] top-[60%] left-[11%] w-48 md:w-auto"
+				class="absolute lg:top-[14%] lg:left-[11%] top-[74%] left-[11%]"
 			/>
 			<Image
-				class="absolute lg:top-[46%] md:top-[14%] top-[52%] hidden sm:block md:left-[20%] left-[22%] lg:left-[13%] w-32 md:w-auto"
+				class="absolute lg:top-[46%] top-[14%] left-[20%] lg:left-[13%] w-auto"
 				src={import("../assets/arc.png") as any}
 				format="webp"
 				role="presentation"
 			/>
 
 			<BlockRight
-				class="absolute lg:right-[6%] lg:top-[41%] top-[44%] md:right-[-18%] right-[-2%] w-28 md:w-auto"
+				class="absolute lg:right-[6%] lg:top-[41%] top-[44%] md:right-[-18%] right-[-2%]"
 			/>
 			<BallRight
-				class="absolute lg:right-[22%] lg:top-[68%] md:top-[20%] right-[8%] top-[63%] w-20 md:w-auto"
+				class="absolute lg:right-[22%] lg:top-[68%] top-[20%] right-[8%]"
 			/>
 			<Image
 				class="absolute right-0 lg:top-[64%] hidden lg:block"
@@ -47,14 +70,14 @@ import TriangleRight from "./Shapes/TriangleRight.astro";
 				role="presentation"
 			/>
 			<TriangleRight
-				class="absolute lg:right-[2%] lg:top-[64%] md:top-[74%] top-[45%] md:right-[28%] right-[34%] w-24 md:w-auto"
+				class="absolute lg:right-[2%] lg:top-[64%] top-[74%] right-[28%]"
 			/>
 		</div>
 	</div>
 
 	<div class="w-full sm:h-full sm:grid sm:place-items-center">
 		<h1
-			class="text-5xl w-full [@media(min-width:400px)_and_(max-width:639px)]:text-6xl sm:text-7xl md:text-[80px] 2xl:text-[90px] font-bold sm:mx-auto sm:w-fit my-auto leading-tight z-[1] relative text-gray-700 px-6 md:w-[510px] 2xl:w-auto py-4 rounded mt-40 md:mt-auto backdrop-blur-md md:backdrop-saturate-[1.2]"
+			class="text-5xl w-full [@media(min-width:400px)_and_(max-width:639px)]:text-6xl sm:text-7xl md:text-[80px] 2xl:text-[90px] font-bold sm:mx-auto sm:w-fit my-auto leading-tight z-[1] relative text-gray-700p px-4 sm:px-6 md:w-[510px] 2xl:w-auto py-4 rounded mt-40 sm:mt-auto backdrop-blur-md md:backdrop-saturate-[1.2]"
 		>
 			Uplifting
 			<br />
@@ -71,11 +94,23 @@ import TriangleRight from "./Shapes/TriangleRight.astro";
 	import { float } from "../../lib/animationHelpers";
 
 	const container = document.querySelector("#container");
+	const containerSm = document.querySelector("#container-sm");
 
 	if (container) {
 		// loop through container children
 
 		const children = container.children;
+		for (const el of children) {
+			if (el) {
+				float(el);
+			}
+		}
+	}
+
+	if (containerSm) {
+		// loop through container children
+
+		const children = containerSm.children;
 		for (const el of children) {
 			if (el) {
 				float(el);
