@@ -1,11 +1,5 @@
 ---
 export type Props = {
-	/**
-	 * @description The selector of the element to which the nav will be transparent on when the element is visible.
-	 *
-	 */
-	transparentOn?: string;
-
 	defaultMode?: "transparent" | "white";
 };
 
@@ -14,7 +8,7 @@ import Logo from "../../icons/Logo.astro";
 import DropdownLink from "../DropdownLink.astro";
 import Link from "../Link.astro";
 
-const { transparentOn, defaultMode = "white" } = Astro.props;
+const {  defaultMode = "white" } = Astro.props;
 ---
 
 <div
@@ -110,26 +104,22 @@ const { transparentOn, defaultMode = "white" } = Astro.props;
 	}
 </script>
 
-<script define:vars={{ transparentOn }}>
+<script define:vars={{ defaultMode }}>
 	document.addEventListener("DOMContentLoaded", () => {
-		if (transparentOn) {
-			const nav = document.querySelector("#nav");
-			const observer = new IntersectionObserver(
-				(e) => {
-					const { isIntersecting } = e[0];
-					if (isIntersecting) {
-						nav?.classList.remove("white-nav");
-					} else {
-						nav?.classList.add("white-nav");
-					}
-				},
-				{
-					root: null,
-				}
-			);
-			const heroSection = document.querySelector(transparentOn);
-			const x = document.querySelector("section");
-			heroSection && observer.observe(heroSection);
+		const nav = document.querySelector("#nav");
+
+		const changeNavBg = () => {
+			if (window.scrollY > 10) {
+				nav.classList.add("white-nav");
+			} else {
+				nav.classList.remove("white-nav");
+			}
+		};
+
+		if(defaultMode === 'transparent') {
+
+		window.addEventListener("scroll", changeNavBg);
+		changeNavBg();
 		}
 	});
 </script>
