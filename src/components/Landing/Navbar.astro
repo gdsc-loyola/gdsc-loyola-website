@@ -8,7 +8,7 @@ import Logo from "../../icons/Logo.astro";
 import DropdownLink from "../DropdownLink.astro";
 import Link from "../Link.astro";
 
-const {  defaultMode = "white" } = Astro.props;
+const { defaultMode = "white" } = Astro.props;
 ---
 
 <div
@@ -29,20 +29,7 @@ const {  defaultMode = "white" } = Astro.props;
 			<Icon name="fe:bar" class="w-6 h-6 fill-gray-500" />
 		</button>
 
-		<!-- TODO: Configure Links -->
-		<nav class="gap-14 pl-14 md:flex hidden">
-			<Link href="/">Home</Link>
-			<Link href="#">About</Link>
-			<DropdownLink
-				label="Projects"
-				items={[
-					{
-						href: "#",
-						label: "Client Projects",
-					},
-				]}
-			/>
-		</nav>
+		<nav class="gap-14 pl-14 md:flex hidden"></nav>
 	</header>
 </div>
 <div
@@ -67,30 +54,11 @@ const {  defaultMode = "white" } = Astro.props;
 			&times;
 		</button>
 
-		<!-- TODO: Configure Links -->
 		<div class="gap-5 flex flex-col pt-8">
 			<Link href="/">Home</Link>
-			<Link href="#">About</Link>
-			<DropdownLink
-				inFlow
-				label="Projects"
-				items={[
-					{
-						href: "#",
-						label: "Client Projects",
-					},
-				]}
-			/>
-			<DropdownLink
-				inFlow
-				label="Projects"
-				items={[
-					{
-						href: "#",
-						label: "Client Projects",
-					},
-				]}
-			/>
+			<Link href="/about">About</Link>
+			<Link href="/products">Products</Link>
+			<Link href="/events">Events</Link>
 		</div>
 	</div>
 </div>
@@ -116,10 +84,9 @@ const {  defaultMode = "white" } = Astro.props;
 			}
 		};
 
-		if(defaultMode === 'transparent') {
-
-		window.addEventListener("scroll", changeNavBg);
-		changeNavBg();
+		if (defaultMode === "transparent") {
+			window.addEventListener("scroll", changeNavBg);
+			changeNavBg();
 		}
 	});
 </script>
