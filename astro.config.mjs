@@ -4,7 +4,6 @@ import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
 import solidJs from "@astrojs/solid-js";
 import robotsTxt from "astro-robots-txt";
-
 import prefetch from "@astrojs/prefetch";
 
 // https://astro.build/config
