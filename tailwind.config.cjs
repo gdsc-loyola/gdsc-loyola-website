@@ -3,6 +3,11 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      screens: {
+        short: {
+          raw: "(min-height: 700px)",
+        },
+      },
       fontFamily: {
         sans: ["Google Sans Display", "sans-serif"],
       },
@@ -24,7 +29,10 @@ module.exports = {
       backgroundImage: {
         "yellow-gradient":
           "radial-gradient(43.8% 89.25% at 50% 58.38%, rgba(255, 255, 255, 0.49) 12.5%, #FEF7E0 50%, #FEE8A9 79.69%)",
+        "yellow-gradient-mobile":
+          "radial-gradient(110.81% 70.69% at 50% 46.05%, rgba(255, 255, 255, 0.01) 0%, #FEF7E0 45%, #FEE8A9 79.69%)",
       },
+
       colors: {
         white: "#FFFFFF",
         black: "#000000",
