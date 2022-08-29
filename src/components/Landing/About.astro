@@ -1,4 +1,5 @@
 ---
+import { Image } from "@astrojs/image/components";
 import ThreeDLogo from "../assets/ThreeDLogo.astro";
 import Button from "../Button.astro";
 ---
@@ -6,7 +7,7 @@ import Button from "../Button.astro";
 <!-- TODO: Configure links -->
 <section class="px-8 py-32" id="about-section">
 	<div class="max-w-laptop mx-auto text-gray-700">
-		<div class="flex flex-col lg:flex-row justify-between gap-16">
+		<div class="flex flex-col lg:flex-row justify-between gap-8 md:gap-16">
 			<div class="grow basis-1/2">
 				<ThreeDLogo />
 				<div class="mt-6">
@@ -21,11 +22,17 @@ import Button from "../Button.astro";
 					</p>
 				</div>
 			</div>
-			<div class="lg:grow lg:basis-1/2 bg-gray-300"></div>
+			<div class="lg:grow lg:basis-1/2 relative community-image">
+				<Image
+					src={import("./assets/gdsc-community.png") as any}
+					format="webp"
+					loading="lazy"
+				/>
+			</div>
 		</div>
 
 		<div
-			class="lg:mt-20 mt-6 flex flex-col md:flex-row justify-between gap-20 md:gap-10"
+			class="lg:mt-20 mt-8 flex flex-col md:flex-row justify-between gap-20 md:gap-10"
 		>
 			<div class="max-w-md">
 				<h3 class="text-lg font-bold">Events</h3>
@@ -57,6 +64,25 @@ import Button from "../Button.astro";
 			#e8f0fe 50%,
 			#feefc3 100%,
 			#e8f1fe 100%
+		);
+	}
+
+	.community-image::after {
+		content: "";
+		mix-blend-mode: screen;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		inset: 0;
+		opacity: 0.6;
+		background: linear-gradient(
+			115.2deg,
+			#498af4 2.89%,
+			#eb4a3d 25.76%,
+			#fbbc04 53.78%,
+			#0f9d58 92.1%
 		);
 	}
 </style>
