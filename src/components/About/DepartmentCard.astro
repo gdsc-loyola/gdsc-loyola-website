@@ -1,0 +1,64 @@
+---
+import { Image } from "@astrojs/image/components";
+export type Props = {
+	title: string;
+	description: string;
+	image: string;
+};
+
+const props = Astro.props;
+---
+
+<article
+	class="flex flex-col items-center text-center relative bg-white px-4 py-8"
+>
+	<Image
+		src={props.image}
+		format="webp"
+		width={64}
+		height={64}
+		class="w-10 h-10 md:w-16 md:h-16"
+	/>
+
+	<div class="mt-4">
+		<h5 class="text-md md:text-lg font-bold">{props.title}</h5>
+		<p class="text-sm md:text-base mt-2">
+			{props.description}
+		</p>
+	</div>
+</article>
+
+<style>
+	article::after {
+		content: "";
+		position: absolute;
+		right: -5px;
+		top: 3px;
+		width: 5px;
+		height: 100%;
+		transform: skewY(45deg);
+
+		background: linear-gradient(
+			180deg,
+			#4fb36a 0%,
+			#1967d2 53.12%,
+			#7921bf 100%
+		);
+	}
+	article::before {
+		content: "";
+		position: absolute;
+		bottom: -5px;
+		left: 2px;
+		width: 100%;
+		transform: skew(45deg);
+		height: 5px;
+		background: linear-gradient(
+			90.92deg,
+			#fbc21c 1.55%,
+			#e37400 48.21%,
+			#e37400 100%,
+			#ea4a3c 100%
+		);
+	}
+</style>

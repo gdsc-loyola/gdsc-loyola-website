@@ -1,0 +1,116 @@
+---
+import { Image } from "@astrojs/image/components";
+import FullBleed from "../FullBleed.astro";
+---
+
+<section class="px-8 relative">
+	<div class="max-w-laptop mx-auto md:py-20 py-10">
+		<h2 class="text-base sm:text-lg md:text-2xl font-bold text-gray-400">
+			At Google Developer Student Clubs Loyola,
+		</h2>
+		<h1 class="text-xl sm:text-5xl md:text-6xl lg:text-[80px] font-bold mt-4">
+			We develop
+			<br class="xl:hidden" />
+
+			<span class="text-rainbow type inline-block leading-tight"> </span>
+		</h1>
+	</div>
+	<FullBleed>
+		<Image
+			src={import("./assets/zoom-call.png") as any}
+			format="webp"
+			aspectRatio={1440 / 368}
+			class="w-full block ! object-cover"
+		/>
+	</FullBleed>
+	<Image
+		src={import("../assets/donut-right.png") as any}
+		class="absolute bottom-[-5%] lg:bottom-[-8%] left-[-2.5%] rotate-[21deg] w-[10%] max-w-[180px]"
+	/>
+</section>
+<section class="px-8">
+	<div
+		class="max-w-laptop mx-auto grid gap-14 md:gap-20 grid-cols-1 md:grid-cols-2 py-20"
+	>
+		<div>
+			<h3 class="text-rainbow text-md font-bold w-full">Our Mission</h3>
+			<p class="text-lg leading-10 mt-2">
+				Google Developer Student Clubs Loyola is a student tech organization
+				focused on developing both people and products.
+			</p>
+		</div>
+		<div>
+			<h3 class="text-rainbow text-md font-bold w-full">Our Vision</h3>
+			<p class="text-lg leading-10 mt-2">
+				We are a community of developers that are passionate about uplifting
+				communities through technology and innovation.
+			</p>
+		</div>
+	</div>
+</section>
+
+<script>
+	let texts = [
+		"communities",
+		"relationships",
+		"changemakers",
+		"solutions",
+		"products",
+		"careers",
+		"people",
+	];
+
+	var speed = 120; /* The speed/duration of the effect in milliseconds */
+
+	let currentIndex = 0;
+	const getNextText = () => {
+		currentIndex = (currentIndex + 1) % texts.length;
+		return texts[currentIndex];
+	};
+
+	let _c: HTMLCanvasElement | null = null;
+	function getTextWidth(text: string, font: string) {
+		// re-use canvas object for better performance
+		const canvas = _c || (_c = document.createElement("canvas"));
+		const context = canvas.getContext("2d");
+		if (context) {
+			context.font = font;
+			const metrics = context.measureText(text);
+			return metrics.width;
+		}
+	}
+
+	let i = 0;
+	function typeWriter(text: string) {
+		const s = document.querySelector(".type") as HTMLSpanElement;
+		if (s) {
+			if (i < text.length) {
+				s.innerHTML += text.charAt(i);
+				i++;
+				setTimeout(() => typeWriter(text), speed);
+			} else {
+				i = 0;
+
+				setTimeout(() => {
+					const fontSize = window.getComputedStyle(s).fontSize;
+					const next = getNextText();
+					const w = getTextWidth(next, `bold ${fontSize} Google Sans Display`);
+
+					s.innerHTML = "";
+					s.style.width = `${w}px`;
+					typeWriter(next);
+				}, 3000);
+			}
+		}
+	}
+
+	window.addEventListener("resize", () => {
+		const s = document.querySelector(".type") as HTMLSpanElement;
+		const fontSize = window.getComputedStyle(s).fontSize;
+		console.log(fontSize);
+		const w = getTextWidth(texts[i], `bold ${fontSize} Google Sans Display`);
+
+		s.style.width = `${w}px`;
+	});
+	typeWriter(texts[0]);
+</script>

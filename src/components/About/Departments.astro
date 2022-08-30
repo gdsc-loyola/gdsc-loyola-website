@@ -1,0 +1,65 @@
+---
+import Section from "../Section.astro";
+import DepartmentCard from "./DepartmentCard.astro";
+const departments: Array<{
+	title: string;
+	description: string;
+	image: any;
+}> = [
+	{
+		title: "Product",
+		description:
+			"They spearhead project teams in developing both internal and client products.",
+		image: import("./assets/light-bulb.png"),
+	},
+	{
+		title: "Technology",
+		description:
+			"They create educational materials and setup workshops to train members in tech.",
+		image: import("./assets/robot.png"),
+	},
+	{
+		title: "Operations",
+		description:
+			"They ensure that events and initiatives are ideated and delivered successfully.",
+		image: import("./assets/gear.png"),
+	},
+	{
+		title: "Communications",
+		description:
+			"They plan, develop, and implement marketing and communication strategies.",
+		image: import("./assets/speak.png"),
+	},
+	{
+		title: "Human Resources",
+		description:
+			"They empower member growth and strengthen community relationships.",
+		image: import("./assets/wave.png"),
+	},
+	{
+		title: "Finance and Externals",
+		description:
+			"They manage funds and build strong relationships with external institutions.",
+		image: import("./assets/money.png"),
+	},
+];
+---
+
+<Section
+	style={{
+		background:
+			"radial-gradient(74.09% 151.04% at 50% 55.09%, rgba(255, 255, 255, 0.49) 1.99%, rgba(255, 255, 255, 0.49) 9.37%, #E8F0FE 50%, #E8F1FE 100%)",
+	}}
+	class="py-20"
+>
+	<h2 class="text-2xl font-bold text-center">Our Departments</h2>
+	<div
+		class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10"
+	>
+		{
+			departments.map(({ title, description, image }) => (
+				<DepartmentCard title={title} description={description} image={image} />
+			))
+		}
+	</div>
+</Section>

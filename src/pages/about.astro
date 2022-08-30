@@ -1,0 +1,19 @@
+---
+import Departments from "../components/About/Departments.astro";
+import MissionVision from "../components/About/MissionVision.astro";
+import OtherChapters from "../components/About/OtherChapters.astro";
+import Values from "../components/About/Values.astro";
+import Contact from "../components/Landing/Contact.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="About">
+	<div class="pt-20 w-full"></div>
+	<main>
+		<MissionVision />
+		<Values />
+		<Departments />
+		<OtherChapters />
+		<Contact />
+	</main>
+</Layout>
