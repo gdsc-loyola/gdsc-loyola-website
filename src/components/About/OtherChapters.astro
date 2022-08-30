@@ -3,9 +3,18 @@ import FullBleed from "../FullBleed.astro";
 import Section from "../Section.astro";
 import { Image } from "@astrojs/image/components";
 import Button from "../Button.astro";
+import CylinderLeft from "../Landing/Shapes/CylinderLeft.astro";
+import TriangleLeft from "../Landing/Shapes/TriangleLeft.astro";
 ---
 
 <Section>
+	<CylinderLeft
+		class="absolute right-[-8%] md:right-[-7%] top-[-8%] w-[23%] h-auto max-w-[200px] z-10"
+	/>
+	<TriangleLeft
+		class="absolute left-[-2%] bottom-[-12%] md:left-[-1%] md:bottom-[-10%] w-[18%] h-auto max-w-[200px] z-10"
+	/>
+
 	<div slot="bleed">
 		<FullBleed>
 			<div class="grid grid-cols-1 md:grid-cols-2 md:gap-16">
@@ -15,6 +24,7 @@ import Button from "../Button.astro";
 						format="webp"
 						width={765}
 						height={637}
+						class="h-full"
 					/>
 				</div>
 				<div class="flex flex-col justify-center px-8 py-10">
