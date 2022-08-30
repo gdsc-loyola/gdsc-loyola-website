@@ -12,81 +12,82 @@ import TriangleLeft from "./Shapes/TriangleLeft.astro";
 import TriangleRight from "./Shapes/TriangleRight.astro";
 ---
 
-<section
-	class="h-screen relative overflow-x-hidden sm:bg-yellow-gradient bg-yellow-gradient-mobile"
-	id="hero-section"
->
+<section class="h-screen relative overflow-x-hidden" id="hero-section">
 	<div
-		class="overflow-hidden absolute h-full inset-0 sm:hidden"
-		id="container-sm"
+		class="fixed w-full h-full z-[-1] sm:bg-yellow-gradient bg-yellow-gradient-mobile"
 	>
-		<SmallTriangle
-			class="absolute top-[78%] left-[-1%] short:top-[70%] short:left-[-5%] w-[153px] h-[88px] short:h-auto short:w-auto"
-		/>
-		<SmallPlane
-			class="absolute top-[65%] right-[-0%] short:block hidden w-[212px] h-[124px]"
-		/>
-		<SmallShortPlane class="absolute top-[70%] right-[10%] short:hidden block"
-		/>
-		<SmallCylinder class="absolute top-[86%] left-[20%]" />
-		<Image
-			class="absolute top-[89%] right-[-1%] w-[128px] short:w-[168px] short:top-[85%] short:right-[-10%]"
-			src={import("../assets/arc.png") as any}
-			format="webp"
-			role="presentation"
-		/>
-	</div>
-
-	<div class="overflow-hidden absolute h-full inset-0 hidden sm:block">
 		<div
-			class="absolute h-full inset-0 max-w-[1500px] mx-auto [@media(max-height:700px)]:top-[15%] [@media(max-height:800px)]:top-[10%]"
-			id="container"
+			class="overflow-hidden absolute h-full inset-0 sm:hidden"
+			id="container-sm"
 		>
-			<CylinderLeft class="absolute top-[38%] left-[.5%]" />
-			<TriangleLeft
-				class="absolute lg:top-[24%] lg:left-[-1.5%] top-[28%] left-[-6%]"
+			<SmallTriangle
+				class="absolute top-[78%] left-[-1%] short:top-[70%] short:left-[-5%] w-[153px] h-[88px] short:h-auto short:w-auto"
 			/>
-
-			<PlaneLeft
-				class="absolute lg:top-[14%] lg:left-[11%] top-[74%] left-[11%]"
+			<SmallPlane
+				class="absolute top-[65%] right-[-0%] short:block hidden w-[212px] h-[124px]"
 			/>
+			<SmallShortPlane class="absolute top-[70%] right-[10%] short:hidden block"
+			/>
+			<SmallCylinder class="absolute top-[86%] left-[20%]" />
 			<Image
-				class="absolute lg:top-[46%] top-[14%] left-[20%] lg:left-[13%] w-auto"
+				class="absolute top-[89%] right-[-1%] w-[128px] short:w-[168px] short:top-[85%] short:right-[-10%]"
 				src={import("../assets/arc.png") as any}
 				format="webp"
 				role="presentation"
 			/>
-
-			<BlockRight
-				class="absolute lg:right-[6%] lg:top-[41%] top-[44%] md:right-[-18%] right-[-2%]"
-			/>
-			<BallRight
-				class="absolute lg:right-[22%] lg:top-[68%] top-[20%] right-[8%]"
-			/>
-			<Image
-				class="absolute right-0 lg:top-[64%] hidden lg:block"
-				src={import("../assets/donut-right.png") as any}
-				format="webp"
-				role="presentation"
-			/>
-			<TriangleRight
-				class="absolute lg:right-[2%] lg:top-[64%] top-[74%] right-[28%]"
-			/>
 		</div>
-	</div>
 
-	<div class="w-full sm:h-full sm:grid sm:place-items-center">
-		<h1
-			class="text-5xl w-full [@media(min-width:400px)_and_(max-width:639px)]:text-6xl sm:text-7xl md:text-[80px] 2xl:text-[90px] font-bold sm:mx-auto sm:w-fit my-auto leading-tight z-[1] relative text-gray-700p px-4 sm:px-6 md:w-[510px] 2xl:w-auto py-4 rounded mt-40 sm:mt-auto backdrop-blur-md md:backdrop-saturate-[1.2]"
-		>
-			Uplifting
-			<br />
-			communities
-			<br />
-			through
-			<br />
-			<span class="rainbow-text pr-1"> technology</span>
-		</h1>
+		<div class="overflow-hidden absolute h-full inset-0 hidden sm:block">
+			<div
+				class="absolute h-full inset-0 max-w-[1500px] mx-auto [@media(max-height:700px)]:top-[15%] [@media(max-height:800px)]:top-[10%]"
+				id="container"
+			>
+				<CylinderLeft class="absolute top-[38%] left-[.5%]" />
+				<TriangleLeft
+					class="absolute lg:top-[24%] lg:left-[-1.5%] top-[28%] left-[-6%]"
+				/>
+
+				<PlaneLeft
+					class="absolute lg:top-[14%] lg:left-[11%] top-[74%] left-[11%]"
+				/>
+				<Image
+					class="absolute lg:top-[46%] top-[14%] left-[20%] lg:left-[13%] w-auto"
+					src={import("../assets/arc.png") as any}
+					format="webp"
+					role="presentation"
+				/>
+
+				<BlockRight
+					class="absolute lg:right-[6%] lg:top-[41%] top-[44%] md:right-[-18%] right-[-2%]"
+				/>
+				<BallRight
+					class="absolute lg:right-[22%] lg:top-[68%] top-[20%] right-[8%]"
+				/>
+				<Image
+					class="absolute right-0 lg:top-[64%] hidden lg:block"
+					src={import("../assets/donut-right.png") as any}
+					format="webp"
+					role="presentation"
+				/>
+				<TriangleRight
+					class="absolute lg:right-[2%] lg:top-[64%] top-[74%] right-[28%]"
+				/>
+			</div>
+		</div>
+
+		<div class="w-full sm:h-full sm:grid sm:place-items-center">
+			<h1
+				class="text-5xl w-full [@media(min-width:400px)_and_(max-width:639px)]:text-6xl sm:text-7xl md:text-[80px] 2xl:text-[90px] font-bold sm:mx-auto sm:w-fit my-auto leading-tight z-[1] relative text-gray-700p px-4 sm:px-6 md:w-[510px] 2xl:w-auto py-4 rounded mt-40 sm:mt-auto backdrop-blur-md md:backdrop-saturate-[1.2]"
+			>
+				Uplifting
+				<br />
+				communities
+				<br />
+				through
+				<br />
+				<span class="text-rainbow pr-1"> technology</span>
+			</h1>
+		</div>
 	</div>
 </section>
 
@@ -118,13 +119,3 @@ import TriangleRight from "./Shapes/TriangleRight.astro";
 		}
 	}
 </script>
-
-<style>
-	.rainbow-text {
-		color: transparent;
-		background-clip: text;
-		background: linear-gradient(to right, #498af4, #eb4a3d, #fbbc04, #0f9d58);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-</style>
