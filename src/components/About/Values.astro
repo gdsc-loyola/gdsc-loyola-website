@@ -1,9 +1,13 @@
 ---
 import { Image } from "@astrojs/image/components";
+import PlaneLeft from "../Landing/Shapes/PlaneLeft.astro";
 import SingleValue from "./SingleValue.astro";
 ---
 
 <section class="py-20 px-8 relative">
+	<PlaneLeft
+		class="absolute md:bottom-[-8%] md:left-[-3%] bottom-[-3%] left-[-3%] w-[14%] h-auto max-w-[195px] min-w-[100px] z-10"
+	/>
 	<div
 		class="place-items-center absolute right-0 bottom-0 max-w-[40%] h-[508px] w-[620px] bg-green-100 rounded-tl-[200px] lg:grid hidden"
 		style={{
