@@ -28,8 +28,8 @@ const linkGroups = [
 			},
 
 			{
-				href: "/projects",
-				label: "Client Projects",
+				href: "/products",
+				label: "Products",
 			},
 		],
 	},
@@ -60,7 +60,7 @@ const linkGroups = [
 						<h3 class="font-medium text-md">{group.group}</h3>
 						{group.links.map((link) => {
 							return (
-								<Link href={link.href} class="text-sm block">
+								<Link href={link.href} class="text-sm block" active={false}>
 									{link.label}
 								</Link>
 							);
@@ -71,10 +71,11 @@ const linkGroups = [
 		}
 
 		<div class="space-y-4">
-			<h3 class="font-medium text-md">Contact Us</h3>
+			<h3 class="font-medium text-md">Contact</h3>
 			<p class="flex gap-2">
-				<span class="text-sm font-medium text-gray-500"> Email:</span>
-				<Link href="mailto:gdscloyola@gmail.com" class="text-sm block"
+				<Link
+					href="mailto:gdscloyola@gmail.com"
+					class="text-sm block text-blue-400 hover:underline"
 					>gdscloyola@gmail.com
 				</Link>
 			</p>

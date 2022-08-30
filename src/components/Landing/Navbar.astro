@@ -5,7 +5,6 @@ export type Props = {
 
 import { Icon } from "astro-icon";
 import Logo from "../../icons/Logo.astro";
-import DropdownLink from "../DropdownLink.astro";
 import Link from "../Link.astro";
 
 const { defaultMode = "white" } = Astro.props;
@@ -29,7 +28,12 @@ const { defaultMode = "white" } = Astro.props;
 			<Icon name="fe:bar" class="w-6 h-6 fill-gray-500" />
 		</button>
 
-		<nav class="gap-14 pl-14 md:flex hidden"></nav>
+		<nav class="gap-14 pl-14 md:flex hidden">
+			<Link href="/">Home</Link>
+			<Link href="/about">About</Link>
+			<Link href="/products">Products</Link>
+			<Link href="/events">Events</Link>
+		</nav>
 	</header>
 </div>
 <div
