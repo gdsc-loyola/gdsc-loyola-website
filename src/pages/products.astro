@@ -1,0 +1,17 @@
+---
+import Contact from "../components/Landing/Contact.astro";
+import Showcase from "../components/Products/Showcase.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+	title="Products"
+	navbarProps={{
+		defaultMode: "transparent",
+	}}
+>
+	<main class="overflow-x-hidden">
+		<Showcase />
+		<Contact />
+	</main>
+</Layout>

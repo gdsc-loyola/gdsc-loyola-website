@@ -7,9 +7,10 @@ import "../styles/fonts.css";
 export interface Props {
 	title: string;
 	navbarProps?: NavbarProps;
+	withNavSpacer?: boolean;
 }
 
-const { title, navbarProps } = Astro.props as Props;
+const { title, navbarProps, withNavSpacer } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -33,6 +34,7 @@ const { title, navbarProps } = Astro.props as Props;
 	</head>
 	<body class="text-gray-700">
 		<Navbar {...navbarProps} />
+		{withNavSpacer ? <div class="mt-20" /> : null}
 		<slot />
 		<Footer />
 	</body>

@@ -1,0 +1,43 @@
+---
+export type Props = {
+	title: string;
+	description: string;
+	image: string;
+	type: "internal" | "external";
+};
+
+import { Image } from "@astrojs/image/components";
+
+const props = Astro.props;
+---
+
+<div class="bg-white rainbow-card">
+	<Image
+		src={"https://source.unsplash.com/random/800x400"}
+		aspectRatio={2 / 1}
+		width={650}
+		height={325}
+		format="webp"
+		class="w-full"
+	/>
+	<div class="space-y-2 p-4">
+		<div class="flex justify-between items-center">
+			<h3 class="text-md font-bold">
+				{props.title}
+			</h3>
+			<div
+				class:list={[
+					"font-medium text-xs uppercase px-3 py-1 rounded-full tracking-widest",
+
+					props.type === "internal" && "bg-blue-100",
+					props.type === "external" && "bg-green-200",
+				]}
+			>
+				{props.type}
+			</div>
+		</div>
+		<p class="text-gray-600">
+			{props.description}
+		</p>
+	</div>
+</div>
