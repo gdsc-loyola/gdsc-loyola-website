@@ -1,6 +1,7 @@
 ---
 import { Image } from "@astrojs/image/components";
 import PlaneLeft from "../Landing/Shapes/PlaneLeft.astro";
+import Planting from "./assets/Planting.astro";
 import SingleValue from "./SingleValue.astro";
 ---
 
@@ -15,11 +16,7 @@ import SingleValue from "./SingleValue.astro";
 				"radial-gradient(63.61% 76.06% at 50% 58.38%, rgba(255, 255, 255, 0.49) 12.5%, #E6F4EA 50%, #CEEAD6 79.69%)",
 		}}
 	>
-		<Image
-			src={import("./assets/planting.png") as any}
-			format="webp"
-			class="w-[60%]"
-		/>
+		<Planting />
 	</div>
 	<div class="max-w-laptop mx-auto">
 		<div class="space-y-2">
