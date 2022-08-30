@@ -1,6 +1,13 @@
 ---
 import Section from "../Section.astro";
 import DepartmentCard from "./DepartmentCard.astro";
+import Robot from "./assets/robot.svg";
+import LightBulb from "./assets/light-bulb.svg";
+import Money from "./assets/money.svg";
+import Speak from "./assets/speak.svg";
+import Wave from "./assets/wave.svg";
+import Gear from "./assets/gear.svg";
+
 const departments: Array<{
 	title: string;
 	description: string;
@@ -10,37 +17,37 @@ const departments: Array<{
 		title: "Product",
 		description:
 			"They spearhead project teams in developing both internal and client products.",
-		image: import("./assets/light-bulb.png"),
+		image: LightBulb,
 	},
 	{
 		title: "Technology",
 		description:
 			"They create educational materials and setup workshops to train members in tech.",
-		image: import("./assets/robot.png"),
+		image: Robot,
 	},
 	{
 		title: "Operations",
 		description:
 			"They ensure that events and initiatives are ideated and delivered successfully.",
-		image: import("./assets/gear.png"),
+		image: Gear,
 	},
 	{
 		title: "Communications",
 		description:
 			"They plan, develop, and implement marketing and communication strategies.",
-		image: import("./assets/speak.png"),
+		image: Speak,
 	},
 	{
 		title: "Human Resources",
 		description:
 			"They empower member growth and strengthen community relationships.",
-		image: import("./assets/wave.png"),
+		image: Wave,
 	},
 	{
 		title: "Finance and Externals",
 		description:
 			"They manage funds and build strong relationships with external institutions.",
-		image: import("./assets/money.png"),
+		image: Money,
 	},
 ];
 ---
