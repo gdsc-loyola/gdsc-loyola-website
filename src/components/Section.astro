@@ -1,0 +1,15 @@
+---
+export type Props = {
+	class?: string;
+	style?: Record<string, any>;
+};
+
+const { ...props } = Astro.props;
+---
+
+<section class:list={["px-8 relative", props.class]} {...props}>
+	<slot name="bleed" />
+	<div class="max-w-laptop mx-auto">
+		<slot />
+	</div>
+</section>

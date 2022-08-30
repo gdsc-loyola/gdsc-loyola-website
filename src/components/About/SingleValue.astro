@@ -1,0 +1,23 @@
+---
+export type Props = {
+	order: number | string;
+	title: string;
+	description: string;
+};
+
+const { description, order, title } = Astro.props;
+---
+
+<div class="flex gap-4 items-center">
+	<h4
+		class="text-blue-to-red-v text-[112px] font-bold leading-none min-w-[64px]"
+	>
+		{order}
+	</h4>
+	<div>
+		<h5 class="text-md md:text-xl font-bold">{title}</h5>
+		<p class="text-sm md:text-base">
+			{description}
+		</p>
+	</div>
+</div>

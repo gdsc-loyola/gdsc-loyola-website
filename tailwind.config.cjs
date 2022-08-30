@@ -1,9 +1,12 @@
+const plugin = require("tailwindcss/plugin");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
       screens: {
+        xs: "480px",
         short: {
           raw: "(min-height: 700px)",
         },
@@ -17,6 +20,7 @@ module.exports = {
       borderRadius: {
         md: "5px",
       },
+
       fontSize: {
         xs: ["0.75rem", "1rem"],
         sm: ["0.875rem", "1.5rem"],
@@ -85,5 +89,27 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".text-rainbow": {
+          color: "transparent",
+          backgroundClip: "text",
+          background:
+            "linear-gradient(to right, #498af4, #eb4a3d, #fbbc04, #0f9d58)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        },
+
+        ".text-blue-to-red-v": {
+          color: "transparent",
+          backgroundClip: "text",
+          background:
+            "linear-gradient(136.7deg, #498AF477 30.2%, #EB4A3D77 76.76%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        },
+      });
+    }),
+  ],
 };
