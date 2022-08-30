@@ -90,7 +90,7 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ addUtilities }) {
+    plugin(function ({ addUtilities, addComponents }) {
       addUtilities({
         ".text-rainbow": {
           color: "transparent",
@@ -108,6 +108,35 @@ module.exports = {
             "linear-gradient(136.7deg, #498AF477 30.2%, #EB4A3D77 76.76%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
+        },
+      });
+
+      addComponents({
+        ".rainbow-card": {
+          position: 'relative',
+
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            right: "-5px",
+            top: "3px",
+            width: "5px",
+            height: "100%",
+            transform: "skewY(45deg)",
+            background:
+              "linear-gradient(180deg, #4fb36a 0%, #1967d2 53.12%,#7921bf 100% )",
+          },
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            bottom: "-5px",
+            left: "2px",
+            width: "100%",
+            transform: "skew(45deg)",
+            height: "5px",
+            background:
+              "linear-gradient(90.92deg, #fbc21c 1.55%, #e37400 48.21%, #e37400 100%, #ea4a3c 100%)",
+          },
         },
       });
     }),
