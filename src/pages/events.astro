@@ -1,5 +1,9 @@
 ---
+import EventsGrid from "../components/Events/EventsGrid.astro";
 import Hero from "../components/Events/Hero.astro";
+import Contact from "../components/Landing/Contact.astro";
+import Section from "../components/Section.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -11,5 +15,30 @@ import Layout from "../layouts/Layout.astro";
 >
 	<main class="overflow-x-hidden">
 		<Hero />
+		<EventsGrid />
+		<Section class="green-gradient">
+			<div class="py-32 flex flex-col items-center gap-8">
+				<p class="sm:text-md md:text-lg font-medium text-center">
+					GDSC-L has a lot more in store for you this year, so keep checking
+					back and follow us on our social media platforms for updates about new
+					events!
+				</p>
+				<div class="flex gap-7 text-blue-700">
+					<SocialLinks />
+				</div>
+			</div>
+		</Section>
+		<Contact />
 	</main>
 </Layout>
+
+<style>
+	.green-gradient {
+		background: radial-gradient(
+			85.08% 101.73% at 50% 58.38%,
+			rgba(255, 255, 255, 0.49) 12.5%,
+			#e6f4ea 50%,
+			#ceead6 79.69%
+		);
+	}
+</style>

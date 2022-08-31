@@ -6,11 +6,9 @@ export type Props = {
 	type: "internal" | "external";
 };
 
-import { Image, Picture } from "@astrojs/image/components";
+import { Image } from "@astrojs/image/components";
 
 const props = Astro.props;
-const imageUrl =
-	"https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png";
 ---
 
 <div class="bg-white rainbow-card">
