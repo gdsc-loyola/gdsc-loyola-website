@@ -6,9 +6,11 @@ export type Props = {
 	type: "internal" | "external";
 };
 
-import { Image } from "@astrojs/image/components";
+import { Image, Picture } from "@astrojs/image/components";
 
 const props = Astro.props;
+const imageUrl =
+	"https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png";
 ---
 
 <div class="bg-white rainbow-card">
@@ -18,8 +20,9 @@ const props = Astro.props;
 		width={650}
 		height={325}
 		format="webp"
-		class="w-full"
+		class="w-full h-[200px] md:h-auto"
 	/>
+
 	<div class="space-y-2 p-4">
 		<div class="flex justify-between items-center">
 			<h3 class="text-md font-bold">
