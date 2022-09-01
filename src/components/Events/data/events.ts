@@ -77,7 +77,7 @@ export const events: Array<{
   },
   {
     name: "Workshops For a Cause",
-    date: "2021",
+    date: "2020",
     description:
       "A set of workshops to teach tech-related topics while donating proceeds to communities",
     image: import("../assets/W4AC.png"),
