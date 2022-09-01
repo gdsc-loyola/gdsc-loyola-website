@@ -2,7 +2,6 @@
 import { Image } from "@astrojs/image/components";
 import images from "./assets/brands/brands";
 
-console.log(images);
 const brands = images.map((image: any) => {
 	const arr = image.src.split("/") as string[];
 	return {

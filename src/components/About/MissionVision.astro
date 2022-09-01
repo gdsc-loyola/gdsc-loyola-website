@@ -115,7 +115,6 @@ import BlockRight from "../Landing/Shapes/BlockRight.astro";
 	window.addEventListener("resize", () => {
 		const s = document.querySelector(".type") as HTMLSpanElement;
 		const fontSize = window.getComputedStyle(s).fontSize;
-		console.log(fontSize);
 		const w = getTextWidth(texts[i], `bold ${fontSize} Google Sans Display`);
 
 		s.style.width = `${w}px`;
