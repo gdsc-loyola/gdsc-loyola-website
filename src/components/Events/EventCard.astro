@@ -2,10 +2,10 @@
 import { Image } from "@astrojs/image/components";
 
 export type Props = {
-	title: string;
+	name: string;
 	description: string;
-	image: string;
-	date: string;
+	image: Promise<typeof import("*.png")> | any;
+	dates: Array<string>;
 };
 
 const { ...props } = Astro.props;
@@ -15,7 +15,7 @@ const x = "https://source.unsplash.com/random/800x400";
 <div class="bg-white rainbow-card mb-[5px] flex flex-col">
 	<Image
 		aspectRatio={2 / 1}
-		src={x}
+		src={props.image}
 		width={400}
 		height={200}
 		format="webp"
@@ -25,14 +25,14 @@ const x = "https://source.unsplash.com/random/800x400";
 	<div class="space-y-2 p-4 grow basis-1/2">
 		<div class="flex justify-between items-center">
 			<h3 class="text-md font-bold">
-				{props.title}
+				{props.name}
 			</h3>
 			<div
 				class:list={[
 					"font-medium text-xs uppercase px-3 py-1 rounded-full tracking-widest bg-blue-100",
 				]}
 			>
-				{props.date}
+				{props.dates.join(", ")}
 			</div>
 		</div>
 		<p class="text-gray-600">

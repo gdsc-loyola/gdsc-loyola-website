@@ -21,6 +21,7 @@ specifiers:
   astro-icon: ^0.7.3
   astro-robots-txt: ^0.3.8
   clsx: ^1.2.1
+  dayjs: ^1.11.5
   embla-carousel: ^7.0.2
   embla-carousel-autoplay: ^7.0.2
   hyperid: ^3.0.1
@@ -46,6 +47,7 @@ dependencies:
   a11y-dialog: 7.5.2
   astro-icon: 0.7.3
   clsx: 1.2.1
+  dayjs: 1.11.5
   embla-carousel: 7.0.2
   embla-carousel-autoplay: 7.0.2_embla-carousel@7.0.2
   hyperid: 3.0.1
@@ -2580,6 +2582,10 @@ packages:
   /data-uri-to-buffer/4.0.0:
     resolution: {integrity: sha512-Vr3mLBA8qWmcuschSLAOogKgQ/Jwxulv3RNE4FXnYWRGujzrRWQI4m12fQqRkwX06C0KanhLr4hK+GydchZsaA==}
     engines: {node: '>= 12'}
+
+  /dayjs/1.11.5:
+    resolution: {integrity: sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==}
+    dev: false
 
   /debug/3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}

@@ -38,6 +38,7 @@
     "a11y-dialog": "^7.5.2",
     "astro-icon": "^0.7.3",
     "clsx": "^1.2.1",
+    "dayjs": "^1.11.5",
     "embla-carousel": "^7.0.2",
     "embla-carousel-autoplay": "^7.0.2",
     "hyperid": "^3.0.1",

@@ -44,7 +44,7 @@ const brands = dir
 							class="justify-self-auto"
 						>
 							<Image
-								src={import(brand.url)}
+								src={import(/* @vite-ignore */ brand.url)}
 								class="w-full h-full object-contain"
 								alt={brand.name}
 								format="webp"

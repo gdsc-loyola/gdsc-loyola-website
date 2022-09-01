@@ -1,6 +1,53 @@
 ---
 import Section from "../Section.astro";
+import { events } from "./data/events";
 import EventCard from "./EventCard.astro";
+import dayjs from "dayjs";
+
+const processEvents = (evs: typeof events) => {
+	const map = evs.reduce(
+		(acc, e) => {
+			if (e.name in acc && acc[e.name]) {
+				acc[e.name].dates.push(e.date);
+			} else {
+				acc[e.name] = { ...e, dates: [e.date] };
+				delete (acc[e.name] as any).date;
+			}
+
+			return acc;
+		},
+		{} as Record<
+			string,
+			{
+				name: string;
+				dates: Array<string>;
+				description: string;
+				image: Promise<typeof import("*.png")>;
+			}
+		>
+	);
+	return Object.values(map).map((e) => ({
+		...e,
+		dates: e.dates.sort((a, b) => {
+			const aDate = dayjs(a);
+			const bDate = dayjs(b);
+			return aDate.isBefore(bDate) ? -1 : 1;
+		}),
+	}));
+};
+const upcomingEvents = processEvents(
+	events.filter((e) => {
+		return dayjs(e.date).isAfter(new Date());
+	})
+);
+
+const pastEvents = processEvents(
+	events.filter((e) => {
+		return dayjs(e.date).isBefore(new Date());
+	})
+);
+
+console.log(pastEvents);
 ---
 
 <Section class="bg-blue-gradient">
@@ -13,42 +60,18 @@ import EventCard from "./EventCard.astro";
 					gridAutoRows: "265px",
 				}}
 			>
-				<EventCard
-					description="This is a description of the event above. This is a description of the event above"
-					title="Nextbox"
-					image=""
-					date="SEP 2022"
-				/>
-				<EventCard
-					description="This is a description of the event above. This is a description of the event above"
-					title="Nextbox"
-					image=""
-					date="SEP 2022"
-				/>
-				<EventCard
-					description="This is a description of the event above. This is a description of the event above"
-					title="Nextbox"
-					image=""
-					date="SEP 2022"
-				/>
-				<EventCard
-					description="This is a description of the event above. This is a description of the event above"
-					title="Nextbox"
-					image=""
-					date="SEP 2022"
-				/>
-				<EventCard
-					description="This is a description of the event above. This is a description of the event above"
-					title="Nextbox"
-					image=""
-					date="SEP 2022"
-				/>
-				<EventCard
-					description="This is a description of the event above. This is a description of the event above"
-					title="Nextbox"
-					image=""
-					date="SEP 2022"
-				/>
+				{
+					upcomingEvents.map((e) => {
+						return (
+							<EventCard
+								dates={e.dates}
+								description={e.description}
+								image={e.image}
+								name={e.name}
+							/>
+						);
+					})
+				}
 			</div>
 		</div>
 
@@ -60,42 +83,18 @@ import EventCard from "./EventCard.astro";
 					gridAutoRows: "265px",
 				}}
 			>
-				<EventCard
-					description="This is a description of the event above. This is a description of the event above"
-					title="Nextbox"
-					image=""
-					date="SEP 2022"
-				/>
-				<EventCard
-					description="This is a description of the event above. This is a description of the event above"
-					title="Nextbox"
-					image=""
-					date="SEP 2022"
-				/>
-				<EventCard
-					description="This is a description of the event above. This is a description of the event above"
-					title="Nextbox"
-					image=""
-					date="SEP 2022"
-				/>
-				<EventCard
-					description="This is a description of the event above. This is a description of the event above"
-					title="Nextbox"
-					image=""
-					date="SEP 2022"
-				/>
-				<EventCard
-					description="This is a description of the event above. This is a description of the event above"
-					title="Nextbox"
-					image=""
-					date="SEP 2022"
-				/>
-				<EventCard
-					description="This is a description of the event above. This is a description of the event above"
-					title="Nextbox"
-					image=""
-					date="SEP 2022"
-				/>
+				{
+					pastEvents.map((e) => {
+						return (
+							<EventCard
+								dates={e.dates}
+								description={e.description}
+								image={e.image}
+								name={e.name}
+							/>
+						);
+					})
+				}
 			</div>
 		</div>
 	</div>
