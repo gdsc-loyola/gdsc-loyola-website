@@ -5,11 +5,11 @@ export const events: Array<{
   image: Promise<typeof import("*.png")>;
 }> = [
   {
-    name: "Hackfest",
-    date: "Nov 10 2022",
+    name: "Tech Everywhere",
+    date: "Nov 22 2022",
     description:
-      "A 10-day event composed of online technical workshops, webinars, and a 48-hour hackathon ",
-    image: import("../assets/hackfest.png"),
+      "A virtual conference that aims to highlight the latest technologies in the Philippine context",
+    image: import("../assets/tech-everywhere.png"),
   },
   {
     name: "Hackfest",
