@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "update-brands": "node ./scripts/updateBrands.js"
   },
   "devDependencies": {
     "@astrojs/image": "^0.3.6",

@@ -1,23 +1,15 @@
 ---
-import fs from "node:fs/promises";
-
 import { Image } from "@astrojs/image/components";
-const path = "./assets/brands";
-const url = new URL(path, import.meta.url);
-const dir = await fs.readdir(url);
-const brands = dir
-	.map((brand) => {
-		return {
-			name: brand.split(".")[0].replaceAll("-", " "),
-			url: `${path}/${brand}`,
-		};
-	})
-	.map((brand) => {
-		return {
-			name: brand.name,
-			url: brand.url,
-		};
-	});
+import images from "./assets/brands/brands";
+
+console.log(images);
+const brands = images.map((image: any) => {
+	const arr = image.src.split("/") as string[];
+	return {
+		name: arr[arr.length - 1].split(".")[0].replaceAll("-", " "),
+		url: image,
+	};
+});
 ---
 
 <section class="px-8 py-32 bg-white">
@@ -44,7 +36,7 @@ const brands = dir
 							class="justify-self-auto"
 						>
 							<Image
-								src={import(/* @vite-ignore */ brand.url)}
+								src={brand.url}
 								class="w-full h-full object-contain"
 								alt={brand.name}
 								format="webp"
