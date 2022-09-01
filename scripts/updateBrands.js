@@ -22,7 +22,9 @@ async function run() {
 
   const imports = dir.map(
     (brand) =>
-      `import ${brand.split(".")[0].replaceAll("-", "_")} from './${brand}'`
+      `import ${brand
+        .split(".")[0]
+        .replaceAll("-", "_")} from './webp/${brand.replace(".png", ".webp")}'`
   );
   const exportDefault = `export default [${dir
     .map((brand) => brand.split(".")[0].replaceAll("-", "_"))
