@@ -1,8 +1,11 @@
 ---
+import { Image } from "@astrojs/image/components";
 import Section from "../Section.astro";
 import { events } from "./data/events";
 import EventCard from "./EventCard.astro";
 import dayjs from "dayjs";
+import CylinderLeft from "../Landing/Shapes/CylinderLeft.astro";
+import BlockRight from "../Landing/Shapes/BlockRight.astro";
 
 const processEvents = (evs: typeof events) => {
 	const map = evs.reduce(
@@ -46,12 +49,30 @@ const pastEvents = processEvents(
 		return dayjs(e.date).isBefore(new Date());
 	})
 );
-
-console.log(pastEvents);
 ---
 
 <Section class="bg-blue-gradient">
-	<div class="py-32">
+	<CylinderLeft
+		class="absolute right-[-5%] top-[8%] w-[10%] min-w-[100px] h-auto"
+	/>
+	<Image
+		src={import("../assets/donut-right.png") as any}
+		format="webp"
+		class="absolute left-[-5%] top-[34%] w-[10%] min-w-[100px] h-auto"
+	/>
+	<BlockRight
+		class="absolute right-[-1%] bottom-[3%] w-[14%] min-w-[100px] h-auto z-10 rotate-[-8deg]"
+	/>
+	<div class="py-32 relative">
+		<!-- <CylinderLeft
+			class="absolute -right-[calc(_calc(100vw-100%)_*0.8)] w-[15%] min-w-[100px] h-auto"
+		/>
+		<Image
+			src={import("../assets/donut-right.png") as any}
+			format="webp"
+			class="absolute -left-[calc(_calc(100vw-100%)_*0.8)] top-[40%] w-[15%] min-w-[100px] h-auto"
+		/> -->
+
 		<div>
 			<h2 class="text-xl md:text-2xl font-bold text-center">Upcoming Events</h2>
 			<div
