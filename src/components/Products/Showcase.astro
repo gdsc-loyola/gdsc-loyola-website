@@ -6,110 +6,86 @@ import { Image } from "@astrojs/image/components";
 import BlockRight from "../Landing/Shapes/BlockRight.astro";
 import BallRight from "../Landing/Shapes/BallRight.astro";
 import CylinderLeft from "../Landing/Shapes/CylinderLeft.astro";
+import products from "./data/products";
 ---
 
 <Section class="bg-yellow-gradient-mobile md:bg-yellow-gradient">
-	<div class="pt-20"></div>
-	<div class="max-w-[756px] mx-auto mt-12">
-		<h2 class="font-bold text-center">Our Products</h2>
-		<h1 class="text-xl md:text-2xl font-bold text-center max-w-[756px] mx-auto">
-			We build tech solutions to uplift different communities
-		</h1>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 z-10 relative">
-			<!-- Middle -->
-			<BlockRight class="absolute w-[28%] top-[40%] left-[-15%] h-auto" />
-			<BallRight
-				class="absolute w-[20%] max-w-[85px] top-[48%] right-[-9%] h-auto rotate-[17deg]"
-			/>
-			<!-- End Middle -->
+  <div class="pt-20"></div>
+  <div class="max-w-[756px] mx-auto mt-12">
+    <h2 class="font-bold text-center">Our Products</h2>
+    <h1 class="text-xl md:text-2xl font-bold text-center max-w-[756px] mx-auto">
+      We build tech solutions to uplift different communities
+    </h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 z-10 relative">
+      <!-- Middle -->
+      <BlockRight class="absolute w-[28%] top-[40%] left-[-15%] h-auto" />
+      <BallRight
+        class="absolute w-[20%] max-w-[85px] top-[48%] right-[-9%] h-auto rotate-[17deg]"
+      />
+      <!-- End Middle -->
 
-			<ProductCard
-				title="Pavillion"
-				description="All-in-one ecosystem for Ateneo organizations"
-				image="#"
-				type="internal"
-			/>
-			<ProductCard
-				title="Pavillion"
-				description="All-in-one ecosystem for Ateneo organizations"
-				image="#"
-				type="external"
-			/>
-			<ProductCard
-				title="Pavillion"
-				description="All-in-one ecosystem for Ateneo organizations"
-				image="#"
-				type="internal"
-			/>
-			<ProductCard
-				title="Pavillion"
-				description="All-in-one ecosystem for Ateneo organizations"
-				image="#"
-				type="external"
-			/>
-			<ProductCard
-				title="Pavillion"
-				description="All-in-one ecosystem for Ateneo organizations"
-				image="#"
-				type="internal"
-			/>
-			<ProductCard
-				title="Pavillion"
-				description="All-in-one ecosystem for Ateneo organizations"
-				image="#"
-				type="external"
-			/>
-			<!-- Top -->
-			<CylinderLeft
-				class="absolute top-[-2%] right-[-10%] w-[20%] max-w-[120px] h-auto rotate-[10deg]"
-			/>
-			<Image
-				src={import("../assets/donut-right.png") as any}
-				class="absolute top-[-1%] md:top-[-4%] left-[-8%] w-[20%] max-w-[100px] h-auto rotate-[10deg]"
-			/>
-			<!-- End Top -->
+      {
+        products.map((product) => (
+          <ProductCard
+            title={product.name}
+            description={product.description}
+            image={product.image}
+            type={product.type}
+          />
+        ))
+      }
 
-			<!-- Bottom -->
-			<Image
-				src={import("./assets/shadow-arc.png") as any}
-				class="absolute w-[25%] min-w-[100px] max-w-[140px] left-[-10%] lg:w-[198px] lg:max-w-none h-auto lg:left-[-20%] bottom-[-4%] sm:bottom-[-6%] md:bottom-[-10%] z-20"
-				format="webp"
-			/>
-			<Image
-				src={import("./assets/shadow-pipe.png") as any}
-				class="absolute w-[40%] min-w-[150px] max-w-[240px] lg:w-[304px] lg:max-w-none h-auto right-[-20%] lg:right-[-36%] bottom-[-5%] sm:bottom-[-9%] md:bottom-[-18%] z-20"
-				format="webp"
-			/>
-			<!-- End Bottom -->
-		</div>
-	</div>
+      <!-- Top -->
+      <CylinderLeft
+        class="absolute top-[-2%] right-[-10%] w-[20%] max-w-[120px] h-auto rotate-[10deg]"
+      />
+      <Image
+        src={import("../assets/donut-right.png") as any}
+        class="absolute top-[-1%] md:top-[-4%] left-[-8%] w-[20%] max-w-[100px] h-auto rotate-[10deg]"
+      />
+      <!-- End Top -->
 
-	<div slot="bottom-bleed">
-		<FullBleed>
-			<div class="floor relative"></div>
-		</FullBleed>
-	</div>
+      <!-- Bottom -->
+      <Image
+        src={import("./assets/shadow-arc.png") as any}
+        class="absolute w-[25%] min-w-[100px] max-w-[140px] left-[-10%] lg:w-[198px] lg:max-w-none h-auto lg:left-[-20%] bottom-[-4%] sm:bottom-[-6%] md:bottom-[-10%] z-20"
+        format="webp"
+      />
+      <Image
+        src={import("./assets/shadow-pipe.png") as any}
+        class="absolute w-[40%] min-w-[150px] max-w-[240px] lg:w-[304px] lg:max-w-none h-auto right-[-20%] lg:right-[-36%] bottom-[-5%] sm:bottom-[-9%] md:bottom-[-18%] z-20"
+        format="webp"
+      />
+      <!-- End Bottom -->
+    </div>
+  </div>
+
+  <div slot="bottom-bleed">
+    <FullBleed>
+      <div class="floor relative"></div>
+    </FullBleed>
+  </div>
 </Section>
 
 <style>
-	.floor {
-		background: linear-gradient(322.51deg, #fbc21c 8.59%, #ffecb3 94.36%);
-		height: 144px;
-		width: 100%;
-		margin-top: -2rem;
-	}
+  .floor {
+    background: linear-gradient(322.51deg, #fbc21c 8.59%, #ffecb3 94.36%);
+    height: 144px;
+    width: 100%;
+    margin-top: -2rem;
+  }
 
-	h2 {
-		background: linear-gradient(
-			90deg,
-			#498af4 42.83%,
-			#eb4a3d 54.74%,
-			#fbbc04 69.33%,
-			#0f9d58 89.28%
-		);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		text-fill-color: transparent;
-	}
+  h2 {
+    background: linear-gradient(
+      90deg,
+      #498af4 42.83%,
+      #eb4a3d 54.74%,
+      #fbbc04 69.33%,
+      #0f9d58 89.28%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
 </style>
