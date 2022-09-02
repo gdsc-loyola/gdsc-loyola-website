@@ -11,8 +11,20 @@ import partytown from "@astrojs/partytown";
 // https://astro.build/config
 export default defineConfig({
   experimental: {
-    integrations: true
+    integrations: true,
   },
   site: "https://gdsc-loyola-website.vercel.app/",
-  integrations: [tailwind(), image(), sitemap(), solidJs(), robotsTxt(), prefetch(), partytown()]
+  integrations: [
+    tailwind(),
+    image(),
+    sitemap(),
+    solidJs(),
+    robotsTxt(),
+    prefetch(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+  ],
 });
