@@ -17,8 +17,8 @@ const mergedProps = {
 	href,
 };
 
-const { pathname } = Astro.url;
-const isActive = active ?? pathname === href;
+const isActive =
+	active ?? (href === Astro.url.pathname || href + "/" === Astro.url.pathname);
 ---
 
 <a

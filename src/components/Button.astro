@@ -44,20 +44,10 @@ const El = props.asLink ? "a" : "button";
 		@apply px-5 py-2 font-medium transition-colors;
 	}
 
-	/* @keyframes disco {
-		from {
-			transform: rotate(0deg);
-		}
-		to {
-			transform: rotate(360deg);
-		}
-	} */
-
 	.btn::before {
 		content: "";
 		position: absolute;
 
-		inset: 0;
 		z-index: -1;
 
 		margin: calc(var(--btn-border-width) * -1);
@@ -67,6 +57,10 @@ const El = props.asLink ? "a" : "button";
 		/* top: 50%;
 		height: 100%;
 		width: 100%; */
+		left: 2px;
+		top: 2px;
+		width: 200%;
+		height: 100%;
 		background: linear-gradient(
 			90deg,
 			#498af4 0%,
@@ -74,8 +68,21 @@ const El = props.asLink ? "a" : "button";
 			#fbbc04 46.35%,
 			#0f9d58 81.25%
 		);
-		/* animation: disco 1.5s linear infinite; */
+		background-size: 50% 100%;
 		transform-origin: center;
+	}
+
+	.btn:hover::before {
+		animation: disco 0.75s linear infinite;
+	}
+
+	@keyframes disco {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
+		}
 	}
 
 	.btn:hover {
