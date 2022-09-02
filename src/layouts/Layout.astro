@@ -1,41 +1,52 @@
 ---
 import Footer from "../components/Core/Footer.astro";
 import Navbar, {
-	Props as NavbarProps,
+  Props as NavbarProps,
 } from "../components/Landing/Navbar.astro";
 import "../styles/fonts.css";
 export interface Props {
-	title: string;
-	navbarProps?: NavbarProps;
-	withNavSpacer?: boolean;
+  title: string;
+  navbarProps?: NavbarProps;
+  withNavSpacer?: boolean;
 }
 
 const { title, navbarProps, withNavSpacer } = Astro.props as Props;
+
+const shouldAnalyticsRun = import.meta.env.MODE === "production";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/logo.svg" />
-		<meta property="og:image" content="/og-image.png" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:image" content="/twitter-card-image.png" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/logo.svg" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/twitter-card-image.png" />
 
-		<meta property="og:title" content="GDSC Loyola" />
-		<meta
-			property="og:description"
-			content="Uplifting communities through technology."
-		/>
-		<meta name="description" content="GDSC Website" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="text-gray-700">
-		<Navbar {...navbarProps} />
-		{withNavSpacer ? <div class="mt-20" /> : null}
-		<slot />
-		<Footer />
-	</body>
+    <meta property="og:title" content="GDSC Loyola" />
+    <meta
+      property="og:description"
+      content="Uplifting communities through technology."
+    />
+    <meta name="description" content="GDSC Website" />
+    <meta name="generator" content={Astro.generator} />
+    {
+      shouldAnalyticsRun && (
+        <script
+          data-website-id="25f6daa1-b5b0-4004-9d16-7d2a05f92943"
+          type="text/partytown"
+          src="https://umami.gdscloyola.org/umami.js"
+        />
+      )
+    }
+    <title>{title}</title>
+  </head>
+  <body class="text-gray-700">
+    <Navbar {...navbarProps} />
+    {withNavSpacer ? <div class="mt-20" /> : null}
+    <slot />
+    <Footer />
+  </body>
 </html>
