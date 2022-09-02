@@ -5,10 +5,9 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "npm run create-umami && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "create-umami": "node ./scripts/createUmamiScript.js",
     "update-brands": "node ./scripts/updateBrands.js"
   },
   "devDependencies": {
