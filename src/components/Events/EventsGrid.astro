@@ -75,12 +75,7 @@ const pastEvents = processEvents(
 
 		<div>
 			<h2 class="text-xl md:text-2xl font-bold text-center">Upcoming Events</h2>
-			<div
-				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
-				style={{
-					gridAutoRows: "265px",
-				}}
-			>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
 				{
 					upcomingEvents.map((e) => {
 						return (
@@ -98,12 +93,7 @@ const pastEvents = processEvents(
 
 		<div class="mt-32">
 			<h2 class="text-xl md:text-2xl font-bold text-center">Past Events</h2>
-			<div
-				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6 gap-6"
-				style={{
-					gridAutoRows: "265px",
-				}}
-			>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6 gap-6">
 				{
 					pastEvents.map((e) => {
 						return (
