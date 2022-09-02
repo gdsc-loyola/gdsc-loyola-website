@@ -4,7 +4,6 @@ import ThreeDLogo from "../assets/ThreeDLogo.astro";
 import Button from "../Button.astro";
 ---
 
-<!-- TODO: Configure links -->
 <section class="px-8 py-32 z-10" id="about-section">
 	<div class="max-w-laptop mx-auto text-gray-700">
 		<div class="flex flex-col lg:flex-row justify-between gap-8 md:gap-16">
@@ -27,6 +26,7 @@ import Button from "../Button.astro";
 					src={import("./assets/gdsc-community.png") as any}
 					format="webp"
 					loading="lazy"
+					alt="GDSC-L Community"
 				/>
 			</div>
 		</div>
@@ -41,7 +41,7 @@ import Button from "../Button.astro";
 					competitions & networking mixers, we'd love to be a part of your
 					journey in tech. Take a look at the rest of our events!
 				</p>
-				<Button asLink class="mt-5" href="#">See events</Button>
+				<Button asLink class="mt-5" href="/events">See events</Button>
 			</div>
 			<div class="max-w-md">
 				<h3 class="text-lg font-bold">Tech Products</h3>
@@ -50,7 +50,7 @@ import Button from "../Button.astro";
 					someone to build your next idea? We got you covered. Hop on over to
 					our portfolio!
 				</p>
-				<Button asLink class="mt-5" href="#">See tech products</Button>
+				<Button asLink class="mt-5" href="/products">See tech products</Button>
 			</div>
 		</div>
 	</div>

@@ -35,6 +35,8 @@ module.exports = {
           "radial-gradient(43.8% 89.25% at 50% 58.38%, rgba(255, 255, 255, 0.49) 12.5%, #FEF7E0 50%, #FEE8A9 79.69%)",
         "yellow-gradient-mobile":
           "radial-gradient(110.81% 70.69% at 50% 46.05%, rgba(255, 255, 255, 0.01) 0%, #FEF7E0 45%, #FEE8A9 79.69%)",
+          "blue-gradient":
+"radial-gradient(109.83% 223.78% at 50% 46%, rgba(255, 255, 255, 0.49) 9.37%, #e8f0fe 50%, #feefc3 100%, #e8f1fe 100%)"
       },
 
       colors: {
