@@ -4,6 +4,7 @@ export type Props = {
   description: string;
   image: any;
   type: "internal" | "external";
+  eagerLoading?: boolean;
 };
 
 import { Image } from "@astrojs/image/components";
@@ -20,6 +21,7 @@ const props = Astro.props;
     format="webp"
     quality={100}
     class="w-full h-[200px] md:h-auto"
+    loading={props.eagerLoading ? "eager" : "lazy"}
   />
 
   <div class="space-y-2 p-4">

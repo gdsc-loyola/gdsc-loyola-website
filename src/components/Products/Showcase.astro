@@ -25,8 +25,9 @@ import products from "./data/products";
       <!-- End Middle -->
 
       {
-        products.map((product) => (
+        products.map((product, i) => (
           <ProductCard
+            eagerLoading={true}
             title={product.name}
             description={product.description}
             image={product.image}
