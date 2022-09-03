@@ -8,69 +8,69 @@ import TriangleLeft from "../Landing/Shapes/TriangleLeft.astro";
 ---
 
 <Section>
-	<CylinderLeft
-		class="absolute right-[-8%] md:right-[-7%] top-[-8%] w-[23%] h-auto max-w-[200px] z-10"
-	/>
-	<TriangleLeft
-		class="absolute left-[-2%] bottom-[-12%] md:left-[-1%] md:bottom-[-10%] w-[18%] h-auto max-w-[200px] z-10"
-	/>
+  <CylinderLeft
+    class="absolute right-[-8%] md:right-[-7%] top-[-8%] w-[23%] h-auto max-w-[200px] z-10"
+  />
+  <TriangleLeft
+    class="absolute left-[-2%] bottom-[-12%] md:left-[-1%] md:bottom-[-10%] w-[18%] h-auto max-w-[200px] z-10"
+  />
 
-	<div slot="bleed">
-		<FullBleed>
-			<div class="grid grid-cols-1 md:grid-cols-2 md:gap-16">
-				<div class="other-chapters relative block w-fit">
-					<Image
-						src={import("./assets/group-photo.png") as any}
-						format="webp"
-						width={765}
-						height={637}
-						class="h-full"
-					/>
-				</div>
-				<div class="flex flex-col justify-center px-8 py-10">
-					<h3 class="text-xl font-bold">Meet other GDSC chapters!</h3>
+  <div slot="bleed">
+    <FullBleed>
+      <div class="grid grid-cols-1 md:grid-cols-2 md:gap-16">
+        <div class="other-chapters relative block w-fit">
+          <Image
+            src={import("./assets/group-photo.png") as any}
+            format="webp"
+            width={765}
+            height={637}
+            class="h-full"
+          />
+        </div>
+        <div class="flex flex-col justify-center px-8 py-10">
+          <h3 class="text-xl font-bold">Meet other GDSC chapters!</h3>
 
-					<p class="mt-2">
-						GDSC-L is only one of 30 Google Developer Student Clubs (GDSCs) in
-						the Philippines, all of which are university-based community groups
-						that aim to bridge the gap between theory and practical application
-						for Filipino student developers.
-					</p>
-					<Button
-						class="mt-6"
-						asLink
-						target="_blank"
-						rel="noopener noreferrer"
-						href="https://www.facebook.com/dsc.philippines"
-						>See GDSC-L Philippines
-					</Button>
-				</div>
-			</div>
-		</FullBleed>
-	</div>
+          <p class="mt-2">
+            GDSC-L is only one of 30 Google Developer Student Clubs (GDSCs) in
+            the Philippines, all of which are university-based community groups
+            that aim to bridge the gap between theory and practical application
+            for Filipino student developers.
+          </p>
+          <Button
+            class="mt-6"
+            asLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.facebook.com/dsc.philippines"
+            >See GDSC Philippines
+          </Button>
+        </div>
+      </div>
+    </FullBleed>
+  </div>
 </Section>
 
 <style>
-	.other-chapters {
-		border-top-right-radius: 200px;
-		overflow: hidden;
-	}
+  .other-chapters {
+    border-top-right-radius: 200px;
+    overflow: hidden;
+  }
 
-	.other-chapters::after {
-		content: "";
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		inset: 0;
+  .other-chapters::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
 
-		background: linear-gradient(
-			112.39deg,
-			#498af4 3.82%,
-			#eb4a3d 26.7%,
-			#fbbc04 54.72%,
-			#0f9d58 93.05%
-		);
-		mix-blend-mode: screen;
-		opacity: 0.5;
-	}
+    background: linear-gradient(
+      112.39deg,
+      #498af4 3.82%,
+      #eb4a3d 26.7%,
+      #fbbc04 54.72%,
+      #0f9d58 93.05%
+    );
+    mix-blend-mode: screen;
+    opacity: 0.5;
+  }
 </style>

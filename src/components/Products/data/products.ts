@@ -11,7 +11,7 @@ const products: Array<{
     description:
       "The Ateneo RecWeek app and website that brings org culture to Ateneans",
     image: import("../assets/products/pavilion.png"),
-    type: "external",
+    type: "internal",
   },
   {
     name: "DEAN",

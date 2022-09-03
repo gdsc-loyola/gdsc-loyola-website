@@ -6,7 +6,7 @@ const testimonials: Array<{
   {
     message: `I am proud to say that I have learned a lot of new stuff BUT I know that there is still so much more to explore and learn in the world of technology!`,
     name: "Emman Evangelista",
-    position: "Senior Developer / Software Engineer",
+    position: "Software Developer",
   },
   {
     message: `GDSC helped me become the leader I am today and carved the path for me towards data science.`,

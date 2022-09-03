@@ -7,7 +7,12 @@ import dayjs from "dayjs";
 import CylinderLeft from "../Landing/Shapes/CylinderLeft.astro";
 import BlockRight from "../Landing/Shapes/BlockRight.astro";
 
-const processEvents = (evs: typeof events) => {
+const processEvents = (
+  evs: typeof events,
+  options?: {
+    yearsOnly?: boolean;
+  }
+) => {
   const map = evs.reduce(
     (acc, e) => {
       if (e.name in acc && acc[e.name]) {
@@ -37,7 +42,13 @@ const processEvents = (evs: typeof events) => {
         const bDate = dayjs(b);
         return aDate.isBefore(bDate) ? -1 : 1;
       })
-      .map((d) => dayjs(d).format("MMM YYYY")),
+      .map((d, i) => {
+        if (options?.yearsOnly) {
+          return dayjs(d).format("YYYY");
+        }
+
+        return i === 0 ? dayjs(d).format("MMM YYYY") : dayjs(d).format("YYYY");
+      }),
   }));
 };
 const upcomingEvents = processEvents(
@@ -49,7 +60,10 @@ const upcomingEvents = processEvents(
 const pastEvents = processEvents(
   events.filter((e) => {
     return dayjs(e.date).isBefore(new Date());
-  })
+  }),
+  {
+    yearsOnly: true,
+  }
 );
 ---
 

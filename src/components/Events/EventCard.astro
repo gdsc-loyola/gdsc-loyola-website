@@ -2,41 +2,41 @@
 import { Image } from "@astrojs/image/components";
 
 export type Props = {
-	name: string;
-	description: string;
-	image: Promise<typeof import("*.png")> | any;
-	dates: Array<string>;
+  name: string;
+  description: string;
+  image: Promise<typeof import("*.png")> | any;
+  dates: Array<string>;
 };
 
 const { ...props } = Astro.props;
 ---
 
 <div class="bg-white rainbow-card mb-[5px] flex flex-col">
-	<Image
-		aspectRatio={2 / 1}
-		src={props.image}
-		width={800}
-		height={400}
-		quality={100}
-		format="webp"
-		class="object-cover h-[50%] w-full grow basis-1/2"
-	/>
+  <Image
+    aspectRatio={2 / 1}
+    src={props.image}
+    width={800}
+    height={400}
+    quality={100}
+    format="webp"
+    class="object-cover h-[50%] w-full grow basis-1/2"
+  />
 
-	<div class="space-y-2 p-4">
-		<div class="flex justify-between items-center">
-			<h3 class="text-md font-bold">
-				{props.name}
-			</h3>
-			<div
-				class:list={[
-					"font-medium text-xs uppercase px-3 py-1 rounded-full tracking-widest bg-blue-100",
-				]}
-			>
-				{props.dates.join(", ")}
-			</div>
-		</div>
-		<p class="text-gray-600">
-			{props.description}
-		</p>
-	</div>
+  <div class="space-y-2 p-4">
+    <div class="flex justify-between items-center">
+      <h3 class="text-md font-bold">
+        {props.name}
+      </h3>
+      <div
+        class:list={[
+          "font-medium text-xs uppercase px-3 py-1 rounded-full tracking-widest bg-blue-100 whitespace-nowrap",
+        ]}
+      >
+        {props.dates.join(", ")}
+      </div>
+    </div>
+    <p class="text-gray-600">
+      {props.description}
+    </p>
+  </div>
 </div>
