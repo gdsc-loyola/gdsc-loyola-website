@@ -1,6 +1,8 @@
 ---
 import testimonials from "./data/testimonials";
 import TestimonialCard from "./TestimonialCard.astro";
+
+let lastStart: number;
 ---
 
 <section
@@ -18,16 +20,27 @@ import TestimonialCard from "./TestimonialCard.astro";
   <div class="embla-testimonials -mx-8 cursor-grab active:cursor-grabbing">
     <div class="embla__container">
       {
-        testimonials.map((testimonial, index) => (
-          <div class="embla__slide">
-            <TestimonialCard
-              variant={index % 4 || (index as any)}
-              message={testimonial.message}
-              name={testimonial.name}
-              position={testimonial.position}
-            />
-          </div>
-        ))
+        testimonials.map((testimonial, index) => {
+          const mod = index % 4;
+          let v = mod + 1;
+          if (mod === 0) {
+            if (lastStart === v) {
+              v = v + 1 > 4 ? 2 : v + 1;
+            }
+
+            lastStart = v;
+          }
+          return (
+            <div class="embla__slide" data-1={v}>
+              <TestimonialCard
+                variant={v as any}
+                message={testimonial.message}
+                name={testimonial.name}
+                position={testimonial.position}
+              />
+            </div>
+          );
+        })
       }
     </div>
   </div>
