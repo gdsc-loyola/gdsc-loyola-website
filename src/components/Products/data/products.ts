@@ -38,7 +38,7 @@ const products: Array<{
     type: "internal",
   },
   {
-    name: "GoodGov website",
+    name: "GoodGov Website",
     description: "2022 Election website on local candidates in the Philippines",
     image: import("../assets/products/goodgov.png"),
     type: "external",
