@@ -2,8 +2,13 @@
 import Button from "../Button.astro";
 import Textarea from "../Textarea.astro";
 import TextInput from "../TextInput.astro";
+import ToastActivator from "../ToastActivator";
+import Toaster from "../Toaster";
 ---
 
+
+	<Toaster client:only="solid" />
+		<ToastActivator client:only="solid" />
 <section
   id="contact-section"
   class="px-8 py-32 relative text-gray-700 bg-white"

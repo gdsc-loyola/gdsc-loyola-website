@@ -5,30 +5,25 @@ import Contact from "../components/Landing/Contact.astro";
 import Hero from "../components/Landing/Hero.astro";
 import Testimonials from "../components/Landing/Testimonials.astro";
 import Layout from "../layouts/Layout.astro";
-import Toaster from "../components/Toaster";
-import ToastActivator from "../components/ToastActivator";
 ---
 
 <Layout
-	title="Home"
-	navbarProps={{
-		defaultMode: "transparent",
-	}}
+  title="Home"
+  navbarProps={{
+    defaultMode: "transparent",
+  }}
 >
-	<Toaster client:only="solid" />
-
-	<main>
-		<Hero />
-		<About />
-		<Brands />
-		<Testimonials />
-		<Contact />
-		<ToastActivator client:only="solid" />
-	</main>
+  <main>
+    <Hero />
+    <About />
+    <Brands />
+    <Testimonials />
+    <Contact />
+  </main>
 </Layout>
 
 <script>
-	document.querySelector("#b")?.addEventListener("click", () => {
-		(document.querySelector("#a") as HTMLButtonElement).click();
-	});
+  document.querySelector("#b")?.addEventListener("click", () => {
+    (document.querySelector("#a") as HTMLButtonElement).click();
+  });
 </script>
