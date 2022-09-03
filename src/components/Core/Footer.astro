@@ -5,259 +5,262 @@ import Logo from "../../icons/Logo.astro";
 import Link from "../Link.astro";
 
 const linkGroups = [
-	{
-		group: "GDSC-L",
-		links: [
-			{
-				href: "/",
-				label: "Home",
-			},
-			{
-				href: "/about",
-				label: "About",
-			},
-		],
-	},
-	{
-		group: "Projects",
-		links: [
-			{
-				href: "/events",
-				label: "Events",
-			},
+  {
+    group: "GDSC-L",
+    links: [
+      {
+        href: "/",
+        label: "Home",
+      },
+      {
+        href: "/about",
+        label: "About",
+      },
+    ],
+  },
+  {
+    group: "Projects",
+    links: [
+      {
+        href: "/events",
+        label: "Events",
+      },
 
-			{
-				href: "/products",
-				label: "Products",
-			},
-		],
-	},
+      {
+        href: "/products",
+        label: "Products",
+      },
+    ],
+  },
 ];
 ---
 
 <footer class="pt-24 pb-8 text-gray-700 px-8 bg-white" id="footer">
-	<div
-		class="md:flex pb-16 gap-20 max-w-laptop mx-auto flex-wrap grid"
-		style={{
-			gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-		}}
-	>
-		<div
-			class="flex gap-4 items-start col-span-1 sm:col-span-2 max-w-screen flex-col sm:flex-row"
-		>
-			<Logo class="w-12 h-auto mt-2" />
-			<div class="whitespace-nowrap font-medium text-gray-500">
-				<p>Google Developer Student Clubs</p>
-				<p class="text-xs">Loyola</p>
-			</div>
-		</div>
+  <div
+    class="md:flex pb-16 gap-20 max-w-laptop mx-auto flex-wrap grid"
+    style={{
+      gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+    }}
+  >
+    <div
+      class="flex gap-4 items-start col-span-1 sm:col-span-2 max-w-screen flex-col sm:flex-row"
+    >
+      <Logo class="w-12 h-auto mt-2" />
+      <div class="whitespace-nowrap font-medium text-gray-500">
+        <p>Google Developer Student Clubs</p>
+        <p class="text-xs">Loyola</p>
+      </div>
+    </div>
 
-		{
-			linkGroups.map((group) => {
-				return (
-					<div class="space-y-4">
-						<h3 class="font-medium text-md">{group.group}</h3>
-						{group.links.map((link) => {
-							return (
-								<Link href={link.href} class="text-sm block" active={false}>
-									{link.label}
-								</Link>
-							);
-						})}
-					</div>
-				);
-			})
-		}
+    {
+      linkGroups.map((group) => {
+        return (
+          <div class="space-y-4">
+            <h3 class="font-medium text-md">{group.group}</h3>
+            {group.links.map((link) => {
+              return (
+                <Link href={link.href} class="text-sm block" active={false}>
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+        );
+      })
+    }
 
-		<div class="space-y-4">
-			<h3 class="font-medium text-md">Contact</h3>
-			<p class="flex gap-2">
-				<Link
-					href="mailto:gdscloyola@gmail.com"
-					class="text-sm block text-blue-400 hover:underline"
-					>gdscloyola@gmail.com
-				</Link>
-			</p>
-		</div>
+    <div class="space-y-4">
+      <h3 class="font-medium text-md">Contact</h3>
+      <p class="flex gap-2">
+        <Link
+          href="mailto:gdscloyola@gmail.com"
+          class="text-sm block text-blue-400 hover:underline"
+          >gdscloyola@gmail.com
+        </Link>
+      </p>
+    </div>
 
-		<div class="space-y-4">
-			<h3 class="font-medium text-md">Social</h3>
-			<div class="flex gap-7">
-				<Link
-					class="text-dark"
-					data-social="facebook"
-					href="https://www.facebook.com/gdscloyola"
-					aria-label="Facebook"
-					newTab
-				>
-					<svg
-						width="10"
-						height="16"
-						viewBox="0 0 10 16"
-						xmlns="http://www.w3.org/2000/svg"
-						class="fill-current"
-					>
-						<path
-							d="M6.224 15.9998V8.71327H8.68216L9.04755 5.86037H6.224V4.0432C6.224 3.21995 6.45337 2.65631 7.63489 2.65631H9.13201V0.112796C8.4039 0.0345613 7.67134 -0.00277791 6.93878 -0.000110819C4.76599 -0.000110819 3.2742 1.32632 3.2742 3.76137V5.85504H0.832031V8.70793H3.27953V15.9998H6.224Z"
-						></path>
-					</svg>
-				</Link>
+    <div class="space-y-4">
+      <h3 class="font-medium text-md">Social</h3>
+      <div class="flex gap-7">
+        <Link
+          class="text-dark"
+          data-social="facebook"
+          href="https://www.facebook.com/gdscloyola"
+          aria-label="Facebook"
+          newTab
+        >
+          <svg
+            width="10"
+            height="16"
+            viewBox="0 0 10 16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="fill-current"
+          >
+            <path
+              d="M6.224 15.9998V8.71327H8.68216L9.04755 5.86037H6.224V4.0432C6.224 3.21995 6.45337 2.65631 7.63489 2.65631H9.13201V0.112796C8.4039 0.0345613 7.67134 -0.00277791 6.93878 -0.000110819C4.76599 -0.000110819 3.2742 1.32632 3.2742 3.76137V5.85504H0.832031V8.70793H3.27953V15.9998H6.224Z"
+            ></path>
+          </svg>
+        </Link>
 
-				<Link
-					class="text-dark"
-					data-social="instagram"
-					href="https://www.instagram.com/gdscloyola/"
-					aria-label="Instagram"
-					newTab
-				>
-					<svg
-						width="17"
-						height="16"
-						viewBox="0 0 17 16"
-						xmlns="http://www.w3.org/2000/svg"
-						class="fill-current"
-					>
-						<path
-							fill-rule="evenodd"
-							clip-rule="evenodd"
-							d="M12.1321 -0.000244141H4.13208C1.93228 -0.000244141 0.13208 1.79916 0.13208 3.99976V11.9998C0.13208 14.1996 1.93228 15.9998 4.13208 15.9998H12.1321C14.3319 15.9998 16.1321 14.1996 16.1321 11.9998V3.99976C16.1321 1.79916 14.3319 -0.000244141 12.1321 -0.000244141ZM8.13215 11.333C6.29095 11.333 4.79875 9.84022 4.79875 7.99982C4.79875 6.15862 6.29095 4.66642 8.13215 4.66642C9.97255 4.66642 11.4655 6.15862 11.4655 7.99982C11.4655 9.84022 9.97255 11.333 8.13215 11.333ZM11.4654 3.66642C11.4654 4.21862 11.9126 4.66642 12.4654 4.66642C13.0182 4.66642 13.4654 4.21862 13.4654 3.66642C13.4654 3.11422 13.0182 2.66642 12.4654 2.66642C11.9126 2.66642 11.4654 3.11422 11.4654 3.66642Z"
-						></path>
-					</svg>
-				</Link>
-				<Link
-					class="text-dark"
-					data-social="twitter"
-					href="https://twitter.com/gdscloyola"
-					aria-label="Twitter"
-					newTab
-				>
-					<svg
-						width="20"
-						height="16"
-						viewBox="0 0 20 16"
-						xmlns="http://www.w3.org/2000/svg"
-						class="fill-current"
-					>
-						<path
-							d="M17.8071 3.98723C17.8201 4.16264 17.8201 4.33706 17.8201 4.51147C17.8201 9.84915 13.7574 15.9998 6.33281 15.9998C4.04537 15.9998 1.92033 15.3372 0.13208 14.1864C0.456851 14.2235 0.769594 14.2366 1.1074 14.2366C2.99488 14.2366 4.73201 13.5991 6.1203 12.5115C4.34509 12.4744 2.85755 11.3116 2.34433 9.71182C2.59393 9.74891 2.84452 9.77397 3.10715 9.77397C3.46901 9.77397 3.83287 9.72385 4.17067 9.63664C2.31927 9.26175 0.932982 7.63689 0.932982 5.67423V5.62411C1.47126 5.92383 2.09574 6.11127 2.75732 6.13633C1.66973 5.41261 0.957039 4.17467 0.957039 2.77435C0.957039 2.02456 1.15651 1.33693 1.50634 0.737508C3.49407 3.18632 6.48216 4.78713 9.83212 4.96254C9.76997 4.66183 9.73188 4.35009 9.73188 4.03734C9.73188 1.81206 11.5322 -0.000244141 13.7695 -0.000244141C14.9322 -0.000244141 15.9817 0.486913 16.7195 1.27478C17.6316 1.09937 18.5057 0.761565 19.2816 0.299468C18.9818 1.23669 18.3433 2.02456 17.5063 2.52475C18.3193 2.43654 19.1071 2.21201 19.8309 1.89927C19.2816 2.69917 18.5949 3.41186 17.8071 3.98723Z"
-						></path>
-					</svg>
-				</Link>
-				<Link
-					class="text-dark"
-					data-social="linkedin"
-					href="https://linkedin.com/company/gdscloyola"
-					aria-label="LinkedIn"
-					newTab
-				>
-					<svg
-						width="17"
-						height="16"
-						viewBox="0 0 17 16"
-						xmlns="http://www.w3.org/2000/svg"
-						class="fill-current"
-					>
-						<rect
-							width="16"
-							height="16"
-							transform="translate(0.830811 -0.000244141)"></rect>
-						<path
-							d="M5.63078 13.3332H2.96411V5.33319H5.63078V13.3332ZM4.29798 4.26652C3.56038 4.26652 2.96411 3.66865 2.96411 2.93265C2.96411 2.19665 3.56144 1.59985 4.29798 1.59985C5.03291 1.59985 5.63078 2.19772 5.63078 2.93265C5.63078 3.66865 5.03291 4.26652 4.29798 4.26652ZM15.2308 13.3332H12.667V9.43985C12.667 8.51132 12.6494 7.31719 11.3342 7.31719C9.99931 7.31719 9.79398 8.32839 9.79398 9.37265V13.3332H7.23078V5.32732H9.69158V6.42119H9.72624C10.0686 5.79185 10.9054 5.12839 12.1534 5.12839C14.7508 5.12839 15.2308 6.78652 15.2308 8.94225C15.2308 8.94225 15.2308 13.3332 15.2308 13.3332Z"
-							fill="white"></path>
-					</svg>
-				</Link>
-			</div>
-		</div>
-	</div>
-	<div class="divider flex justify-center">
-		<Image
-			src={import("../assets/blue-mascot.png") as any}
-			format="webp"
-			quality={100}
-			aspectRatio={72 / 100}
-			id="footer-blue-mascot"
-			class="w-[72px]"
-			loading="lazy"
-			alt="Andy the cute mascot"
-		/>
-	</div>
-	<p
-		class="text-center mt-8 font-medium sm:text-sm flex justify-center text-xs flex-wrap"
-	>
-		<span class="flex justify-center">
-			Google Developer Student Clubs - Loyola
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				preserveAspectRatio="xMidYMid meet"
-				class="w-3.5 h-3.5 mr-1"
-				viewBox="0 0 64 64"
-				><g fill="#4d5357"
-					><path
-						d="M32 2C18.2 2 7 13.2 7 27s11.2 25 25 25s25-11.2 25-25S45.8 2 32 2m0 45c-11 0-20-9-20-20S21 7 32 7s20 9 20 20s-9 20-20 20"
-					></path><path
-						d="M25.4 19.3c.9-1 2-1.8 3.3-2.3c1.3-.6 2.6-.9 4-.9c1.7 0 3.4.4 4.8 1.3c1.4.8 2.7 2 3.6 3.3l3.6-2.7c-1.4-1.8-3.1-3.4-5.1-4.4c-2.1-1.1-4.3-1.6-6.8-1.6c-2 0-4 .4-5.8 1.2c-1.8.8-3.4 1.9-4.7 3.2c-1.3 1.4-2.4 2.9-3.2 4.8c-.8 1.8-1.2 3.8-1.2 5.8c0 2.1.4 4 1.2 5.8c.8 1.8 1.8 3.4 3.2 4.8c1.3 1.4 2.9 2.4 4.7 3.2c1.8.8 3.7 1.2 5.8 1.2c2.5 0 4.8-.5 6.8-1.6s3.8-2.6 5.1-4.4l-3.6-2.7c-.9 1.4-2.1 2.5-3.6 3.3c-1.5.8-3.1 1.2-4.8 1.2c-1.4 0-2.7-.3-4-.9c-1.2-.6-2.3-1.4-3.3-2.3c-.9-1-1.7-2.1-2.2-3.4s-.8-2.7-.8-4.2s.3-2.9.8-4.2s1.3-2.5 2.2-3.5"
-					></path>
-				</g>
-			</svg>
-		</span>
-		All Rights Reserved 2022
-	</p>
+        <Link
+          class="text-dark"
+          data-social="instagram"
+          href="https://www.instagram.com/gdscloyola/"
+          aria-label="Instagram"
+          newTab
+        >
+          <svg
+            width="17"
+            height="16"
+            viewBox="0 0 17 16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="fill-current"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M12.1321 -0.000244141H4.13208C1.93228 -0.000244141 0.13208 1.79916 0.13208 3.99976V11.9998C0.13208 14.1996 1.93228 15.9998 4.13208 15.9998H12.1321C14.3319 15.9998 16.1321 14.1996 16.1321 11.9998V3.99976C16.1321 1.79916 14.3319 -0.000244141 12.1321 -0.000244141ZM8.13215 11.333C6.29095 11.333 4.79875 9.84022 4.79875 7.99982C4.79875 6.15862 6.29095 4.66642 8.13215 4.66642C9.97255 4.66642 11.4655 6.15862 11.4655 7.99982C11.4655 9.84022 9.97255 11.333 8.13215 11.333ZM11.4654 3.66642C11.4654 4.21862 11.9126 4.66642 12.4654 4.66642C13.0182 4.66642 13.4654 4.21862 13.4654 3.66642C13.4654 3.11422 13.0182 2.66642 12.4654 2.66642C11.9126 2.66642 11.4654 3.11422 11.4654 3.66642Z"
+            ></path>
+          </svg>
+        </Link>
+        <Link
+          class="text-dark"
+          data-social="twitter"
+          href="https://twitter.com/gdscloyola"
+          aria-label="Twitter"
+          newTab
+        >
+          <svg
+            width="20"
+            height="16"
+            viewBox="0 0 20 16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="fill-current"
+          >
+            <path
+              d="M17.8071 3.98723C17.8201 4.16264 17.8201 4.33706 17.8201 4.51147C17.8201 9.84915 13.7574 15.9998 6.33281 15.9998C4.04537 15.9998 1.92033 15.3372 0.13208 14.1864C0.456851 14.2235 0.769594 14.2366 1.1074 14.2366C2.99488 14.2366 4.73201 13.5991 6.1203 12.5115C4.34509 12.4744 2.85755 11.3116 2.34433 9.71182C2.59393 9.74891 2.84452 9.77397 3.10715 9.77397C3.46901 9.77397 3.83287 9.72385 4.17067 9.63664C2.31927 9.26175 0.932982 7.63689 0.932982 5.67423V5.62411C1.47126 5.92383 2.09574 6.11127 2.75732 6.13633C1.66973 5.41261 0.957039 4.17467 0.957039 2.77435C0.957039 2.02456 1.15651 1.33693 1.50634 0.737508C3.49407 3.18632 6.48216 4.78713 9.83212 4.96254C9.76997 4.66183 9.73188 4.35009 9.73188 4.03734C9.73188 1.81206 11.5322 -0.000244141 13.7695 -0.000244141C14.9322 -0.000244141 15.9817 0.486913 16.7195 1.27478C17.6316 1.09937 18.5057 0.761565 19.2816 0.299468C18.9818 1.23669 18.3433 2.02456 17.5063 2.52475C18.3193 2.43654 19.1071 2.21201 19.8309 1.89927C19.2816 2.69917 18.5949 3.41186 17.8071 3.98723Z"
+            ></path>
+          </svg>
+        </Link>
+        <Link
+          class="text-dark"
+          data-social="linkedin"
+          href="https://linkedin.com/company/gdscloyola"
+          aria-label="LinkedIn"
+          newTab
+        >
+          <svg
+            width="17"
+            height="16"
+            viewBox="0 0 17 16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="fill-current"
+          >
+            <rect
+              width="16"
+              height="16"
+              transform="translate(0.830811 -0.000244141)"></rect>
+            <path
+              d="M5.63078 13.3332H2.96411V5.33319H5.63078V13.3332ZM4.29798 4.26652C3.56038 4.26652 2.96411 3.66865 2.96411 2.93265C2.96411 2.19665 3.56144 1.59985 4.29798 1.59985C5.03291 1.59985 5.63078 2.19772 5.63078 2.93265C5.63078 3.66865 5.03291 4.26652 4.29798 4.26652ZM15.2308 13.3332H12.667V9.43985C12.667 8.51132 12.6494 7.31719 11.3342 7.31719C9.99931 7.31719 9.79398 8.32839 9.79398 9.37265V13.3332H7.23078V5.32732H9.69158V6.42119H9.72624C10.0686 5.79185 10.9054 5.12839 12.1534 5.12839C14.7508 5.12839 15.2308 6.78652 15.2308 8.94225C15.2308 8.94225 15.2308 13.3332 15.2308 13.3332Z"
+              fill="white"></path>
+          </svg>
+        </Link>
+      </div>
+    </div>
+  </div>
+  <div class="divider flex justify-center">
+    <Image
+      src={import("../assets/blue-mascot.png") as any}
+      format="webp"
+      quality={100}
+      aspectRatio={72 / 100}
+      id="footer-blue-mascot"
+      class="w-[72px]"
+      loading="lazy"
+      alt="Andy the cute mascot"
+    />
+  </div>
+  <p
+    class="text-center mt-8 font-medium sm:text-sm flex justify-center items-center text-xs flex-wrap"
+  >
+    <span class="flex justify-center">
+      Google Developer Student Clubs - Loyola {" "}
+    </span>
+
+    <span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid meet"
+        class="w-3 h-3 mx-1"
+        viewBox="0 0 64 64"
+        ><g fill="#4d5357"
+          ><path
+            d="M32 2C18.2 2 7 13.2 7 27s11.2 25 25 25s25-11.2 25-25S45.8 2 32 2m0 45c-11 0-20-9-20-20S21 7 32 7s20 9 20 20s-9 20-20 20"
+          ></path><path
+            d="M25.4 19.3c.9-1 2-1.8 3.3-2.3c1.3-.6 2.6-.9 4-.9c1.7 0 3.4.4 4.8 1.3c1.4.8 2.7 2 3.6 3.3l3.6-2.7c-1.4-1.8-3.1-3.4-5.1-4.4c-2.1-1.1-4.3-1.6-6.8-1.6c-2 0-4 .4-5.8 1.2c-1.8.8-3.4 1.9-4.7 3.2c-1.3 1.4-2.4 2.9-3.2 4.8c-.8 1.8-1.2 3.8-1.2 5.8c0 2.1.4 4 1.2 5.8c.8 1.8 1.8 3.4 3.2 4.8c1.3 1.4 2.9 2.4 4.7 3.2c1.8.8 3.7 1.2 5.8 1.2c2.5 0 4.8-.5 6.8-1.6s3.8-2.6 5.1-4.4l-3.6-2.7c-.9 1.4-2.1 2.5-3.6 3.3c-1.5.8-3.1 1.2-4.8 1.2c-1.4 0-2.7-.3-4-.9c-1.2-.6-2.3-1.4-3.3-2.3c-.9-1-1.7-2.1-2.2-3.4s-.8-2.7-.8-4.2s.3-2.9.8-4.2s1.3-2.5 2.2-3.5"
+          ></path>
+        </g>
+      </svg>
+    </span>
+    All Rights Reserved 2022
+  </p>
 </footer>
 
 <script>
-	import { animate, inView, spring } from "motion";
+  import { animate, inView, spring } from "motion";
 
-	inView(".divider", () => {
-		animate(
-			"#footer-blue-mascot",
-			{
-				y: ["100%", "22%"],
-			},
-			{
-				easing: spring(),
-				duration: 3,
-				delay: 0.3,
-			}
-		);
-	});
+  inView(".divider", () => {
+    animate(
+      "#footer-blue-mascot",
+      {
+        y: ["100%", "22%"],
+      },
+      {
+        easing: spring(),
+        duration: 3,
+        delay: 0.3,
+      }
+    );
+  });
 </script>
 <style>
-	#footer-blue-mascot {
-		top: 0;
-		transform: translateY(20%);
-	}
-	.divider {
-		position: relative;
-		overflow: hidden;
-		height: 100px;
-	}
+  #footer-blue-mascot {
+    top: 0;
+    transform: translateY(20%);
+  }
+  .divider {
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+  }
 
-	.divider::before {
-		content: "";
-		position: absolute;
+  .divider::before {
+    content: "";
+    position: absolute;
 
-		width: 100%;
-		height: 1px;
-		bottom: 0;
-		background: linear-gradient(
-			90deg,
-			#498af4 0%,
-			#eb4a3d 20.83%,
-			#fbbc04 46.35%,
-			#0f9d58 81.25%
-		);
-		opacity: 0.2;
-	}
-	#footer {
-		border-top: 2px solid transparent;
-		border-image-slice: 1;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      #498af4 0%,
+      #eb4a3d 20.83%,
+      #fbbc04 46.35%,
+      #0f9d58 81.25%
+    );
+    opacity: 0.2;
+  }
+  #footer {
+    border-top: 2px solid transparent;
+    border-image-slice: 1;
 
-		border-image-source: linear-gradient(
-			90deg,
-			#498af4 0%,
-			#eb4a3d 20.83%,
-			#fbbc04 46.35%,
-			#0f9d58 81.25%
-		);
-	}
+    border-image-source: linear-gradient(
+      90deg,
+      #498af4 0%,
+      #eb4a3d 20.83%,
+      #fbbc04 46.35%,
+      #0f9d58 81.25%
+    );
+  }
 </style>
