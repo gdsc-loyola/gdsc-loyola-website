@@ -1,5 +1,7 @@
 ---
 import Button from "../Button.astro";
+import Textarea from "../Textarea.astro";
+import TextInput from "../TextInput.astro";
 ---
 
 <section
@@ -12,28 +14,10 @@ import Button from "../Button.astro";
         Ready to uplift communities? Let’s collaborate!
       </h2>
       <form class="mt-6 flex flex-col space-y-4" id="contact-form">
-        <input
-          type="email"
-          name="email"
-          required
-          class="border border-gray-400 rounded-md px-4 py-3 placeholder:text-gray-400"
-          placeholder="Email"
-        />
+        <TextInput label="Email" type="email" name="email" required />
+        <TextInput label="Subject" type="text" name="subject" required />
 
-        <input
-          type="text"
-          name="subject"
-          class="border border-gray-400 rounded-md px-4 py-3 placeholder:text-gray-400"
-          placeholder="Subject"
-          required
-        />
-
-        <textarea
-          class="border border-gray-400 rounded-md px-4 py-3 placeholder:text-gray-400 resize-none"
-          rows="5"
-          required
-          name="message"
-          placeholder="Type your message here..."></textarea>
+        <Textarea label="Message" rows="5" required name="message" />
         <Button type="submit">Submit</Button>
       </form>
     </div>
