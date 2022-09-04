@@ -7,6 +7,7 @@ import { Icon } from "astro-icon";
 import Logo from "../../icons/Logo.astro";
 import Button from "../Button.astro";
 import Link from "../Link.astro";
+import RecweekRegister from "../RecweekRegister.astro";
 
 const { defaultMode = "white" } = Astro.props;
 ---
@@ -36,16 +37,8 @@ const { defaultMode = "white" } = Astro.props;
       <Link href="/about">About</Link>
       <Link href="/products">Products</Link>
       <Link href="/events">Events</Link>
-      <Button
-        asLink
-        href="https://forms.gle/U6WVqQqnmes8o6GcA"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="cta-recweek"
-        styles={{
-          backgroundColor: "#fee8a9",
-        }}>Register Now</Button
-      >
+
+      <RecweekRegister />
     </nav>
   </header>
 </div>
@@ -76,13 +69,7 @@ const { defaultMode = "white" } = Astro.props;
       <Link href="/about">About</Link>
       <Link href="/products">Products</Link>
       <Link href="/events">Events</Link>
-      <Button
-        asLink
-        href="https://forms.gle/U6WVqQqnmes8o6GcA"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="cta-recweek">Register Now</Button
-      >
+      <RecweekRegister />
     </div>
   </div>
 </div>
@@ -117,10 +104,11 @@ const { defaultMode = "white" } = Astro.props;
 
 <script>
   const btns = document.querySelectorAll(
-    ".cta-recweek"
+    ".recweek-cta"
   ) as NodeListOf<HTMLButtonElement>;
   btns.forEach((btn) => {
     btn.addEventListener("click", () => {
+      console.log("clicked");
       window.umami?.trackEvent("Recweek CTA Click");
     });
   });
