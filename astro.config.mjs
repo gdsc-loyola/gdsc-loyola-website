@@ -23,7 +23,7 @@ export default defineConfig({
     prefetch(),
     partytown({
       config: {
-        forward: ["dataLayer.push"],
+        forward: ["umami.trackEvent"],
       },
     }),
   ],

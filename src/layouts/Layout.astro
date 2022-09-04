@@ -12,7 +12,7 @@ export interface Props {
 
 const { title, navbarProps, withNavSpacer } = Astro.props as Props;
 
-const shouldAnalyticsRun = import.meta.env.MODE === "production";
+const shouldAnalyticsRun = true || import.meta.env.MODE === "production";
 ---
 
 <!DOCTYPE html>
@@ -38,6 +38,7 @@ const shouldAnalyticsRun = import.meta.env.MODE === "production";
           data-website-id="25f6daa1-b5b0-4004-9d16-7d2a05f92943"
           type="text/partytown"
           src="https://umami.gdscloyola.org/gdsc_l_collect.js"
+          onload="test()"
         />
       )
     }

@@ -1,110 +1,116 @@
 ---
 type ButtonOrAnchor = astroHTML.JSX.ButtonHTMLAttributes &
-	astroHTML.JSX.AnchorHTMLAttributes;
+  astroHTML.JSX.AnchorHTMLAttributes;
 
 export type Props = ButtonOrAnchor & {
-	asLink?: boolean;
+  asLink?: boolean;
+  styles?: {
+    backgroundColor?: string;
+    hoverBackgroundColor?: string;
+  };
 };
 
 const props = Astro.props as Props;
 const El = props.asLink ? "a" : "button";
+
+const backgroundColor = props.styles?.backgroundColor ?? "#FFF";
 ---
 
 <div class:list={[props.class]}>
-	<El {...props as any} class:list={["btn"]}>
-		<span class="btn-content">
-			<slot />
-		</span>
-	</El>
+  <El {...props as any} class:list={["btn"]}>
+    <span class="btn-content">
+      <slot />
+    </span>
+  </El>
 </div>
 
-<style>
-	.btn {
-		z-index: 1;
-		--btn-bg: #ffffff;
-		--btn-border-radius: 4px;
-		--btn-border-width: 2px;
-		display: block;
-		cursor: pointer;
+<style define:vars={{ backgroundColor }}>
+  .btn {
+    z-index: 1;
+    --btn-bg: var(--backgroundColor);
+    --btn-border-radius: 4px;
+    --btn-border-width: 2px;
+    display: block;
+    cursor: pointer;
 
-		overflow: hidden;
-		width: max-content;
-		border-radius: var(--btn-border-radius);
-		position: relative;
-		box-sizing: border-box;
-		background-clip: padding-box; /* !importanté */
-		margin: calc(var(--btn-border-width) * -1);
-		padding: var(--btn-border-width);
-	}
+    overflow: hidden;
+    width: max-content;
+    border-radius: var(--btn-border-radius);
+    position: relative;
+    box-sizing: border-box;
+    background-clip: padding-box; /* !importanté */
+    margin: calc(var(--btn-border-width) * -1);
+    padding: var(--btn-border-width);
+  }
 
-	.btn-content {
-		background-color: var(--btn-bg);
-		display: block;
-		border-radius: calc(var(--btn-border-radius) - var(--btn-border-width));
-		@apply px-5 py-2 font-medium transition-colors;
-	}
+  .btn-content {
+    background-color: var(--btn-bg);
+    display: block;
+    border-radius: calc(var(--btn-border-radius) - var(--btn-border-width));
+    @apply px-5 py-2 font-medium transition-colors;
+  }
 
-	.btn::before {
-		content: "";
-		position: absolute;
+  .btn::before {
+    content: "";
+    position: absolute;
 
-		z-index: -1;
+    z-index: -1;
 
-		margin: calc(var(--btn-border-width) * -1);
-		/* margin: -20px; */
-		/* padding: 2px; */
-		border-radius: inherit;
-		/* top: 50%;
+    margin: calc(var(--btn-border-width) * -1);
+    /* margin: -20px; */
+    /* padding: 2px; */
+    border-radius: inherit;
+    /* top: 50%;
 		height: 100%;
 		width: 100%; */
-		left: 2px;
-		top: 2px;
-		width: 200%;
-		height: 100%;
-		background: linear-gradient(
-			90deg,
-			#498af4 0%,
-			#eb4a3d 20.83%,
-			#fbbc04 46.35%,
-			#0f9d58 81.25%
-		);
-		background-size: 50% 100%;
-		transform-origin: center;
-	}
+    left: 2px;
+    top: 2px;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      #498af4 0%,
+      #eb4a3d 20.83%,
+      #fbbc04 46.35%,
+      #0f9d58 81.25%
+    );
+    background-size: 50% 100%;
+    transform-origin: center;
+  }
 
-	.btn:hover::before {
-		animation: disco 0.75s linear infinite;
-	}
+  .btn:hover::before {
+    animation: disco 0.75s linear infinite;
+  }
 
-	@keyframes disco {
-		from {
-			transform: translateX(0);
-		}
-		to {
-			transform: translateX(-50%);
-		}
-	}
+  @keyframes disco {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 
-	.btn:hover {
-		/* yello-100  */
-		--btn-bg: #fef7e0;
-	}
+  .btn:hover {
+    /* yello-100  */
+    --btn-bg: #fef7e0;
+  }
 
-	.btn:active {
-		/* yello-200  */
-		--btn-bg: #feefc3;
-	}
+  .btn:active {
+    /* yello-200  */
+    --btn-bg: #feefc3;
+  }
 
-	.btn:disabled::after {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background: rgb(255, 255, 255, 0.6);
-		margin: -2px;
-		border-radius: inherit;
-	}
+  .btn:disabled::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgb(255, 255, 255, 0.6);
+    margin: -2px;
+    border-radius: inherit;
+  }
 
-	.btn:disabled {
-		pointer-events: none;
-	}
+  .btn:disabled {
+    pointer-events: none;
+  }
 </style>
