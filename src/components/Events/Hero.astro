@@ -6,182 +6,181 @@ import Section from "../Section.astro";
 ---
 
 <Section class="bg-yellow-gradient-mobile md:bg-yellow-gradient">
-	<div class="pt-20"></div>
+  <div class="pt-20"></div>
+  <div class="mt-12">
+    <h2 class="font-bold text-center">Our Events</h2>
+    <h1 class="text-xl md:text-2xl font-bold text-center max-w-[756px] mx-auto">
+      We make tech education accessible to our growing community
+    </h1>
+    <div
+      class="mx-auto w-fit md:w-[600px] relative rainbow-card bg-white p-16 flex flex-col mt-12 z-10"
+    >
+      <p class="md:text-lg text-black text-center">
+        In 3 years, GDSC-Loyola has reached...
+      </p>
+      <div
+        class="flex justify-between mt-8 text-center flex-col md:flex-row flex-wrap gap-8 items-center"
+      >
+        <div>
+          <p
+            class="text-[56px] font-bold leading-none stat-number"
+            data-stat={20}
+          >
+            20
+          </p>
+          <p class="font-bold text-gray-400">EVENTS</p>
+        </div>
+        <div>
+          <p
+            class="text-[56px] font-bold leading-none stat-number"
+            data-stat={400}
+          >
+            400
+          </p>
+          <p class="font-bold text-gray-400">PARTICIPANTS</p>
+        </div>
+        <div>
+          <p class="text-[56px] font-bold leading-none stat-number">
+            <span data-stat={40}
+              >40
+              <span data-symbol class="hidden">+</span>
+            </span>
+          </p>
+          <p class="font-bold text-gray-400">SPEAKERS</p>
+        </div>
+      </div>
 
-	<div>
-		<h2 class="font-bold text-center">Our Events</h2>
-		<h1 class="text-xl md:text-2xl font-bold text-center max-w-[756px] mx-auto">
-			We make tech education accessible to our growing community
-		</h1>
-		<div
-			class="mx-auto w-fit md:w-[600px] relative rainbow-card bg-white p-16 flex flex-col mt-12 z-10"
-		>
-			<p class="md:text-lg text-black text-center">
-				In 3 years, GDSC-Loyola has reached...
-			</p>
-			<div
-				class="flex justify-between mt-8 text-center flex-col md:flex-row flex-wrap gap-8 items-center"
-			>
-				<div>
-					<p
-						class="text-[56px] font-bold leading-none stat-number"
-						data-stat={20}
-					>
-						20
-					</p>
-					<p class="font-bold text-gray-400">EVENTS</p>
-				</div>
-				<div>
-					<p
-						class="text-[56px] font-bold leading-none stat-number"
-						data-stat={400}
-					>
-						400
-					</p>
-					<p class="font-bold text-gray-400">PARTICIPANTS</p>
-				</div>
-				<div>
-					<p class="text-[56px] font-bold leading-none stat-number">
-						<span data-stat={40}
-							>40
-							<span data-symbol class="hidden">+</span>
-						</span>
-					</p>
-					<p class="font-bold text-gray-400">SPEAKERS</p>
-				</div>
-			</div>
+      <Image
+        src={import("../assets/arc.png") as any}
+        class="absolute top-[-8%] right-[-14%] max-w-[160px] h-auto z-10 rotate-[18deg]"
+      />
+      <CardRightTriangle
+        class="absolute bottom-[-12%] left-[-8%] max-w-[160px] h-auto z-10 rotate-[200deg]"
+      />
+    </div>
+  </div>
 
-			<Image
-				src={import("../assets/arc.png") as any}
-				class="absolute top-[-8%] right-[-14%] max-w-[160px] h-auto z-10 rotate-[18deg]"
-			/>
-			<CardRightTriangle
-				class="absolute bottom-[-12%] left-[-8%] max-w-[160px] h-auto z-10 rotate-[200deg]"
-			/>
-		</div>
-	</div>
-
-	<div slot="bottom-bleed">
-		<FullBleed>
-			<div class="floor relative"></div>
-		</FullBleed>
-	</div>
+  <div slot="bottom-bleed">
+    <FullBleed>
+      <div class="floor relative"></div>
+    </FullBleed>
+  </div>
 </Section>
 
 <script>
-	const stateElements = document.querySelectorAll(
-		"[data-stat]"
-	) as NodeListOf<HTMLSpanElement>;
+  const stateElements = document.querySelectorAll(
+    "[data-stat]"
+  ) as NodeListOf<HTMLSpanElement>;
 
-	function easeOutCubic(
-		elapsed: number,
-		initialValue: number,
-		amountOfChange: number,
-		duration: number
-	): number {
-		return (
-			amountOfChange *
-				((elapsed = elapsed / duration - 1) * elapsed * elapsed + 1) +
-			initialValue
-		);
-	}
+  function easeOutCubic(
+    elapsed: number,
+    initialValue: number,
+    amountOfChange: number,
+    duration: number
+  ): number {
+    return (
+      amountOfChange *
+        ((elapsed = elapsed / duration - 1) * elapsed * elapsed + 1) +
+      initialValue
+    );
+  }
 
-	const incrementNode = (
-		start: number,
-		end: number,
-		node: HTMLElement,
-		duration: number,
-		onFinish?: () => void
-	) => {
-		let shouldRun = true;
+  const incrementNode = (
+    start: number,
+    end: number,
+    node: HTMLElement,
+    duration: number,
+    onFinish?: () => void
+  ) => {
+    let shouldRun = true;
 
-		let startTimestamp: number | null = null;
-		const step = (timestamp: number) => {
-			if (!startTimestamp) {
-				startTimestamp = timestamp;
-			}
+    let startTimestamp: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) {
+        startTimestamp = timestamp;
+      }
 
-			if (!shouldRun) {
-				return;
-			}
+      if (!shouldRun) {
+        return;
+      }
 
-			const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
 
-			const num = easeOutCubic(
-				timestamp - startTimestamp,
-				start,
-				end,
-				duration
-			);
+      const num = easeOutCubic(
+        timestamp - startTimestamp,
+        start,
+        end,
+        duration
+      );
 
-			const result = Math.min(Math.floor(num), end);
+      const result = Math.min(Math.floor(num), end);
 
-			node.childNodes[0].textContent = result.toString();
+      node.childNodes[0].textContent = result.toString();
 
-			if (progress < 1 && result < end) {
-				window.requestAnimationFrame(step);
-			} else {
-				onFinish && onFinish();
-			}
-		};
+      if (progress < 1 && result < end) {
+        window.requestAnimationFrame(step);
+      } else {
+        onFinish && onFinish();
+      }
+    };
 
-		window.requestAnimationFrame(step);
-	};
+    window.requestAnimationFrame(step);
+  };
 
-	stateElements.forEach((e) => {
-		const finalNum = parseInt(e.dataset.stat ?? "0");
-		if (isNaN(finalNum)) {
-			return;
-		}
-		let start = 0;
-		let end = finalNum;
+  stateElements.forEach((e) => {
+    const finalNum = parseInt(e.dataset.stat ?? "0");
+    if (isNaN(finalNum)) {
+      return;
+    }
+    let start = 0;
+    let end = finalNum;
 
-		const symbol = e.querySelector("[data-symbol]");
-		if (symbol) {
-			incrementNode(start, end, e, 2000, () => {
-				setTimeout(() => {
-					symbol.classList.remove("hidden");
-				}, 500);
-			});
-		} else {
-			incrementNode(start, end, e, 2000);
-		}
-	});
+    const symbol = e.querySelector("[data-symbol]");
+    if (symbol) {
+      incrementNode(start, end, e, 2000, () => {
+        setTimeout(() => {
+          symbol.classList.remove("hidden");
+        }, 500);
+      });
+    } else {
+      incrementNode(start, end, e, 2000);
+    }
+  });
 </script>
 
 <style>
-	.floor {
-		background: linear-gradient(322.51deg, #fbc21c 8.59%, #ffecb3 94.36%);
-		height: 144px;
-		width: 100%;
-		margin-top: -2rem;
-	}
+  .floor {
+    background: linear-gradient(322.51deg, #fbc21c 8.59%, #ffecb3 94.36%);
+    height: 144px;
+    width: 100%;
+    margin-top: -2rem;
+  }
 
-	h2 {
-		background: linear-gradient(
-			90deg,
-			#498af4 42.83%,
-			#eb4a3d 54.74%,
-			#fbbc04 69.33%,
-			#0f9d58 89.28%
-		);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		text-fill-color: transparent;
-	}
+  h2 {
+    background: linear-gradient(
+      90deg,
+      #498af4 42.83%,
+      #eb4a3d 54.74%,
+      #fbbc04 69.33%,
+      #0f9d58 89.28%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
 
-	.stat-number {
-		background: linear-gradient(
-			90.4deg,
-			#498af4 0.34%,
-			#eb4a3d 53.64%,
-			#fbbc04 118.92%,
-			#0f9d58 208.18%
-		);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		text-fill-color: transparent;
-	}
+  .stat-number {
+    background: linear-gradient(
+      90.4deg,
+      #498af4 0.34%,
+      #eb4a3d 53.64%,
+      #fbbc04 118.92%,
+      #0f9d58 208.18%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
 </style>

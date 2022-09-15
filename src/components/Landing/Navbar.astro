@@ -108,7 +108,6 @@ const { defaultMode = "white" } = Astro.props;
   ) as NodeListOf<HTMLButtonElement>;
   btns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      console.log("clicked");
       window.umami?.trackEvent("Recweek CTA Click");
     });
   });
