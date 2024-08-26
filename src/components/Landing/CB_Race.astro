@@ -1,0 +1,33 @@
+---
+
+import { Image } from "@astrojs/image/components";
+import ThreeDLogo from "../assets/ThreeDLogo.astro";
+import Button from "../Button.astro";
+
+---
+
+
+
+<section class="px-8 py-32 bg-black">
+	
+	<div class="relative w-full overflow-hidden flex justify-center items-center">
+		<Image
+		  src={import("./assets/cb-race.png") as any}
+		  format="webp"
+		  loading="lazy"
+		  alt="Description of image"
+		  class="w-auto max-w-full h-auto"
+		/>
+	</div>
+	  
+	  <section class="relative w-full overflow-hidden flex justify-center items-center">
+		<iframe
+	  src="./assets/cb-race-primer.pdf"
+	  class="w-full h-auto"
+	  style="border: none;"
+	  title="PDF Viewer"
+	></iframe>
+	  </section>
+	
+  </section>
+
