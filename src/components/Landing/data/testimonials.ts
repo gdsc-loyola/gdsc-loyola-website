@@ -31,6 +31,18 @@ const testimonials: Array<{
     name: " Renzo Tan",
     position: "Software Engineer",
   },
+  {
+    message:
+      "GDSC  opened new horizons for me. I’ve received a lot of leadership and networking opportunities in the org which benefitted me a lot in finding internships later on. The community is fun as well!",
+    name: " Mikki Boado",
+    position: "GDSC-Loyola Lead",
+  },
+  {
+    message:
+      "GDSC  is where potential meets opportunity. With hands-on projects, industry networking and mentorship, and workshops that fuel passion, members are set up for success in business and tech careers.",
+    name: " Kodi Magadia",
+    position: "Chief Operations Officer",
+  },
 ];
 
 export default testimonials;
