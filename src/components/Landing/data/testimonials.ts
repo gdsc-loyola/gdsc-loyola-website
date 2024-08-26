@@ -35,13 +35,13 @@ const testimonials: Array<{
     message:
       "GDSC  opened new horizons for me. I’ve received a lot of leadership and networking opportunities in the org which benefitted me a lot in finding internships later on. The community is fun as well!",
     name: " Mikki Boado",
-    position: "GDSC-Loyola Lead",
+    position: "GDSC-Loyola Lead 2024-2025",
   },
   {
     message:
       "GDSC  is where potential meets opportunity. With hands-on projects, industry networking and mentorship, and workshops that fuel passion, members are set up for success in business and tech careers.",
     name: " Kodi Magadia",
-    position: "Chief Operations Officer",
+    position: "Chief Operations Officer 2024-2025",
   },
 ];
 
